@@ -54,16 +54,24 @@ class Hummer(override val color: String) : SUV {
     override fun isFourWheelDrive(): Boolean = true
 }
 
-abstract class CarTypeAbstractFactory {
+abstract class CarFactory {
     abstract fun getTruck(): Truck
     abstract fun getSaloon(): Saloon
     abstract fun getSUV(): SUV
-    fun pumpFuel() {
-        println("Fuel in all cars good to go")
+
+    companion object {
+        @JvmStatic
+        inline fun <reified T> createCarFactory(): CarFactory {
+            return when (T::class) {
+                SimpleCarFactory::class -> SimpleCarFactory()
+                SophisticatedCarFactory::class -> SophisticatedCarFactory()
+                else -> throw IllegalStateException("Unidentified car factory")
+            }
+        }
     }
 }
 
-class SimpleCarFactory : CarTypeAbstractFactory() {
+class SimpleCarFactory : CarFactory() {
     override fun getTruck(): Truck {
         return Isuzu("White")
     }
@@ -77,7 +85,7 @@ class SimpleCarFactory : CarTypeAbstractFactory() {
     }
 }
 
-class SophisticatedCarFactory : CarTypeAbstractFactory() {
+class SophisticatedCarFactory : CarFactory() {
     override fun getTruck(): Truck {
         return Benz("Black")
     }
