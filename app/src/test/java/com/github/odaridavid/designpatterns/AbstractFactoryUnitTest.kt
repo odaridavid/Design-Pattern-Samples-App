@@ -1,5 +1,6 @@
 package com.github.odaridavid.designpatterns
 
+import com.github.odaridavid.designpatterns.abstractfactory.*
 import org.junit.BeforeClass
 import org.junit.Test
 

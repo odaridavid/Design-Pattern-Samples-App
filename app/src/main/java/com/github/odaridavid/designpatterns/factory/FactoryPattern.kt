@@ -11,48 +11,34 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.factory
 
 
-abstract class Kitchen {
+open class Kitchen {
     fun setupEquipment() {
         println("Unpacking Equipment")
         println("Setting up...")
         Thread.sleep(2000)
         println("Equipment setup complete")
     }
-
-    abstract fun getFloorPlan(): FloorPlan
 }
 
-class LShapedKitchen : Kitchen() {
-    override fun getFloorPlan(): FloorPlan {
-        return FloorPlan.SPACED
-    }
-}
+class LShapedKitchen : Kitchen()
 
-class PeninsulaKitchen : Kitchen() {
-    override fun getFloorPlan(): FloorPlan {
-        return FloorPlan.DETACHED
-    }
-}
+class PeninsulaKitchen : Kitchen()
 
-class IslandKitchen : Kitchen() {
-    override fun getFloorPlan(): FloorPlan {
-        return FloorPlan.EXTENDING
-    }
-}
+class IslandKitchen : Kitchen()
 
 enum class FloorPlan {
     SPACED, DETACHED, EXTENDING
 }
 
-object KitchenFactory {
-    fun buildKitchen(selectedPlan: Int): Kitchen {
-        return when (selectedPlan) {
-            1 -> PeninsulaKitchen()
-            2 -> IslandKitchen()
-            3 -> LShapedKitchen()
+object KitchenFloorFactory {
+    inline fun <reified T> getFloorPlan(): FloorPlan {
+        return when (T::class) {
+            PeninsulaKitchen::class -> FloorPlan.DETACHED
+            IslandKitchen::class -> FloorPlan.EXTENDING
+            LShapedKitchen::class -> FloorPlan.SPACED
             else -> throw IllegalStateException("Unknown plan selected:No Available Kitchen")//or provide default
         }
     }

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DesignPatterns</string>
+
+    <!--    Design Patterns Titles  -->
+    <string name="title_builder">Builder Pattern</string>
+    <string name="title_abstract_factory">Abstract Factory Pattern</string>
+    <string name="title_factory">Factory Pattern</string>
+
 </resources>

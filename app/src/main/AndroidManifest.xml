@@ -9,6 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".base.BaseActivity" />
+        <activity
+            android:name=".builder.BuilderActivity"
+            android:label="@string/title_builder"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".factory.FactoryActivity"
+            android:label="@string/title_factory"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".abstractfactory.AbstractFactoryActivity"
+            android:label="@string/title_abstract_factory"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

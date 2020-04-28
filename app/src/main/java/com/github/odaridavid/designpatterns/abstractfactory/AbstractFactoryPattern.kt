@@ -1,4 +1,4 @@
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.abstractfactory
 
 /**
  *
@@ -28,29 +28,35 @@ interface SUV {
     fun isFourWheelDrive(): Boolean
 }
 
-class Nissan(override val color: String) : Saloon {
+class Nissan(override val color: String) :
+    Saloon {
     override fun isAutomatic(): Boolean = true
 }
 
-class Bently(override val color: String) : Saloon {
+class Bently(override val color: String) :
+    Saloon {
     override fun isAutomatic(): Boolean = false
 }
 
-class Isuzu(override val color: String) : Truck {
+class Isuzu(override val color: String) :
+    Truck {
     override fun noOfWheels(): Int = 18
 }
 
-class Benz(override val color: String) : Truck {
+class Benz(override val color: String) :
+    Truck {
     override fun noOfWheels(): Int = 22
 }
 
-class Harrier(override val color: String) : SUV {
+class Harrier(override val color: String) :
+    SUV {
     override fun isFourWheelDrive(): Boolean {
         return false
     }
 }
 
-class Hummer(override val color: String) : SUV {
+class Hummer(override val color: String) :
+    SUV {
     override fun isFourWheelDrive(): Boolean = true
 }
 

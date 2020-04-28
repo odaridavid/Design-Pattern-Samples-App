@@ -1,5 +1,6 @@
 package com.github.odaridavid.designpatterns
 
+import com.github.odaridavid.designpatterns.factory.*
 import org.junit.Test
 
 class FactoryPatternUnitTest {
@@ -10,7 +11,9 @@ class FactoryPatternUnitTest {
     }
 
     @Test
-    fun buildKitchen_validSelectedPlan_returnKitchenType() {
-        assert(KitchenFactory.buildKitchen(1) is PeninsulaKitchen)
+    fun getFloorPlan_validKitchenType_returnFloorPlan() {
+        assert(KitchenFloorFactory.getFloorPlan<PeninsulaKitchen>() == FloorPlan.DETACHED)
+        assert(KitchenFloorFactory.getFloorPlan<LShapedKitchen>() == FloorPlan.SPACED)
+        assert(KitchenFloorFactory.getFloorPlan<IslandKitchen>() == FloorPlan.EXTENDING)
     }
 }
