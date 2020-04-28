@@ -1,5 +1,3 @@
-package com.github.odaridavid.designpatterns.abstractfactory
-
 /**
  *
  * Copyright 2020 David Odari
@@ -13,6 +11,8 @@ package com.github.odaridavid.designpatterns.abstractfactory
  * the License.
  *
  **/
+package com.github.odaridavid.designpatterns.abstractfactory
+
 interface Saloon {
     val color: String
     fun isAutomatic(): Boolean
