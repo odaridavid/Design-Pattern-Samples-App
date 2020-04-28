@@ -13,6 +13,10 @@
         tools:ignore="AllowBackup">
         <activity android:name=".base.BaseActivity" />
         <activity
+            android:name=".singleton.SingletonActivity"
+            android:label="@string/title_singleton"
+            android:parentActivityName=".singleton.SingletonActivity" />
+        <activity
             android:name=".prototype.PrototypeActivity"
             android:label="@string/title_prototype"
             android:parentActivityName=".MainActivity" />

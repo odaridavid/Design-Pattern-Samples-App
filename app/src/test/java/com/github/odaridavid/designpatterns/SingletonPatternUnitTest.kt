@@ -13,18 +13,23 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import android.view.View
+import com.github.odaridavid.designpatterns.singleton.CentralBank
+import com.github.odaridavid.designpatterns.singleton.SomeProvider
+import org.junit.Test
 
 
-interface MainNavigator {
+class SingletonPatternUnitTest {
 
-    fun navigateToAbstractFactoryActivity(view: View)
+    @Test
+    fun singleton_isSameInstance() {
+        assert(CentralBank.getInstance() === CentralBank.getInstance())
+    }
 
-    fun navigateToFactoryActivity(view: View)
-
-    fun navigateToBuilderActivity(view: View)
-
-    fun navigateToPrototypeActivity(view: View)
-
-    fun navigateToSingletonActivity(view:View)
+    @Test
+    fun someProvider_isSameInstance() {
+        assert(SomeProvider.getInstance("Hello") === SomeProvider.getInstance("Hello"))
+        println(SomeProvider.getInstance("P"))
+        println(SomeProvider.getInstance("Pc"))
+        println(SomeProvider.getInstance("cP"))
+    }
 }

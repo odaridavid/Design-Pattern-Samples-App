@@ -7,6 +7,7 @@ import com.github.odaridavid.designpatterns.base.BaseActivity
 import com.github.odaridavid.designpatterns.builder.BuilderActivity
 import com.github.odaridavid.designpatterns.factory.FactoryActivity
 import com.github.odaridavid.designpatterns.prototype.PrototypeActivity
+import com.github.odaridavid.designpatterns.singleton.SingletonActivity
 
 class MainActivity : BaseActivity(), MainNavigator {
 
@@ -23,4 +24,7 @@ class MainActivity : BaseActivity(), MainNavigator {
     override fun navigateToBuilderActivity(view: View) = navigateTo<BuilderActivity>()
 
     override fun navigateToPrototypeActivity(view: View) = navigateTo<PrototypeActivity>()
+
+    override fun navigateToSingletonActivity(view: View) = navigateTo<SingletonActivity>()
+
 }
