@@ -5,19 +5,6 @@ import org.junit.Test
 
 class AbstractFactoryUnitTest {
 
-    companion object {
-        lateinit var simpleCarFactory: CarFactory
-        lateinit var sophisticatedCarFactory: CarFactory
-
-        @JvmStatic
-        @BeforeClass
-        fun setup() {
-            simpleCarFactory = CarFactory.createCarFactory<SimpleCarFactory>()
-            sophisticatedCarFactory = CarFactory.createCarFactory<SophisticatedCarFactory>()
-        }
-    }
-
-
     @Test
     fun getTruck_simpleCarFactory_returnsIsuzu() {
         assert(simpleCarFactory.getTruck() is Isuzu)
@@ -46,5 +33,17 @@ class AbstractFactoryUnitTest {
     @Test
     fun getSUV_sophisticatedCarFactory_returnsHummer() {
         assert(sophisticatedCarFactory.getSUV() is Hummer)
+    }
+
+    companion object {
+        lateinit var simpleCarFactory: CarFactory
+        lateinit var sophisticatedCarFactory: CarFactory
+
+        @JvmStatic
+        @BeforeClass
+        fun setup() {
+            simpleCarFactory = CarFactory.createCarFactory<SimpleCarFactory>()
+            sophisticatedCarFactory = CarFactory.createCarFactory<SophisticatedCarFactory>()
+        }
     }
 }
