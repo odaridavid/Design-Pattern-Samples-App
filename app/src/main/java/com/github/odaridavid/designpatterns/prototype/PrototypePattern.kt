@@ -11,18 +11,10 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.prototype
 
-import android.view.View
-
-
-interface MainNavigator {
-
-    fun navigateToAbstractFactoryActivity(view: View)
-
-    fun navigateToFactoryActivity(view: View)
-
-    fun navigateToBuilderActivity(view: View)
-
-    fun navigateToPrototypeActivity(view: View)
+data class Configs(private val fallbackUri: String, private val defaultPort: Int) {
+    override fun toString(): String {
+        return "$fallbackUri/$defaultPort"
+    }
 }

@@ -5,5 +5,6 @@
     <string name="title_builder">Builder Pattern</string>
     <string name="title_abstract_factory">Abstract Factory Pattern</string>
     <string name="title_factory">Factory Pattern</string>
+    <string name="title_prototype">Prototype Pattern</string>
 
 </resources>

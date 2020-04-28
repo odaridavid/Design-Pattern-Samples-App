@@ -13,16 +13,18 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import android.view.View
+import android.net.Uri
+import com.github.odaridavid.designpatterns.prototype.Configs
+import org.junit.Test
 
 
-interface MainNavigator {
+class PrototypePatternUnitTest {
 
-    fun navigateToAbstractFactoryActivity(view: View)
+    @Test
+    fun configs_copy() {
+        val conf = Configs("https://www.google.com", 8080)
+        val confCopy = conf.copy(fallbackUri = "https://www.fallback.uri")
+        assert(conf != confCopy)
+    }
 
-    fun navigateToFactoryActivity(view: View)
-
-    fun navigateToBuilderActivity(view: View)
-
-    fun navigateToPrototypeActivity(view: View)
 }

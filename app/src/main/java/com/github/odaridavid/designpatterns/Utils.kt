@@ -1,10 +1,3 @@
-package com.github.odaridavid.designpatterns
-
-import android.app.Activity
-import android.content.Intent
-import android.os.Build
-import androidx.annotation.IntRange
-
 /**
  *
  * Copyright 2020 David Odari
@@ -18,6 +11,13 @@ import androidx.annotation.IntRange
  * the License.
  *
  **/
+package com.github.odaridavid.designpatterns
+
+import android.app.Activity
+import android.content.Intent
+import android.os.Build
+import androidx.annotation.IntRange
+
 fun versionFrom(@IntRange(from = 0, to = 29) versionCodes: Int): Boolean {
     return Build.VERSION.SDK_INT >= versionCodes
 }
