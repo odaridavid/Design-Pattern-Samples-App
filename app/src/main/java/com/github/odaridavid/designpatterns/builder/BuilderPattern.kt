@@ -36,12 +36,13 @@ enum class PizzaType {
     CHICAGO_STYLE, VEGETABLE, BEEF
 }
 
+//Builder methods
 object GameEnvironmentBuilder {
 
-    private var quality = RenderQuality.MEDIUM
-    private var frequency = 0.0f
-    private var timeOfDay = TimeOfDay.MORNING
-    private var scene = Scene.BARRACKS
+    var quality = RenderQuality.MEDIUM
+    var frequency = 0.0f
+    var timeOfDay = TimeOfDay.MORNING
+    var scene = Scene.BARRACKS
 
     fun setRenderQuality(quality: RenderQuality): GameEnvironmentBuilder {
         this.quality = quality
@@ -89,3 +90,10 @@ data class GameEnvironment(
     val timeOfDay: TimeOfDay,
     val scene: Scene
 )
+
+//DSL Format
+fun createEnvironment(init: GameEnvironmentBuilder.() -> Unit): GameEnvironment {
+    val gameEnvironmentBuilder = GameEnvironmentBuilder
+    init(gameEnvironmentBuilder)
+    return gameEnvironmentBuilder.build()
+}
