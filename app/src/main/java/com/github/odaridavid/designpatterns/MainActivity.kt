@@ -7,6 +7,7 @@ import com.github.odaridavid.designpatterns.adapter.AdapterActivity
 import com.github.odaridavid.designpatterns.base.BaseActivity
 import com.github.odaridavid.designpatterns.bridge.BridgeActivity
 import com.github.odaridavid.designpatterns.builder.BuilderActivity
+import com.github.odaridavid.designpatterns.composite.CompositeActivity
 import com.github.odaridavid.designpatterns.factory.FactoryActivity
 import com.github.odaridavid.designpatterns.prototype.PrototypeActivity
 import com.github.odaridavid.designpatterns.singleton.SingletonActivity
@@ -32,5 +33,7 @@ class MainActivity : BaseActivity(), MainNavigator {
     override fun navigateToAdapterActivity(view: View) = navigateTo<AdapterActivity>()
 
     override fun navigateToBridgeActivity(view: View) = navigateTo<BridgeActivity>()
+
+    override fun navigateToCompositeActivity(view: View) = navigateTo<CompositeActivity>()
 
 }

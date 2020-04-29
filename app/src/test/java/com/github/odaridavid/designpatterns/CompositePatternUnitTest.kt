@@ -13,21 +13,20 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.bridge.Chair
-import com.github.odaridavid.designpatterns.bridge.VintageFurnitureShop
+import com.github.odaridavid.designpatterns.composite.BMWRace
+import com.github.odaridavid.designpatterns.composite.FerrariRace
+import com.github.odaridavid.designpatterns.composite.RaceEvent
 import org.junit.Test
 
 
-class BridgePatternUnitTest {
+class CompositePatternUnitTest {
 
     @Test
-    fun setAmbienceEffects_vintageShop_returnVintageFurniture() {
-        val chair = Chair()
-        val vintageShop = VintageFurnitureShop("8:00 AM - 5:00 PM", chair)
-
-        vintageShop.setAmbience()
-
-        assert(chair.getAmbience() == "Vintage")
-
+    fun compositePattern(){
+        val raceCarEvent = RaceEvent()
+        raceCarEvent.registerCar(BMWRace())
+        raceCarEvent.registerCar(FerrariRace())
+        raceCarEvent.race()
     }
+
 }

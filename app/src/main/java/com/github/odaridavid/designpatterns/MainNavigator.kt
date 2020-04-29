@@ -31,4 +31,6 @@ interface MainNavigator {
     fun navigateToBridgeActivity(view: View)
 
     fun navigateToAdapterActivity(view: View)
+
+    fun navigateToCompositeActivity(view: View)
 }
