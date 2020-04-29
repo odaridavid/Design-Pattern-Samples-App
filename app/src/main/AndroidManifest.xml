@@ -11,7 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
+        <activity android:name=".proxy.ProxyActivity"></activity>
         <activity android:name=".base.BaseActivity" />
+        <activity
+            android:name=".flyweight.FlyweightActivity"
+            android:label="@string/title_flyweight"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".facade.FacadeActivity"
             android:label="@string/title_facade"

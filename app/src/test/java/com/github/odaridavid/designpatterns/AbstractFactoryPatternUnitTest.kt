@@ -17,7 +17,7 @@ import com.github.odaridavid.designpatterns.abstractfactory.*
 import org.junit.BeforeClass
 import org.junit.Test
 
-class AbstractFactoryUnitTest {
+class AbstractFactoryPatternUnitTest {
 
     @Test
     fun getTruck_simpleCarFactory_returnsIsuzu() {

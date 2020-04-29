@@ -13,32 +13,7 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import android.view.View
 
-
-interface MainNavigator {
-
-    fun navigateToAbstractFactoryActivity(view: View)
-
-    fun navigateToFactoryActivity(view: View)
-
-    fun navigateToBuilderActivity(view: View)
-
-    fun navigateToPrototypeActivity(view: View)
-
-    fun navigateToSingletonActivity(view: View)
-
-    fun navigateToBridgeActivity(view: View)
-
-    fun navigateToAdapterActivity(view: View)
-
-    fun navigateToCompositeActivity(view: View)
-
-    fun navigateToDecoratorActivity(view: View)
-
-    fun navigateToFacadeActivity(view: View)
-
-    fun navigateToFlyweightActivity(view: View)
-
-    fun navigateToProxyActivity(view: View)
+class FlyweightPatternUnitTest {
+//TODO
 }

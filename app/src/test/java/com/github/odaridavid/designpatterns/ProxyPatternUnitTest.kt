@@ -13,32 +13,22 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import android.view.View
+import com.github.odaridavid.designpatterns.proxy.ProxyCar
+import org.junit.Test
 
 
-interface MainNavigator {
+class ProxyPatternUnitTest {
 
-    fun navigateToAbstractFactoryActivity(view: View)
+    @Test
+    fun drive_ProxyCar_withoutKey() {
+        ProxyCar().drive()
+    }
 
-    fun navigateToFactoryActivity(view: View)
-
-    fun navigateToBuilderActivity(view: View)
-
-    fun navigateToPrototypeActivity(view: View)
-
-    fun navigateToSingletonActivity(view: View)
-
-    fun navigateToBridgeActivity(view: View)
-
-    fun navigateToAdapterActivity(view: View)
-
-    fun navigateToCompositeActivity(view: View)
-
-    fun navigateToDecoratorActivity(view: View)
-
-    fun navigateToFacadeActivity(view: View)
-
-    fun navigateToFlyweightActivity(view: View)
-
-    fun navigateToProxyActivity(view: View)
+    @Test
+    fun drive_ProxyCar_withKey() {
+        ProxyCar().apply {
+            key = "ignite"
+            drive()
+        }
+    }
 }

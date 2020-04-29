@@ -11,7 +11,9 @@ import com.github.odaridavid.designpatterns.composite.CompositeActivity
 import com.github.odaridavid.designpatterns.decorator.DecoratorActivity
 import com.github.odaridavid.designpatterns.facade.FacadeActivity
 import com.github.odaridavid.designpatterns.factory.FactoryActivity
+import com.github.odaridavid.designpatterns.flyweight.FlyweightActivity
 import com.github.odaridavid.designpatterns.prototype.PrototypeActivity
+import com.github.odaridavid.designpatterns.proxy.ProxyActivity
 import com.github.odaridavid.designpatterns.singleton.SingletonActivity
 
 class MainActivity : BaseActivity(), MainNavigator {
@@ -41,5 +43,9 @@ class MainActivity : BaseActivity(), MainNavigator {
     override fun navigateToDecoratorActivity(view: View) = navigateTo<DecoratorActivity>()
 
     override fun navigateToFacadeActivity(view: View) = navigateTo<FacadeActivity>()
+
+    override fun navigateToFlyweightActivity(view: View) = navigateTo<FlyweightActivity>()
+
+    override fun navigateToProxyActivity(view: View) = navigateTo<ProxyActivity>()
 
 }
