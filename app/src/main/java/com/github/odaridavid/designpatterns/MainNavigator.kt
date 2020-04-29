@@ -41,4 +41,24 @@ interface MainNavigator {
     fun navigateToFlyweightActivity(view: View)
 
     fun navigateToProxyActivity(view: View)
+
+    fun navigateToObserverActivity(view: View)
+
+    fun navigateToStateActivity(view: View)
+
+    fun navigateToStrategyActivity(view: View)
+
+    fun navigateToVisitorActivity(view: View)
+
+    fun navigateToTemplateActivity(view: View)
+
+    fun navigateToIteratorActivity(view: View)
+
+    fun navigateToMementoActivity(view: View)
+
+    fun navigateToMediatorActivity(view: View)
+
+    fun navigateToChainOfResponsibilityActivity(view: View)
+
+    fun navigateToCommandActivity(view: View)
 }

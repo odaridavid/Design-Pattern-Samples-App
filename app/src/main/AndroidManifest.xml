@@ -11,8 +11,51 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".proxy.ProxyActivity"></activity>
-        <activity android:name=".base.BaseActivity" />
+        <activity android:name=".BaseActivity" />
+        <activity
+            android:name=".visitor.VisitorActivity"
+            android:label="@string/title_visitor"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".template.TemplateActivity"
+            android:label="@string/title_template"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".strategy.StrategyActivity"
+            android:label="@string/title_strategy"
+            android:parentActivityName=".strategy.StrategyActivity" />
+        <activity
+            android:name=".state.StateActivity"
+            android:label="@string/title_state"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".observer.ObserverActivity"
+            android:label="@string/title_observer"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".memento.MementoActivity"
+            android:label="@string/title_memento"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".mediator.MediatorActivity"
+            android:label="@string/title_mediator"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".iterator.IteratorActivity"
+            android:label="@string/title_iterator"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".command.CommandActivity"
+            android:label="@string/title_command"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".chainofresponsibility.ChainOfResponsibilityActivity"
+            android:label="@string/title_chain_of_responsibility"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".proxy.ProxyActivity"
+            android:label="@string/title_proxy"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".flyweight.FlyweightActivity"
             android:label="@string/title_flyweight"

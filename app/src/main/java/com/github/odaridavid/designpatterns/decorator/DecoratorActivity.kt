@@ -1,9 +1,8 @@
 package com.github.odaridavid.designpatterns.decorator
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.github.odaridavid.designpatterns.R
-import com.github.odaridavid.designpatterns.base.BaseActivity
+import com.github.odaridavid.designpatterns.BaseActivity
 
 class DecoratorActivity : BaseActivity() {
 

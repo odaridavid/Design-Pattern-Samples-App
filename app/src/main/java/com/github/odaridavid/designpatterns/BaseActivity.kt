@@ -1,4 +1,4 @@
-package com.github.odaridavid.designpatterns.base
+package com.github.odaridavid.designpatterns
 
 import android.os.Build
 import android.os.Bundle

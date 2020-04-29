@@ -2,16 +2,32 @@
     <string name="app_name">DesignPatterns</string>
 
     <!--    Design Patterns Titles  -->
+    <!--    Creational patterns -->
     <string name="title_builder">Builder Pattern</string>
     <string name="title_abstract_factory">Abstract Factory Pattern</string>
     <string name="title_factory">Factory Pattern</string>
     <string name="title_prototype">Prototype Pattern</string>
     <string name="title_singleton">Singleton Pattern</string>
+
+    <!--    Structural patterns -->
     <string name="title_adapter">Adapter Pattern</string>
     <string name="title_bridge">Bridge Pattern</string>
     <string name="title_composite">Composite Pattern</string>
     <string name="title_decorator">Decorator Pattern</string>
     <string name="title_facade">Facade Pattern</string>
     <string name="title_flyweight">Flyweight Pattern</string>
+    <string name="title_proxy">Proxy Pattern</string>
+
+    <!--    Behavioral patterns -->
+    <string name="title_chain_of_responsibility">Chain Of Responsibility Pattern</string>
+    <string name="title_command">Command Pattern</string>
+    <string name="title_iterator">Iterator Pattern</string>
+    <string name="title_mediator">Mediator Pattern</string>
+    <string name="title_memento">Memento Pattern</string>
+    <string name="title_observer">Observer Pattern</string>
+    <string name="title_state">State Pattern</string>
+    <string name="title_strategy">Strategy Pattern</string>
+    <string name="title_template">Template Pattern</string>
+    <string name="title_visitor">Visitor Pattern</string>
 
 </resources>

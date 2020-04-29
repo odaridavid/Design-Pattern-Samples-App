@@ -58,3 +58,5 @@ class VintageFurnitureShop(openingHours: String, private val furniture: IFurnitu
         furniture.matchWithAmbience("Vintage")
     }
 }
+
+//TODO Revisit Bridge pattern

@@ -4,19 +4,29 @@ import android.os.Bundle
 import android.view.View
 import com.github.odaridavid.designpatterns.abstractfactory.AbstractFactoryActivity
 import com.github.odaridavid.designpatterns.adapter.AdapterActivity
-import com.github.odaridavid.designpatterns.base.BaseActivity
 import com.github.odaridavid.designpatterns.bridge.BridgeActivity
 import com.github.odaridavid.designpatterns.builder.BuilderActivity
+import com.github.odaridavid.designpatterns.chainofresponsibility.ChainOfResponsibilityActivity
+import com.github.odaridavid.designpatterns.command.CommandActivity
 import com.github.odaridavid.designpatterns.composite.CompositeActivity
 import com.github.odaridavid.designpatterns.decorator.DecoratorActivity
 import com.github.odaridavid.designpatterns.facade.FacadeActivity
 import com.github.odaridavid.designpatterns.factory.FactoryActivity
 import com.github.odaridavid.designpatterns.flyweight.FlyweightActivity
+import com.github.odaridavid.designpatterns.iterator.IteratorActivity
+import com.github.odaridavid.designpatterns.mediator.MediatorActivity
+import com.github.odaridavid.designpatterns.memento.MementoActivity
+import com.github.odaridavid.designpatterns.observer.ObserverActivity
 import com.github.odaridavid.designpatterns.prototype.PrototypeActivity
 import com.github.odaridavid.designpatterns.proxy.ProxyActivity
 import com.github.odaridavid.designpatterns.singleton.SingletonActivity
+import com.github.odaridavid.designpatterns.state.StateActivity
+import com.github.odaridavid.designpatterns.strategy.StrategyActivity
+import com.github.odaridavid.designpatterns.template.TemplateActivity
+import com.github.odaridavid.designpatterns.visitor.VisitorActivity
 
-class MainActivity : BaseActivity(), MainNavigator {
+class MainActivity : BaseActivity(),
+    MainNavigator {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,5 +57,26 @@ class MainActivity : BaseActivity(), MainNavigator {
     override fun navigateToFlyweightActivity(view: View) = navigateTo<FlyweightActivity>()
 
     override fun navigateToProxyActivity(view: View) = navigateTo<ProxyActivity>()
+
+    override fun navigateToChainOfResponsibilityActivity(view: View) =
+        navigateTo<ChainOfResponsibilityActivity>()
+
+    override fun navigateToCommandActivity(view: View) = navigateTo<CommandActivity>()
+
+    override fun navigateToVisitorActivity(view: View) = navigateTo<VisitorActivity>()
+
+    override fun navigateToTemplateActivity(view: View) = navigateTo<TemplateActivity>()
+
+    override fun navigateToStrategyActivity(view: View) = navigateTo<StrategyActivity>()
+
+    override fun navigateToStateActivity(view: View) = navigateTo<StateActivity>()
+
+    override fun navigateToObserverActivity(view: View) = navigateTo<ObserverActivity>()
+
+    override fun navigateToMementoActivity(view: View) = navigateTo<MementoActivity>()
+
+    override fun navigateToMediatorActivity(view: View) = navigateTo<MediatorActivity>()
+
+    override fun navigateToIteratorActivity(view: View) = navigateTo<IteratorActivity>()
 
 }
