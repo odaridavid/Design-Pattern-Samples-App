@@ -42,6 +42,8 @@ abstract class FurnitureShop(private val furniture: IFurniture) {
     fun setDisplay() {
         println("${furniture.getMaterial()} On Display ")
     }
+
+    abstract fun setAmbience()
 }
 
 class VintageFurnitureShop(openingHours: String, private val furniture: IFurniture) :
@@ -52,7 +54,7 @@ class VintageFurnitureShop(openingHours: String, private val furniture: IFurnitu
         println("Open from $openingHours")
     }
 
-    fun setVintageAmbience() {
+    override fun setAmbience() {
         furniture.matchWithAmbience("Vintage")
     }
 }
