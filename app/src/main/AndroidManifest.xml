@@ -11,8 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-
         <activity android:name=".base.BaseActivity" />
+
+        <activity
+            android:name=".decorator.DecoratorActivity"
+            android:label="@string/title_decorator"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".composite.CompositeActivity"
             android:label="@string/title_composite"

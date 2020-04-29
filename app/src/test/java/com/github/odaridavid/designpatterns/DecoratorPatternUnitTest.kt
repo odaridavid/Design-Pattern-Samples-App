@@ -13,26 +13,21 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import android.view.View
+import com.github.odaridavid.designpatterns.decorator.ChristmasBarDecorator
+import com.github.odaridavid.designpatterns.decorator.CollegeBar
+import com.github.odaridavid.designpatterns.decorator.HalloweenBarDecorator
+import com.github.odaridavid.designpatterns.decorator.SportsBar
+import org.junit.Test
 
 
-interface MainNavigator {
+class DecoratorPatternUnitTest {
 
-    fun navigateToAbstractFactoryActivity(view: View)
+    @Test
+    fun decoratorTest() {
+        val sportsBar = SportsBar()
+        val collegeBar = CollegeBar()
 
-    fun navigateToFactoryActivity(view: View)
-
-    fun navigateToBuilderActivity(view: View)
-
-    fun navigateToPrototypeActivity(view: View)
-
-    fun navigateToSingletonActivity(view: View)
-
-    fun navigateToBridgeActivity(view: View)
-
-    fun navigateToAdapterActivity(view: View)
-
-    fun navigateToCompositeActivity(view: View)
-
-    fun navigateToDecoratorActivity(view: View)
+        HalloweenBarDecorator(sportsBar).setup()
+        ChristmasBarDecorator(collegeBar).setup()
+    }
 }
