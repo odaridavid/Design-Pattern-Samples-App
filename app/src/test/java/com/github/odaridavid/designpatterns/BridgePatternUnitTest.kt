@@ -13,22 +13,21 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import android.view.View
+import com.github.odaridavid.designpatterns.bridge.Chair
+import com.github.odaridavid.designpatterns.bridge.VintageFurnitureShop
+import org.junit.Test
 
 
-interface MainNavigator {
+class BridgePatternUnitTest {
 
-    fun navigateToAbstractFactoryActivity(view: View)
+    @Test
+    fun setAmbienceEffects_vintageShop_returnVintageFurniture() {
+        val chair = Chair()
+        val vintageShop = VintageFurnitureShop("8:00 AM - 5:00 PM", chair)
 
-    fun navigateToFactoryActivity(view: View)
+        vintageShop.setVintageAmbience()
 
-    fun navigateToBuilderActivity(view: View)
+        assert(chair.getAmbience() == "Vintage")
 
-    fun navigateToPrototypeActivity(view: View)
-
-    fun navigateToSingletonActivity(view: View)
-
-    fun navigateToBridgeActivity(view: View)
-
-    fun navigateToAdapterActivity(view: View)
+    }
 }

@@ -8,5 +8,6 @@
     <string name="title_prototype">Prototype Pattern</string>
     <string name="title_singleton">Singleton Pattern</string>
     <string name="title_adapter">Adapter Pattern</string>
+    <string name="title_bridge">Bridge Pattern</string>
 
 </resources>

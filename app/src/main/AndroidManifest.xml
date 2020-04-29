@@ -13,6 +13,10 @@
         tools:ignore="AllowBackup">
         <activity android:name=".base.BaseActivity" />
         <activity
+            android:name=".bridge.BridgeActivity"
+            android:label="@string/title_bridge"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".adapter.AdapterActivity"
             android:label="@string/title_adapter"
             android:parentActivityName=".MainActivity" />

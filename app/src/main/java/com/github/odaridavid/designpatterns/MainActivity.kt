@@ -3,7 +3,9 @@ package com.github.odaridavid.designpatterns
 import android.os.Bundle
 import android.view.View
 import com.github.odaridavid.designpatterns.abstractfactory.AbstractFactoryActivity
+import com.github.odaridavid.designpatterns.adapter.AdapterActivity
 import com.github.odaridavid.designpatterns.base.BaseActivity
+import com.github.odaridavid.designpatterns.bridge.BridgeActivity
 import com.github.odaridavid.designpatterns.builder.BuilderActivity
 import com.github.odaridavid.designpatterns.factory.FactoryActivity
 import com.github.odaridavid.designpatterns.prototype.PrototypeActivity
@@ -26,5 +28,9 @@ class MainActivity : BaseActivity(), MainNavigator {
     override fun navigateToPrototypeActivity(view: View) = navigateTo<PrototypeActivity>()
 
     override fun navigateToSingletonActivity(view: View) = navigateTo<SingletonActivity>()
+
+    override fun navigateToAdapterActivity(view: View) = navigateTo<AdapterActivity>()
+
+    override fun navigateToBridgeActivity(view: View) = navigateTo<BridgeActivity>()
 
 }
