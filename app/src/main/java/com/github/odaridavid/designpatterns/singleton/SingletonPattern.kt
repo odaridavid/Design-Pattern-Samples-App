@@ -15,7 +15,7 @@ package com.github.odaridavid.designpatterns.singleton
 
 //Object provides singleton out of the box
 object CentralBank {
-    fun getInstance(): CentralBank = this
+    fun getInstance(): CentralBank = this //Unnecessary
 }
 
 class SomeProvider private constructor(name: String) {
