@@ -11,5 +11,6 @@
     <string name="title_bridge">Bridge Pattern</string>
     <string name="title_composite">Composite Pattern</string>
     <string name="title_decorator">Decorator Pattern</string>
+    <string name="title_facade">Faacade Pattern</string>
 
 </resources>
