@@ -1,6 +1,9 @@
 package com.github.odaridavid.designpatterns
 
+import android.os.Build
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import com.github.odaridavid.designpatterns.abstractfactory.AbstractFactoryActivity
 import com.github.odaridavid.designpatterns.adapter.AdapterActivity
@@ -31,6 +34,21 @@ class MainActivity : BaseActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_about -> {
+                showDialog("\t\t\t\t\tDesign Patterns", "\n\t\t\t\t\t\t\t\tVersion ${BuildConfig.VERSION_NAME}")
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun navigateToAbstractFactoryActivity(view: View) =

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DesignPatterns</string>
+    <string name="app_name">Design Patterns</string>
 
     <!--    Design Patterns Titles  -->
     <!--    Creational patterns -->
@@ -29,5 +29,6 @@
     <string name="title_strategy">Strategy Pattern</string>
     <string name="title_template">Template Pattern</string>
     <string name="title_visitor">Visitor Pattern</string>
+    <string name="about">About</string>
 
 </resources>
