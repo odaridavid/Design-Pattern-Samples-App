@@ -13,6 +13,28 @@
  **/
 package com.github.odaridavid.designpatterns
 
+import com.github.odaridavid.designpatterns.observer.Customer
+import com.github.odaridavid.designpatterns.observer.OrderRepository
+import com.github.odaridavid.designpatterns.observer.Store
+import org.junit.Test
 
-class ObserverPatternUnitTest
-//todo
+
+class ObserverPatternUnitTest {
+
+    @Test
+    fun orders_observerPattern() {
+        val customers = Customer()
+        val store = Store()
+
+        val orderRepo = OrderRepository()
+        orderRepo.subscribe(customers)
+        orderRepo.subscribe(store)
+
+        orderRepo.notifyObservers()
+
+        orderRepo.unsubscribe(customers)
+        orderRepo.unsubscribe(store)
+
+        orderRepo.notifyObservers()
+    }
+}

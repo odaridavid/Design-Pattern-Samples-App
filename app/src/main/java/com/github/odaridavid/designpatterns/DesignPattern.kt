@@ -13,10 +13,11 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import android.graphics.drawable.Drawable
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 
 
-data class DesignPattern(val navigationCode: Int, val name: String, val image: Drawable)
+data class DesignPattern(@StringRes val name: Int, @DrawableRes val image: Int)
 
 fun generateDesignPatterns(): List<DesignPattern> {
     return emptyList()

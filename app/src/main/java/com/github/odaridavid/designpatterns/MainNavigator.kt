@@ -50,7 +50,7 @@ interface MainNavigator {
 
     fun navigateToVisitorActivity(view: View)
 
-    fun navigateToTemplateActivity(view: View)
+    fun navigateToTemplateMethodActivity(view: View)
 
     fun navigateToIteratorActivity(view: View)
 

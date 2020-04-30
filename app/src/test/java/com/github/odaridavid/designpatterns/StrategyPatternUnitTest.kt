@@ -13,6 +13,35 @@
  **/
 package com.github.odaridavid.designpatterns
 
+import com.github.odaridavid.designpatterns.strategy.CashOnDelivery
+import com.github.odaridavid.designpatterns.strategy.MarkdownFormatter
+import com.github.odaridavid.designpatterns.strategy.Mpesa
+import com.github.odaridavid.designpatterns.strategy.Order
+import org.junit.Test
 
-class StrategyPatternUnitTest
-//todo
+
+class StrategyPatternUnitTest {
+
+    @Test
+    fun strategyPattern() {
+        val order = Order()
+        assert(order.submitOrder() == "No Payment Option Selected")
+
+        order.setStrategy(Mpesa())
+        assert(order.submitOrder() == "Pay by M-pesa")
+
+        order.setStrategy(CashOnDelivery())
+        assert(order.submitOrder() == "Pay on Delivery")
+    }
+
+    @Test
+    fun strategyPattern_functional() {
+        val boldFormatter = { text: String -> "*$text*" }
+        val strikeThroughFormatter = {text:String->"~$text~"}
+        val markdownFormatter = MarkdownFormatter(boldFormatter)
+        markdownFormatter.format("Random text")
+        markdownFormatter.formatterStrategy = strikeThroughFormatter
+        markdownFormatter.format("Random text")
+
+    }
+}

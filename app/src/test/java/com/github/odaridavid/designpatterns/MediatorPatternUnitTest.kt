@@ -13,6 +13,27 @@
  **/
 package com.github.odaridavid.designpatterns
 
+import com.github.odaridavid.designpatterns.mediator.Parcel
+import com.github.odaridavid.designpatterns.mediator.ParcelMediator
+import com.github.odaridavid.designpatterns.mediator.User
+import org.junit.Test
 
-class MediatorPatternUnitTest
-//todo
+
+class MediatorPatternUnitTest {
+
+    @Test
+    fun mediatorPattern() {
+        val john = User(name = "John", parcelId = 1)
+        val mary = User(name = "Mary", parcelId = 1)
+        val don = User(name = "Don", parcelId = 2)
+
+        val parcelMediator = ParcelMediator()
+        val parcel = Parcel(1, "En-Route", parcelMediator)
+
+        parcelMediator.receivers(john)
+        parcelMediator.receivers(mary)
+        parcelMediator.receivers(don)
+
+        parcel.sendParcel()
+    }
+}

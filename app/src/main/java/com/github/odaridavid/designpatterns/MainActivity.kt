@@ -1,6 +1,5 @@
 package com.github.odaridavid.designpatterns
 
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -25,12 +24,13 @@ import com.github.odaridavid.designpatterns.proxy.ProxyActivity
 import com.github.odaridavid.designpatterns.singleton.SingletonActivity
 import com.github.odaridavid.designpatterns.state.StateActivity
 import com.github.odaridavid.designpatterns.strategy.StrategyActivity
-import com.github.odaridavid.designpatterns.template.TemplateActivity
+import com.github.odaridavid.designpatterns.templatemethod.TemplateMethodActivity
 import com.github.odaridavid.designpatterns.visitor.VisitorActivity
 
 class MainActivity : BaseActivity(),
     MainNavigator {
 
+    //TODO Hookup all design patterns to ui and show code examples
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -83,7 +83,7 @@ class MainActivity : BaseActivity(),
 
     override fun navigateToVisitorActivity(view: View) = navigateTo<VisitorActivity>()
 
-    override fun navigateToTemplateActivity(view: View) = navigateTo<TemplateActivity>()
+    override fun navigateToTemplateMethodActivity(view: View) = navigateTo<TemplateMethodActivity>()
 
     override fun navigateToStrategyActivity(view: View) = navigateTo<StrategyActivity>()
 

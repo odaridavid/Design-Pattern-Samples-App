@@ -13,6 +13,29 @@
  **/
 package com.github.odaridavid.designpatterns
 
+import com.github.odaridavid.designpatterns.memento.CareTaker
+import com.github.odaridavid.designpatterns.memento.Originator
+import org.junit.Test
 
-class MementoPatternUnitTest
-//todo
+
+class MementoPatternUnitTest {
+
+    @Test
+    fun mementoPattern() {
+        val originator = Originator(state = "Start State")
+        val careTaker = CareTaker()
+        careTaker.saveState(originator.createMemento())
+
+        originator.state = "Second State"
+        careTaker.saveState(originator.createMemento())
+
+        originator.state = "Third State"
+        originator.state ="Fourth State"
+        careTaker.saveState(originator.createMemento())
+        assert(originator.state == "Fourth State")
+
+        originator.restore(careTaker.restore(0))
+        assert(originator.state == "Start State")
+    }
+
+}

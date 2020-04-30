@@ -11,6 +11,7 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns.template
+package com.github.odaridavid.designpatterns
 
 
+const val KEY_DESIGN_PATTERN = "design_pattern"

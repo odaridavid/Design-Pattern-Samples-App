@@ -13,6 +13,20 @@
  **/
 package com.github.odaridavid.designpatterns
 
+import com.github.odaridavid.designpatterns.state.Door
+import org.junit.Test
 
-class StatePatternUnitTest
-//todo
+
+class StatePatternUnitTest {
+
+    @Test
+    fun door_statePattern() {
+        val door = Door()
+        assert(door.enter() == "Can't get in")
+
+        door.open()
+        assert(door.enter() == "Welcome")
+
+        door.close()
+    }
+}

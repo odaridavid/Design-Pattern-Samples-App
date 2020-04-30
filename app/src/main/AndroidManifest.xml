@@ -17,7 +17,7 @@
             android:label="@string/title_visitor"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".template.TemplateActivity"
+            android:name=".templatemethod.TemplateMethodActivity"
             android:label="@string/title_template"
             android:parentActivityName=".MainActivity" />
         <activity

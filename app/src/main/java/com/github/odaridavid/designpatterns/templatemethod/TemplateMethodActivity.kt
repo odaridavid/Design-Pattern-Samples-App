@@ -1,10 +1,10 @@
-package com.github.odaridavid.designpatterns.template
+package com.github.odaridavid.designpatterns.templatemethod
 
 import android.os.Bundle
 import com.github.odaridavid.designpatterns.R
 import com.github.odaridavid.designpatterns.BaseActivity
 
-class TemplateActivity : BaseActivity() {
+class TemplateMethodActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

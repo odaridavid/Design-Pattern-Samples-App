@@ -13,6 +13,22 @@
  **/
 package com.github.odaridavid.designpatterns
 
+import com.github.odaridavid.designpatterns.chainofresponsibility.ConvertRawMaterial
+import com.github.odaridavid.designpatterns.chainofresponsibility.Labeling
+import com.github.odaridavid.designpatterns.chainofresponsibility.Packaging
+import org.junit.Test
 
-class ChainOfResponsibilityPatternUnitTest
-//TODO
+
+class ChainOfResponsibilityPatternUnitTest {
+
+    @Test
+    fun chainOfResponsibility() {
+        val packaging = Packaging()
+        val convertRawMaterial = ConvertRawMaterial()
+        val labeling = Labeling()
+
+        convertRawMaterial.processProduct(packaging)
+        packaging.processProduct(labeling)
+
+    }
+}

@@ -13,6 +13,7 @@
  **/
 package com.github.odaridavid.designpatterns.bridge
 
+//TODO Revisit Bridge Pattern
 interface IFurniture {
     fun getMaterial(): String
     fun matchWithAmbience(effects: String): String
@@ -58,5 +59,3 @@ class VintageFurnitureShop(openingHours: String, private val furniture: IFurnitu
         furniture.matchWithAmbience("Vintage")
     }
 }
-
-//TODO Revisit Bridge pattern
