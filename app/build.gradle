@@ -1,17 +1,23 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
     defaultConfig {
+
+        def versionMajor = 1
+        def versionMinor = 0
+        def versionPatch = 0
+
         applicationId "com.github.odaridavid.designpatterns"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
+        versionName "$versionMajor.$versionMinor.$versionPatch"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -22,9 +28,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    viewBinding {
-        enabled = true
-    }
+    viewBinding.enabled = true
+    kotlinOptions.jvmTarget = 1.8
 }
 
 dependencies {
@@ -40,7 +45,11 @@ dependencies {
     //Material Design
     implementation "com.google.android.material:material:$material_design_version"
 
+    implementation "com.mikepenz:aboutlibraries-core:8.1.2"
+    implementation "com.mikepenz:aboutlibraries:8.1.2"
+
+    //Animations
+    implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
+
     testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

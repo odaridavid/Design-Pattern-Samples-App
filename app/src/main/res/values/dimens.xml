@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_default">16dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="design_pattern_image_height">64dp</dimen>
+    <dimen name="design_pattern_image_width">64dp</dimen>
+    <dimen name="design_pattern_card_width">112dp</dimen>
+    <dimen name="design_pattern_card_height">112dp</dimen>
+</resources>

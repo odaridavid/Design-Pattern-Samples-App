@@ -11,7 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
+
         <activity android:name=".BaseActivity" />
+
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/about"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".visitor.VisitorActivity"
             android:label="@string/title_visitor"

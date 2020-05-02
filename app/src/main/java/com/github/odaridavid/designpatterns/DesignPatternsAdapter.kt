@@ -19,39 +19,48 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.github.odaridavid.designpatterns.databinding.ItemDesignPatternBinding
 
 
-class DesignPatternsAdapter :
+class DesignPatternsAdapter(val onClick: (PatternId) -> Unit) :
     ListAdapter<DesignPattern, DesignPatternsAdapter.DesignPatternViewHolder>(DiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DesignPatternViewHolder {
         val context = parent.context
-        val view = LayoutInflater.from(context).inflate(R.layout.item_design_pattern, parent, false)
-        return DesignPatternViewHolder(view)
+        val inflater = LayoutInflater.from(context)
+        val binding = ItemDesignPatternBinding.inflate(inflater)
+        return DesignPatternViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: DesignPatternViewHolder, position: Int): Unit =
         getItem(position).let { holder.bind(it) }
 
-    inner class DesignPatternViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class DesignPatternViewHolder(private val binding: ItemDesignPatternBinding) :
+        RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
-        fun bind(item: DesignPattern) {
-            TODO("Implementation")
+        fun bind(designPattern: DesignPattern) {
+            val context = binding.root.context
+            binding.patternNameTextView.text = context.getString(designPattern.name)
+            binding.root.setOnClickListener(this)
+        }
+
+        override fun onClick(view: View) {
+            val designPattern = getItem(adapterPosition)
+            onClick(designPattern.patternId)
         }
     }
+
 
     companion object {
         val DiffUtil = object : DiffUtil.ItemCallback<DesignPattern>() {
             override fun areItemsTheSame(oldItem: DesignPattern, newItem: DesignPattern): Boolean {
-                TODO("Implementation")
+                return oldItem == newItem
             }
 
             override fun areContentsTheSame(
                 oldItem: DesignPattern,
                 newItem: DesignPattern
-            ): Boolean {
-                TODO("Implementation")
-            }
+            ): Boolean = oldItem.patternId == newItem.patternId
         }
     }
 }

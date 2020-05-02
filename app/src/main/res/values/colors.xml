@@ -10,4 +10,5 @@
     <color name="grey100Dark">#c2c2c2</color>
     <color name="grey800">#424242</color>
     <color name="grey800Dark">#1b1b1b</color>
+    <color name="iconTint">#1b1b1b</color>
 </resources>

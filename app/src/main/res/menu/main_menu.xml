@@ -13,9 +13,12 @@
 -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/action_about"
         android:icon="@drawable/ic_info_outline_black_24dp"
         android:title="@string/about"
+        app:iconTint="@color/iconTint"
         app:showAsAction="ifRoom" />
+
 </menu>

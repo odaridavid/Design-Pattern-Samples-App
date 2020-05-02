@@ -14,8 +14,6 @@
 package com.github.odaridavid.designpatterns
 
 import android.app.Activity
-import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.annotation.IntRange
@@ -32,10 +30,8 @@ inline fun <reified T> Activity.navigateTo(noinline intentExtras: ((Intent) -> U
     startActivity(intent)
 }
 
-fun Context.showDialog(title:String,message:String) {
-    AlertDialog.Builder(this)
-        .setTitle(title)
-        .setMessage(message)
-        .create()
-        .show()
+fun checkUrlScheme(url: String): String {
+    return if (!url.startsWith("http://") && !url.startsWith("https://"))
+        "http://$url"
+    else url
 }

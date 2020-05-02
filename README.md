@@ -1,3 +1,7 @@
+<p align="center">
+<img src="art/ic_launcher-playstore.png" alt="home" width="100"/>
+</p>
+
 ## Design Patterns
 
 Exploring Behavioral,Creational and Structural Design Patterns
@@ -10,6 +14,12 @@ Feel free to improve or provide feedback on any of the patterns.
 - [Refactoring Guru Design Patterns](https://refactoring.guru/design-patterns)
 
 And Some Wikipedia.🙃
+
+## Screenshots
+
+|<img src='art/s1.png' width='210'/>|<img src='art/s2.png' width='210'/>|
+|:--:|:--:|
+
 
 ## License
 

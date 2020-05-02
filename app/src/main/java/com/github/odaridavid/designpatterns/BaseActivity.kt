@@ -16,7 +16,8 @@ abstract class BaseActivity : AppCompatActivity() {
     private fun matchStatusBarWithBackground() {
         if (versionFrom(Build.VERSION_CODES.M)) {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-            window.statusBarColor = getColor(android.R.color.background_light)
+            window.statusBarColor = getColor(R.color.colorPrimary)
         }
     }
+
 }
