@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "219203453187",
+    "firebase_url": "https://tuli-300dc.firebaseio.com",
+    "project_id": "tuli-300dc",
+    "storage_bucket": "tuli-300dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219203453187:android:34cb13d549242365502936",
+        "android_client_info": {
+          "package_name": "com.github.odaridavid.designpatterns"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219203453187-o5je16p0v6qvmb550r1ch4t49jr0o1on.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.github.odaridavid.designpatterns",
+            "certificate_hash": "113cb837d7d15580c33a4d642ff301877a14b840"
+          }
+        },
+        {
+          "client_id": "219203453187-c7tod82prof19t8mhdn43jt25c53g0du.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMqXRS1gBTmnfdtU6H5qkrkRdfo1PKa9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219203453187-c7tod82prof19t8mhdn43jt25c53g0du.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
