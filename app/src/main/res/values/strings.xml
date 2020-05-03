@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Design Patterns</string>
+    <string name="app_name">Design Pattern Samples</string>
 
     <!--    Design Patterns Titles  -->
     <!--    Creational patterns -->
@@ -30,11 +30,40 @@
     <string name="title_template">Template Pattern</string>
     <string name="title_visitor">Visitor Pattern</string>
 
-    <!--    Menu-->
+    <!-- Menu-->
     <string name="about">About</string>
     <string name="libraries">Libraries</string>
     <string name="info_design_patterns_app_icon">Design Patterns App Icon</string>
     <string name="template_app_version" translatable="false">v%1$s</string>
     <string name="info_design_pattern_image">Puzzle piece image as design pattern card icon</string>
+
+    <string name="code_sample">Code Sample</string>
+
+    <!-- Pattern Descriptions-->
+    <!--    TODO Update descriptions-->
+    <string name="desc_abstract_factory">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_adapter">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_bridge">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_builder">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_chain_of_responsibility">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_command">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_composite">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_decorator">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_facade">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_factory">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_flyweight">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_iterator">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_main">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_mediator">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_memento">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_observer">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_prototype">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_proxy">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_singleton">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_state">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_strategy">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_template">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_visitor">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+
 
 </resources>

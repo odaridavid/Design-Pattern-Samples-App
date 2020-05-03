@@ -4,7 +4,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.github.odaridavid.designpatterns.versionFrom
 
 abstract class BaseActivity : AppCompatActivity() {
 

@@ -17,6 +17,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import androidx.annotation.IntRange
+import us.feras.mdv.MarkdownView
 
 fun versionFrom(@IntRange(from = 0, to = 29) versionCodes: Int): Boolean {
     return Build.VERSION.SDK_INT >= versionCodes
@@ -35,3 +36,15 @@ fun checkUrlScheme(url: String): String {
         "http://$url"
     else url
 }
+
+
+fun MarkdownView.loadWithKotlinCss(filePath: String) {
+    loadMarkdownFile(filePath, KOTLIN_CSS_PATH)
+}
+
+
+
+
+
+
+

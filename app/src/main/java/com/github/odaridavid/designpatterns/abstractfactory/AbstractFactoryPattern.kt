@@ -13,29 +13,9 @@
  **/
 package com.github.odaridavid.designpatterns.abstractfactory
 
-interface Saloon {
-    val color: String
-    fun isAutomatic(): Boolean
-}
-
 interface Truck {
     val color: String
     fun noOfWheels(): Int
-}
-
-interface SUV {
-    val color: String
-    fun isFourWheelDrive(): Boolean
-}
-
-class Nissan(override val color: String) :
-    Saloon {
-    override fun isAutomatic(): Boolean = true
-}
-
-class Bently(override val color: String) :
-    Saloon {
-    override fun isAutomatic(): Boolean = false
 }
 
 class Isuzu(override val color: String) :
@@ -48,60 +28,27 @@ class Benz(override val color: String) :
     override fun noOfWheels(): Int = 22
 }
 
-class Harrier(override val color: String) :
-    SUV {
-    override fun isFourWheelDrive(): Boolean {
-        return false
-    }
-}
-
-class Hummer(override val color: String) :
-    SUV {
-    override fun isFourWheelDrive(): Boolean = true
-}
 
 abstract class CarFactory {
     abstract fun getTruck(): Truck
-    abstract fun getSaloon(): Saloon
-    abstract fun getSUV(): SUV
 
     companion object {
         @JvmStatic
-        inline fun <reified T> createCarFactory(): CarFactory {
+        inline fun <reified T> createTruckFactory(): CarFactory {
             return when (T::class) {
-                SimpleCarFactory::class -> SimpleCarFactory()
-                SophisticatedCarFactory::class -> SophisticatedCarFactory()
-                else -> throw IllegalStateException("Unidentified car factory")
+                JapanTruckFactory::class -> JapanTruckFactory()
+                GermanTruckFactory::class -> GermanTruckFactory()
+                else -> throw IllegalStateException("Unidentified truck factory")
             }
         }
     }
 }
 
-class SimpleCarFactory : CarFactory() {
-    override fun getTruck(): Truck {
-        return Isuzu("White")
-    }
-
-    override fun getSaloon(): Saloon {
-        return Nissan("Grey")
-    }
-
-    override fun getSUV(): SUV {
-        return Harrier("Red")
-    }
+class JapanTruckFactory : CarFactory() {
+    override fun getTruck(): Truck = Isuzu(color = "White")
 }
 
-class SophisticatedCarFactory : CarFactory() {
-    override fun getTruck(): Truck {
-        return Benz("Black")
-    }
-
-    override fun getSaloon(): Saloon {
-        return Bently("Chrome-Silver")
-    }
-
-    override fun getSUV(): SUV {
-        return Hummer("Yellow")
-    }
+class GermanTruckFactory : CarFactory() {
+    override fun getTruck(): Truck = Benz(color = "Black")
 }
 

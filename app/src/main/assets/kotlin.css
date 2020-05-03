@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+body {
+    font-family: Helvetica, Arial, Freesans, clean, sans-serif;
+    font-size:1.4em
+    padding:1em;
+    margin:auto;
+    max-width:42em;
+    background:#fefefe;
+}
+code {
+   margin: 0 2px;
+   padding: 0 5px;
+}
+.keyword{
+   color:#1E90FF;
+}
+.types{
+   color:#D2691E;
+}
+.generic{
+    color:#B22222;
+}
+.annotation{
+    color:#B22222;
+}
+.arguments{
+    color:#D2691E;
+}
+
+.string{
+color:#008000;
+}

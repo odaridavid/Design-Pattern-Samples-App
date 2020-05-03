@@ -51,5 +51,7 @@ dependencies {
     //Animations
     implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
 
+    implementation 'us.feras.mdv:markdownview:1.1.0'
+
     testImplementation 'junit:junit:4.13'
 }
