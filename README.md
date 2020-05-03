@@ -1,6 +1,10 @@
 <p align="center">
 <img src="art/ic_launcher-playstore.png" alt="home" width="100"/>
 </p>
+<p align="center">
+<a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=odaridavid/Design-Pattern-Samples-App&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/1d3c1b42346d48ba8da25e331535b88c"/></a>
+<img src="https://app.bitrise.io/app/6e596b062d1c496e/status.svg?token=dN7NyRj3DFsxnv0ZoYd-ZA&branch=master"/>
+</p>
 
 ## Design Patterns
 

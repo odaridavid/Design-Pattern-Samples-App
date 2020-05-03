@@ -16,7 +16,6 @@ package com.github.odaridavid.designpatterns
 const val BASE_PATH = "file:///android_asset"
 const val KOTLIN_CSS_PATH = "${BASE_PATH}/kotlin.css"
 
-//TODO Update markdown content
 object CodeSample {
     const val ABSTRACT_FACTORY = "${BASE_PATH}/abstract_factory.md"
     const val ADAPTER = "${BASE_PATH}/adapter.md"
