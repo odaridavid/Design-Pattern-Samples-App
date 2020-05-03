@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.mikepenz.aboutlibraries.plugin'
+apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     compileSdkVersion 29
@@ -45,13 +46,23 @@ dependencies {
     //Material Design
     implementation "com.google.android.material:material:$material_design_version"
 
+    //Libraries used info
     implementation "com.mikepenz:aboutlibraries-core:8.1.2"
     implementation "com.mikepenz:aboutlibraries:8.1.2"
 
     //Animations
     implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
 
+    //Analytics
+    implementation 'com.google.firebase:firebase-analytics:17.4.0'
+
+    //Crashlytics.
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
+
+    //Markdown Support
     implementation 'us.feras.mdv:markdownview:1.1.0'
 
+    //Unit testing
     testImplementation 'junit:junit:4.13'
 }
+apply plugin: 'com.google.gms.google-services'
