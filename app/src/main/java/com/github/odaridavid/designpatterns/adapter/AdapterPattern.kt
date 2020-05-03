@@ -14,6 +14,7 @@
 package com.github.odaridavid.designpatterns.adapter
 
 class Water(val source: String)
+
 interface WaterProvider {
     fun pumpWater(source: String): Water
 }

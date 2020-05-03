@@ -20,7 +20,8 @@
         android:id="@+id/design_pattern_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_default" />
+        android:layout_margin="@dimen/margin_default"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
     <TextView
         android:id="@+id/code_sample_text_view"
@@ -33,7 +34,9 @@
     <us.feras.mdv.MarkdownView
         android:id="@+id/design_pattern_markdown_view"
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/margin_default"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_default" />
 
 </LinearLayout>

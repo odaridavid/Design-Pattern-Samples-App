@@ -9,14 +9,14 @@ body {
     background:#fefefe;
 }
 code {
-   margin: 0 2px;
-   padding: 0 5px;
+    margin: 0 2px;
+    padding: 0 5px;
 }
 .keyword{
-   color:#1E90FF;
+    color:#1E90FF;
 }
 .types{
-   color:#D2691E;
+    color:#D2691E;
 }
 .generic{
     color:#B22222;
@@ -27,7 +27,9 @@ code {
 .arguments{
     color:#D2691E;
 }
-
 .string{
-color:#008000;
+    color:#008000;
+}
+.comments{
+    color:#9e9e9e;
 }

@@ -36,6 +36,4 @@ class Door {
             is Closed -> "Can't get in"
         }
     }
-
-
 }

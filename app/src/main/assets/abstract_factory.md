@@ -21,6 +21,7 @@
     <span class="keyword">override fun</span> getTruck(): <span class="types">Truck</span> = Benz(<span class="arguments">color</span> = <span class="string">"Black"</span>)
 }
 
+<span class="comments">//Abstract Factory</span>
 <span class="keyword">abstract class</span> CarFactory {
 
     <span class="keyword">abstract fun</span> getTruck(): <span class="types">Truck</span>
