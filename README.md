@@ -21,7 +21,7 @@ And Some Wikipedia.🙃
 
 ## Screenshots
 
-|<img src='art/s4.png' width='210'/>|<img src='art/s1.png' width='210'/>|<img src='art/s2.png' width='210'/>|<img src='art/s3.png' width='210'/>|
+|<img src='art/s4.png' width='210'/>|<img src='art/s1.png' width='210'/>|<img src='art/s2.png' width='210'/>|<img src='art/s5.png' width='210'/>|
 |:--:|:--:|:--:|:--:|
 
 
