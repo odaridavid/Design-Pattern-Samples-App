@@ -12,9 +12,16 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup"
         tools:replace="android:allowBackup">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".BaseActivity" />
-
         <activity
             android:name=".AboutActivity"
             android:label="@string/about"
@@ -111,7 +118,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
