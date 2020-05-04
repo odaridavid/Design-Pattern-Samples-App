@@ -14,56 +14,18 @@
 package com.github.odaridavid.designpatterns
 
 import android.app.Activity
-import com.github.odaridavid.designpatterns.abstractfactory.AbstractFactoryActivity
-import com.github.odaridavid.designpatterns.adapter.AdapterActivity
-import com.github.odaridavid.designpatterns.bridge.BridgeActivity
-import com.github.odaridavid.designpatterns.builder.BuilderActivity
-import com.github.odaridavid.designpatterns.chainofresponsibility.ChainOfResponsibilityActivity
-import com.github.odaridavid.designpatterns.command.CommandActivity
-import com.github.odaridavid.designpatterns.composite.CompositeActivity
-import com.github.odaridavid.designpatterns.decorator.DecoratorActivity
-import com.github.odaridavid.designpatterns.facade.FacadeActivity
-import com.github.odaridavid.designpatterns.factory.FactoryActivity
-import com.github.odaridavid.designpatterns.flyweight.FlyweightActivity
-import com.github.odaridavid.designpatterns.iterator.IteratorActivity
-import com.github.odaridavid.designpatterns.mediator.MediatorActivity
-import com.github.odaridavid.designpatterns.memento.MementoActivity
-import com.github.odaridavid.designpatterns.observer.ObserverActivity
-import com.github.odaridavid.designpatterns.prototype.PrototypeActivity
-import com.github.odaridavid.designpatterns.proxy.ProxyActivity
-import com.github.odaridavid.designpatterns.singleton.SingletonActivity
-import com.github.odaridavid.designpatterns.state.StateActivity
-import com.github.odaridavid.designpatterns.strategy.StrategyActivity
-import com.github.odaridavid.designpatterns.templatemethod.TemplateMethodActivity
-import com.github.odaridavid.designpatterns.visitor.VisitorActivity
 
 
 class NavigationController(private val activity: Activity) {
 
-    fun navigateTo(patternId: PatternId) {
-        when (patternId) {
-            PatternId.ABSTRACT_FACTORY -> activity.navigateTo<AbstractFactoryActivity>()
-            PatternId.ADAPTER -> activity.navigateTo<AdapterActivity>()
-            PatternId.BRIDGE -> activity.navigateTo<BridgeActivity>()
-            PatternId.BUILDER -> activity.navigateTo<BuilderActivity>()
-            PatternId.CHAIN_OF_RESPONSIBILITY -> activity.navigateTo<ChainOfResponsibilityActivity>()
-            PatternId.COMMAND -> activity.navigateTo<CommandActivity>()
-            PatternId.COMPOSITE -> activity.navigateTo<CompositeActivity>()
-            PatternId.DECORATOR -> activity.navigateTo<DecoratorActivity>()
-            PatternId.FACADE -> activity.navigateTo<FacadeActivity>()
-            PatternId.FACTORY -> activity.navigateTo<FactoryActivity>()
-            PatternId.FLYWEIGHT -> activity.navigateTo<FlyweightActivity>()
-            PatternId.ITERATOR -> activity.navigateTo<IteratorActivity>()
-            PatternId.MEDIATOR -> activity.navigateTo<MediatorActivity>()
-            PatternId.MEMENTO -> activity.navigateTo<MementoActivity>()
-            PatternId.OBSERVER -> activity.navigateTo<ObserverActivity>()
-            PatternId.PROTOTYPE -> activity.navigateTo<PrototypeActivity>()
-            PatternId.PROXY -> activity.navigateTo<ProxyActivity>()
-            PatternId.SINGLETON -> activity.navigateTo<SingletonActivity>()
-            PatternId.STATE -> activity.navigateTo<StateActivity>()
-            PatternId.STRATEGY -> activity.navigateTo<StrategyActivity>()
-            PatternId.TEMPLATE_METHOD -> activity.navigateTo<TemplateMethodActivity>()
-            PatternId.VISITOR -> activity.navigateTo<VisitorActivity>()
+    fun navigateToDetails(designPattern: DesignPattern) {
+        activity.navigateTo<DesignPatternDetailActivity>() { intent ->
+            intent.putExtra(KEY_DESIGN_PATTERN,designPattern)
         }
     }
+
+    companion object {
+        const val KEY_DESIGN_PATTERN = "design_pattern"
+    }
+
 }

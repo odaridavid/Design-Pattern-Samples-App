@@ -8,7 +8,6 @@ import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 
 class MainActivity : BaseActivity() {
 
-    //TODO show code examples in UI
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +19,8 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setupDesignPatternsAdapter() {
-        val designPatternsAdapter = DesignPatternsAdapter { id ->
-            NavigationController(this).navigateTo(id)
+        val designPatternsAdapter = DesignPatternsAdapter { designPattern ->
+            NavigationController(this).navigateToDetails(designPattern)
         }
         val designPatterns = generateDesignPatterns()
         binding.designPatternsRecyclerView.addItemDecoration(GridSpaceItemDecoration(16))

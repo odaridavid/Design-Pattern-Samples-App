@@ -41,9 +41,9 @@
 
     <!-- Pattern Descriptions-->
     <!--    TODO Update descriptions-->
-    <string name="desc_abstract_factory">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_adapter">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_bridge">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_abstract_factory">A creational design pattern that encapsulates a group of individual factories that have a common theme without specifying their concrete classes.</string>
+    <string name="desc_adapter">A structural design pattern that lets incompatible interfaces work in harmony by providing a wrapper to make the existing classes work without modifying the source code using one of the existing interfaces.</string>
+    <string name="desc_bridge">A structural design pattern that decouples abstractions from their implementation.</string>
     <string name="desc_builder">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
     <string name="desc_chain_of_responsibility">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
     <string name="desc_command">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>

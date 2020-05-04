@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.odaridavid.designpatterns.databinding.ItemDesignPatternBinding
 
 
-class DesignPatternsAdapter(val onClick: (PatternId) -> Unit) :
+class DesignPatternsAdapter(val onClick: (DesignPattern) -> Unit) :
     ListAdapter<DesignPattern, DesignPatternsAdapter.DesignPatternViewHolder>(DiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DesignPatternViewHolder {
@@ -46,7 +46,7 @@ class DesignPatternsAdapter(val onClick: (PatternId) -> Unit) :
 
         override fun onClick(view: View) {
             val designPattern = getItem(adapterPosition)
-            onClick(designPattern.patternId)
+            onClick(designPattern)
         }
     }
 
@@ -60,7 +60,7 @@ class DesignPatternsAdapter(val onClick: (PatternId) -> Unit) :
             override fun areContentsTheSame(
                 oldItem: DesignPattern,
                 newItem: DesignPattern
-            ): Boolean = oldItem.patternId == newItem.patternId
+            ): Boolean = oldItem.name == newItem.name && oldItem.description == newItem.description
         }
     }
 }

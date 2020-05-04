@@ -12,6 +12,14 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup"
         tools:replace="android:allowBackup">
+        <activity android:name=".BaseActivity" />
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/about"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DesignPatternDetailActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -21,100 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BaseActivity" />
-        <activity
-            android:name=".AboutActivity"
-            android:label="@string/about"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".visitor.VisitorActivity"
-            android:label="@string/title_visitor"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".templatemethod.TemplateMethodActivity"
-            android:label="@string/title_template"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".strategy.StrategyActivity"
-            android:label="@string/title_strategy"
-            android:parentActivityName=".strategy.StrategyActivity" />
-        <activity
-            android:name=".state.StateActivity"
-            android:label="@string/title_state"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".observer.ObserverActivity"
-            android:label="@string/title_observer"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".memento.MementoActivity"
-            android:label="@string/title_memento"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".mediator.MediatorActivity"
-            android:label="@string/title_mediator"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".iterator.IteratorActivity"
-            android:label="@string/title_iterator"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".command.CommandActivity"
-            android:label="@string/title_command"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".chainofresponsibility.ChainOfResponsibilityActivity"
-            android:label="@string/title_chain_of_responsibility"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".proxy.ProxyActivity"
-            android:label="@string/title_proxy"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".flyweight.FlyweightActivity"
-            android:label="@string/title_flyweight"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".facade.FacadeActivity"
-            android:label="@string/title_facade"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".decorator.DecoratorActivity"
-            android:label="@string/title_decorator"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".composite.CompositeActivity"
-            android:label="@string/title_composite"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".bridge.BridgeActivity"
-            android:label="@string/title_bridge"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".adapter.AdapterActivity"
-            android:label="@string/title_adapter"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".singleton.SingletonActivity"
-            android:label="@string/title_singleton"
-            android:parentActivityName=".singleton.SingletonActivity" />
-        <activity
-            android:name=".prototype.PrototypeActivity"
-            android:label="@string/title_prototype"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".builder.BuilderActivity"
-            android:label="@string/title_builder"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".factory.FactoryActivity"
-            android:label="@string/title_factory"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".abstractfactory.AbstractFactoryActivity"
-            android:label="@string/title_abstract_factory"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
