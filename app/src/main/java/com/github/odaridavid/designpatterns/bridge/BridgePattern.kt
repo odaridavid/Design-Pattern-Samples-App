@@ -13,49 +13,18 @@
  **/
 package com.github.odaridavid.designpatterns.bridge
 
-//TODO Revisit Bridge Pattern
-interface IFurniture {
-    fun getMaterial(): String
-    fun matchWithAmbience(effects: String): String
-    fun getAmbience(): String
+interface FurnitureTheme {
+    fun getTheme(): String
 }
 
-class Chair : IFurniture {
-
-    private var ambience: String = ""
-
-    override fun getMaterial(): String {
-        return "Chair Material"
-    }
-
-    override fun matchWithAmbience(effects: String): String {
-        ambience = "$effects Chair"
-        return ambience
-    }
-
-    override fun getAmbience(): String {
-        return ambience.replace("Chair", "", true).trim()
-    }
+class VintageFurniture : FurnitureTheme {
+    override fun getTheme(): String = "Vintage"
 }
 
-abstract class FurnitureShop(private val furniture: IFurniture) {
-
-    fun setDisplay() {
-        println("${furniture.getMaterial()} On Display ")
-    }
-
-    abstract fun setAmbience()
+abstract class Furniture(val furnitureTheme: FurnitureTheme) {
+    abstract fun getType(): String
 }
 
-class VintageFurnitureShop(openingHours: String, private val furniture: IFurniture) :
-    FurnitureShop(furniture) {
-
-    init {
-        setDisplay()
-        println("Open from $openingHours")
-    }
-
-    override fun setAmbience() {
-        furniture.matchWithAmbience("Vintage")
-    }
+class Chair(private val theme: FurnitureTheme) : Furniture(theme) {
+    override fun getType(): String = "${theme.getTheme()} Chair."
 }

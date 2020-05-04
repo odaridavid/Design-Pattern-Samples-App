@@ -14,20 +14,18 @@
 package com.github.odaridavid.designpatterns
 
 import com.github.odaridavid.designpatterns.bridge.Chair
-import com.github.odaridavid.designpatterns.bridge.VintageFurnitureShop
+import com.github.odaridavid.designpatterns.bridge.VintageFurniture
 import org.junit.Test
 
 
 class BridgePatternUnitTest {
 
     @Test
-    fun setAmbienceEffects_vintageShop_returnVintageFurniture() {
-        val chair = Chair()
-        val vintageShop = VintageFurnitureShop("8:00 AM - 5:00 PM", chair)
+    fun getType_fromFurniture_returnWithFurnitureTheme() {
+        val theme = VintageFurniture()
+        val chair = Chair(theme)
 
-        vintageShop.setAmbience()
-
-        assert(chair.getAmbience() == "Vintage")
-
+        assert(chair.getType().contains("Vintage Chair"))
     }
+
 }

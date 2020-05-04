@@ -15,29 +15,8 @@ package com.github.odaridavid.designpatterns.builder
 
 import androidx.annotation.FloatRange
 
-//With constructor
-class PizzaBuilder(
-    private var type: PizzaType = PizzaType.BEEF,
-    private var size: PizzaSize = PizzaSize.SMALL,
-    private var extraCheese: Boolean = false
-) {
-    fun build(): Pizza {
-        return Pizza(type, size, extraCheese)
-    }
-}
-
-data class Pizza(val pizzaType: PizzaType, val pizzaSize: PizzaSize, val extraCheese: Boolean)
-
-enum class PizzaSize {
-    SMALL, MEDIUM, LARGE
-}
-
-enum class PizzaType {
-    CHICAGO_STYLE, VEGETABLE, BEEF
-}
-
 //Builder methods
-object GameEnvironmentBuilder {
+class GameEnvironmentBuilder {
 
     var quality = RenderQuality.MEDIUM
     var frequency = 0.0f
@@ -93,7 +72,7 @@ data class GameEnvironment(
 
 //DSL Format
 fun createEnvironment(init: GameEnvironmentBuilder.() -> Unit): GameEnvironment {
-    val gameEnvironmentBuilder = GameEnvironmentBuilder
+    val gameEnvironmentBuilder = GameEnvironmentBuilder()
     init(gameEnvironmentBuilder)
     return gameEnvironmentBuilder.build()
 }

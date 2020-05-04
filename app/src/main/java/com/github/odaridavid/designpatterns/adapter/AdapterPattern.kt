@@ -13,27 +13,30 @@
  **/
 package com.github.odaridavid.designpatterns.adapter
 
-class Water(val source: String)
-
-interface WaterProvider {
-    fun pumpWater(source: String): Water
+interface LaptopCable {
+    fun onConnectedToPowerPort()
 }
 
-open class OldWaterPump : WaterProvider {
-    override fun pumpWater(source: String): Water {
-        return Water(source)
+interface PowerBrick {
+    fun onConnectedToSocket()
+}
+
+class HpPowerBrick : PowerBrick {
+    override fun onConnectedToSocket() {
+        println("PowerBrick Receiving Power Supply")
     }
 }
 
-class WaterFilter {
-    fun filterWater(source: String): Water {
-        return Water("Filtered $source Water")
+open class StockCable : LaptopCable {
+    override fun onConnectedToPowerPort() {
+        println("Cable Connected To Laptop")
     }
 }
 
-class WaterFilterAdapter(private val waterFilter: WaterFilter) : OldWaterPump() {
-
-    override fun pumpWater(source: String): Water {
-        return waterFilter.filterWater(source)
+class StockCableAdapter(private val hpPowerBrick: HpPowerBrick) : StockCable() {
+    override fun onConnectedToPowerPort() {
+        super.onConnectedToPowerPort()
+        hpPowerBrick.onConnectedToSocket()
+        println("AC/DC Conversion happening")
     }
 }

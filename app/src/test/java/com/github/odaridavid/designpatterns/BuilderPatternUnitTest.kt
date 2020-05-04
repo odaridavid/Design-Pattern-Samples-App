@@ -20,14 +20,7 @@ class BuilderPatternUnitTest {
 
     @Test
     fun build_returnGameEnvironment() {
-        val gv1 = GameEnvironmentBuilder
-            .setRenderQuality(RenderQuality.LOW)
-            .setRocksFrequency(0.4f)
-            .setScene(Scene.CAVE)
-            .setTimeOfDay(TimeOfDay.AFTERNOON)
-            .build()
-
-        val gv = GameEnvironmentBuilder.run {
+        val gv = GameEnvironmentBuilder().run {
             setRenderQuality(RenderQuality.ULTRA)
             setRocksFrequency(0.8f)
             setScene(Scene.CLUB)
@@ -43,8 +36,7 @@ class BuilderPatternUnitTest {
         }
 
         assert(gv.quality == RenderQuality.ULTRA)
-        assert(gv1.quality == RenderQuality.LOW)
-        assert(gvDsl.quality ==RenderQuality.MEDIUM)
+        assert(gvDsl.quality == RenderQuality.MEDIUM)
     }
 
 }

@@ -13,23 +13,19 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.adapter.WaterFilter
-import com.github.odaridavid.designpatterns.adapter.WaterFilterAdapter
+import com.github.odaridavid.designpatterns.adapter.HpPowerBrick
+import com.github.odaridavid.designpatterns.adapter.StockCableAdapter
 import org.junit.Test
 
 
 class AdapterPatternUnitTest {
 
     @Test
-    fun pumpWater_withWaterFilterAdapter_returnsFilteredWater() {
-        val filter = WaterFilter()
-        val adapter = WaterFilterAdapter(filter)
+    fun onConnectedToPowerPort_withStockCableAdapter_printsStatus() {
+        val hpPowerBrick = HpPowerBrick()
+        val stockCableAdapter = StockCableAdapter(hpPowerBrick)
 
-        val water = adapter.pumpWater(source = "River")
-
-        assert(water.source == "Filtered River Water") {
-            println(water.source)
-        }
+        stockCableAdapter.onConnectedToPowerPort()
     }
 
 }
