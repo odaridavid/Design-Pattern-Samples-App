@@ -31,7 +31,7 @@ class IceCreamVendor(override val nextHandler: OrderHandler?) : OrderHandler {
             println("Vendor: I'll have to get some")
             nextHandler?.handleRequest(order) ?: println("This is the end buddy")
         } else {
-            println("Order of ${order.items.keys} coming right up")
+            println("OrderTransaction of ${order.items.keys} coming right up")
         }
     }
 }
@@ -43,7 +43,7 @@ class IceCreamRetailer(override val nextHandler: OrderHandler?) : OrderHandler {
             println("Retailer: Hmm guess I'll have to order more too")
             nextHandler?.handleRequest(order) ?: println("This is the end buddy")
         } else {
-            println("Order of ${order.items.keys} enroute to vendor")
+            println("OrderTransaction of ${order.items.keys} enroute to vendor")
         }
     }
 }
@@ -54,7 +54,7 @@ class IceCreamFactory(override val nextHandler: OrderHandler?) : OrderHandler {
         if (orderSize > 100) {
             nextHandler?.handleRequest(order) ?: println("This is the end buddy")
         } else {
-            println("Factory: Order of ${order.items.keys} coming enroute to retailer")
+            println("Factory: OrderTransaction of ${order.items.keys} coming enroute to retailer")
         }
     }
 }

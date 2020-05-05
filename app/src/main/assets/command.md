@@ -46,11 +46,11 @@
     <span class="keyword">val</span> raceCommand = RaceCommand(event)
     <span class="keyword">val</span> detourCommand = DetourCommand(event)
 
-    RaceOrganizer().<span class="stdlib">apply</span> {
+    RaceOrganizer().<span class="stdlib">apply</span> <span class="stdlib">{</span>
         register(raceCommand)
         register(detourCommand)
         execute()
-    }
+    <span class="stdlib">}</span>
 }
 </code>
 </pre>

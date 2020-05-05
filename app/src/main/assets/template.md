@@ -1,36 +1,27 @@
 <pre>
 <code>
-abstract class SocialEvent {
-    abstract fun getSponsors(): List<String>
-    abstract fun getActivities(): List<String>
-    fun displayBanners() {
-        for (sponsor in getSponsors()) {
-            println("$sponsor banner")
-        }
-        for (activity in getActivities()) {
-            println("$activity Available")
-        }
+<span class="keyword">abstract class</span> Window {
+    <span class="keyword">abstract fun</span> getWidth(): <span class="types">Float</span>
+    <span class="keyword">abstract fun</span> getHeight(): <span class="types">Float</span>
+    <span class="keyword">abstract fun</span> render(height: <span class="types">Float</span>, width: <span class="types">Float</span>)
+    <span class="keyword">fun</span> draw() {
+        render(getHeight(), getWidth())
     }
 }
 
-class TheDevsEvent : SocialEvent() {
-    override fun getSponsors(): List<String> {
-        return emptyList()
-    }
+<span class="keyword">class</span> RectangularWindow : Window() {
+    <span class="keyword">override fun</span> getWidth(): <span class="types">Float</span> = <span class="literals">1024.0f</span>
 
-    override fun getActivities(): List<String> {
-        return emptyList()
+    <span class="keyword">override fun</span> getHeight(): <span class="types">Float</span> = <span class="literals">512.0f</span>
+
+    <span class="keyword">override fun</span> render(height: <span class="types">Float, width: <span class="types">Float)</span> {
+        <span class="stdlib">println</span>(<span class="string">"Rendering window of $height pixels by $width pixels"</span>)
     }
 }
 
-class RockClimbersEvent : SocialEvent() {
-    override fun getSponsors(): List<String> {
-        return mutableListOf("TRC")
-    }
-
-    override fun getActivities(): List<String> {
-        return emptyList()
-    }
+<span class="keyword">fun</span> main() {
+    <span class="keyword">val</span> rectangularWindow = RectangularWindow()
+    rectangularWindow.draw()
 }
 </code>
 </pre>

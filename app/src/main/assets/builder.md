@@ -55,13 +55,13 @@
 )
 
 <span class="keyword">fun</span> main(){
-    <span class="keyword">val</span> gv = GameEnvironmentBuilder().<span class="stdlib">run</span> {
+    <span class="keyword">val</span> gv = GameEnvironmentBuilder().<span class="stdlib">run</span> <span class="stdlib">{</span>
                 setRenderQuality(RenderQuality.<span class="static">ULTRA</span>)
                 setRocksFrequency(<span class="literals">0.8f</span>)
                 setScene(Scene.<span class="static">CLUB</span>)
                 setTimeOfDay(TimeOfDay.<span class="static">MORNING</span>)
                 build()
-             }
+             <span class="stdlib">}</span>
 
     <span class="assertions">assert</span>(gv.quality == RenderQuality.<span class="static">ULTRA</span>)
 }

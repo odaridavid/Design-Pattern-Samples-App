@@ -18,23 +18,23 @@ data class Memento(val state: String)
 
 class Originator(var state: String) {
 
-    fun createMemento(): Memento {
+    fun saveToMemento(): Memento {
         return Memento(state)
     }
 
-    fun restore(memento: Memento) {
+    fun restoreFromMemento(memento: Memento) {
         state = memento.state
     }
 }
 
 class CareTaker {
-    private val mementoList = ArrayList<Memento>()
+    private val savedStates = ArrayList<Memento>()
 
     fun saveState(state: Memento) {
-        mementoList.add(state)
+        savedStates.add(state)
     }
 
     fun restore(index: Int): Memento {
-        return mementoList[index]
+        return savedStates[index]
     }
 }

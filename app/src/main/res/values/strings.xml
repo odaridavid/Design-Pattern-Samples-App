@@ -1,67 +1,153 @@
 <resources>
     <string name="app_name">Design Pattern Samples</string>
 
-    <!--    Design Patterns Titles  -->
-    <!--    Creational patterns -->
-    <string name="title_builder">Builder Pattern</string>
-    <string name="title_abstract_factory">Abstract Factory Pattern</string>
-    <string name="title_factory">Factory Pattern</string>
-    <string name="title_prototype">Prototype Pattern</string>
-    <string name="title_singleton">Singleton Pattern</string>
+    <!--Creational patterns -->
+    <string name="title_builder">Builder</string>
+    <string name="title_abstract_factory">Abstract Factory</string>
+    <string name="title_factory">Factory</string>
+    <string name="title_prototype">Prototype</string>
+    <string name="title_singleton">Singleton</string>
 
-    <!--    Structural patterns -->
-    <string name="title_adapter">Adapter Pattern</string>
-    <string name="title_bridge">Bridge Pattern</string>
-    <string name="title_composite">Composite Pattern</string>
-    <string name="title_decorator">Decorator Pattern</string>
-    <string name="title_facade">Facade Pattern</string>
-    <string name="title_flyweight">Flyweight Pattern</string>
-    <string name="title_proxy">Proxy Pattern</string>
+    <!--Structural patterns -->
+    <string name="title_adapter">Adapter</string>
+    <string name="title_bridge">Bridge</string>
+    <string name="title_composite">Composite</string>
+    <string name="title_decorator">Decorator</string>
+    <string name="title_facade">Facade</string>
+    <string name="title_flyweight">Flyweight</string>
+    <string name="title_proxy">Proxy</string>
 
-    <!--    Behavioral patterns -->
-    <string name="title_chain_of_responsibility">Chain Of Responsibility Pattern</string>
-    <string name="title_command">Command Pattern</string>
-    <string name="title_iterator">Iterator Pattern</string>
-    <string name="title_mediator">Mediator Pattern</string>
-    <string name="title_memento">Memento Pattern</string>
-    <string name="title_observer">Observer Pattern</string>
-    <string name="title_state">State Pattern</string>
-    <string name="title_strategy">Strategy Pattern</string>
-    <string name="title_template">Template Pattern</string>
-    <string name="title_visitor">Visitor Pattern</string>
+    <!--Behavioral patterns -->
+    <string name="title_chain_of_responsibility">Chain Of Responsibility</string>
+    <string name="title_command">Command</string>
+    <string name="title_iterator">Iterator</string>
+    <string name="title_mediator">Mediator</string>
+    <string name="title_memento">Memento</string>
+    <string name="title_observer">Observer</string>
+    <string name="title_state">State</string>
+    <string name="title_strategy">Strategy</string>
+    <string name="title_template">Template Method</string>
+    <string name="title_visitor">Visitor</string>
 
-    <!-- Menu-->
-    <string name="about">About</string>
+    <!-- About Activity-->
     <string name="libraries">Libraries</string>
     <string name="info_design_patterns_app_icon">Design Patterns App Icon</string>
     <string name="template_app_version" translatable="false">v%1$s</string>
+
+    <!--Main Activity-->
     <string name="info_design_pattern_image">Puzzle piece image as design pattern card icon</string>
+    <string name="menu_about">About</string>
 
-    <string name="code_sample">Code Sample</string>
+    <!--Design Pattern Detail Activity-->
+    <string name="title_code_sample">Code Sample</string>
 
-    <!-- Pattern Descriptions-->
-    <string name="desc_abstract_factory">A creational design pattern that encapsulates a group of individual factories that have a common theme without specifying their concrete classes.</string>
-    <string name="desc_adapter">A structural design pattern that lets incompatible interfaces work in harmony by providing a wrapper to make the existing classes work without modifying the source code using one of the existing interfaces.</string>
-    <string name="desc_bridge">A structural design pattern that decouples abstractions from their implementation.It has a very similar structure to the adapter pattern.</string>
-    <string name="desc_builder">A creational design pattern that provides stepwise construction of complex objects</string>
-    <string name="desc_chain_of_responsibility">A behavioral design pattern consisting of a chain of receivers known as handlers,each handler will process a request and pass it on to the next for further processing.</string>
-    <string name="desc_command">A behavioral design pattern  behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time</string>
-    <string name="desc_composite">A structural design pattern where a group of objects are treated as one</string>
-    <string name="desc_observer">A behavioral design pattern where an object known as a publisher maintains a list of objects known as observers which get notified on state changes.</string>
-    <string name="desc_state">A behavioral design pattern where an object alters its behaviours when its internal state changes.</string>
-    <string name="desc_decorator">A structural design patterns that adds behavior to an object using a wrapper without altering the structure of affected objects.</string>
-    <string name="desc_facade">A structural design pattern that abstracts complexities by providing a simplified interface.</string>
-    <string name="desc_factory">A creational design pattern which provides an interface to create objects at runtime</string>
-    <string name="desc_singleton">A creational design pattern that ensures the created object has only one instance</string>
-    <string name="desc_mediator">A behavioral design pattern that enforces loose coupling between objects by reducing communication complexity in how they interact.</string>
-    <string name="desc_memento">A behavioral...</string>
+    <!--Design Pattern Descriptions-->
+    <string name="desc_abstract_factory">
+        A creational design pattern that encapsulates a group of individual factories that have a
+        common theme without specifying their concrete classes.
+    </string>
 
-    <string name="desc_prototype">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_proxy">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_strategy">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_template">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_visitor">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_adapter">
+        A structural design pattern that lets incompatible interfaces work in harmony by providing a
+        wrapper to make the existing classes work without modifying the source code using one of the
+        existing interfaces.
+    </string>
 
-    <string name="desc_iterator">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_flyweight">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_bridge">
+        A structural design pattern that decouples abstractions from their implementation.It has a
+        very similar structure to the adapter pattern.
+    </string>
+
+    <string name="desc_builder">
+        A creational design pattern that provides stepwise construction of complex objects.
+    </string>
+
+    <string name="desc_chain_of_responsibility">
+        A behavioral design pattern consisting of a chain of receivers known as handlers,each handler
+        will process a request and pass it on to the next for further processing.
+    </string>
+
+    <string name="desc_command">
+        A behavioral design pattern  behavioral design pattern in which an object is used to
+        encapsulate all information needed to perform an action or trigger an event at a later time.
+    </string>
+
+    <string name="desc_composite">
+        A structural design pattern where a group of objects are treated as one.
+    </string>
+
+    <string name="desc_observer">
+        A behavioral design pattern where an object known as a publisher maintains a list of objects
+        known as observers which get notified on state changes.
+    </string>
+
+    <string name="desc_state">
+        A behavioral design pattern where an object alters its behaviours when its internal state
+        changes.
+    </string>
+
+    <string name="desc_decorator">
+        A structural design patterns that adds behavior to an object using a wrapper without
+        altering the structure of affected objects.
+    </string>
+
+    <string name="desc_facade">
+        A structural design pattern that abstracts complexities by providing a simplified interface.
+    </string>
+
+    <string name="desc_factory">
+        A creational design pattern which provides an interface to create
+        objects at runtime.
+    </string>
+
+    <string name="desc_singleton">
+        A creational design pattern that ensures the created object has only one instance.
+    </string>
+
+    <string name="desc_mediator">
+        A behavioral design pattern that enforces loose coupling between objects by reducing
+        communication complexity in how they interact.
+    </string>
+
+    <string name="desc_memento">
+        A behavioral design that provides abiity to restore an object to its previous state.It is
+        implemented with three objects: the originator, a caretaker and a memento.
+    </string>
+
+    <string name="desc_prototype">
+        A creational design pattern which copies an existing instance of an object and making
+        customization changes as opposed to creating a new object.
+    </string>
+
+    <string name="desc_proxy">
+        A structural design pattern that provides a placeholder object that helps with access control
+        to the original object by implementing an extra layer of encapsulation.
+    </string>
+
+    <string name="desc_strategy">
+        A behavioral design pattern that selects an algorithm to use from a family of algorithms
+        during runtime.
+    </string>
+
+    <string name="desc_template_method">
+        The template method falls under behavioral design patterns.It constitutes of a method in a
+        superclass, usually an abstract superclass, and defines the skeleton of an operation in
+        terms of a number of high-level steps. These steps are themselves implemented by additional
+        helper methods in the same class as the template method.
+    </string>
+
+    <string name="desc_visitor">
+        A behavioral design pattern that lets you add new operations to existing objects without
+        modifying their structure by separating the algorithm from the objects structure.
+    </string>
+
+    <!--    TODO Look into iterator and flyweight-->
+    <string name="desc_iterator">
+        A behavioral design pattern
+    </string>
+
+    <string name="desc_flyweight">
+        A structural design pattern
+    </string>
+
 </resources>

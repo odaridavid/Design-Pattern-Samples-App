@@ -13,37 +13,21 @@
  **/
 package com.github.odaridavid.designpatterns.templatemethod
 
-
-abstract class SocialEvent {
-    abstract fun getSponsors(): List<String>
-    abstract fun getActivities(): List<String>
-    fun displayBanners() {
-        for (sponsor in getSponsors()) {
-            println("$sponsor banner")
-        }
-        for (activity in getActivities()) {
-            println("$activity Available")
-        }
+abstract class Window {
+    abstract fun getWidth(): Float
+    abstract fun getHeight(): Float
+    abstract fun render(height: Float, width: Float)
+    fun draw() {
+        render(getHeight(), getWidth())
     }
 }
 
-class TheDevsEvent : SocialEvent() {
-    override fun getSponsors(): List<String> {
-        return emptyList()
-    }
+class RectangularWindow : Window() {
+    override fun getWidth(): Float = 1024.0f
 
-    override fun getActivities(): List<String> {
-        return emptyList()
-    }
-}
+    override fun getHeight(): Float = 512.0f
 
-class RockClimbersEvent : SocialEvent() {
-    override fun getSponsors(): List<String> {
-        return mutableListOf("TRC")
+    override fun render(height: Float, width: Float) {
+        println("Rendering window of $height pixels by $width pixels")
     }
-
-    override fun getActivities(): List<String> {
-        return emptyList()
-    }
-
 }

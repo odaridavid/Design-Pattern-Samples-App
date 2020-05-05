@@ -20,10 +20,10 @@
     }
 
     <span class="keyword">fun</span> updateParcelStatus(id: <span class="types">Int</span>, status: <span class="types">String</span>) {
-        observers.<span class="stdlib">forEach</span> { user ->
+        observers.<span class="stdlib">forEach {</span> user ->
             <span class="keyword">if</span> (user.parcelId == id) {
                 user.parcelStatus(status)
-            }
+            <span class="stdlib">}</span>
         }
     }
 }

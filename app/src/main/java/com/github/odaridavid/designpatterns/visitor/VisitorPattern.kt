@@ -20,40 +20,40 @@ interface Visitor {
     fun visit(airBnb: AirBnb)
 }
 
-interface Accomodation {
+interface Accommodation {
     val rating: Int
     fun accept(visitor: Visitor)
 }
 
-class AccomodationVisitor : Visitor {
+class AccommodationVisitor : Visitor {
 
     override fun visit(hotel: Hotel) {
-        println("Hotel rating on visit ${hotel.rating}")
+        println("Hotel score on visit ${hotel.rating / 10 * 100}")
     }
 
     override fun visit(lodging: Lodging) {
-        println("Lodging rating on visit ${lodging.rating}")
+        println("Lodging score on visit ${lodging.rating / 10 * 100}")
     }
 
     override fun visit(airBnb: AirBnb) {
-        println("Airbnb rating on visit ${airBnb.rating}")
+        println("AirBnb score on visit ${airBnb.rating / 10 * 100}")
     }
 
 }
 
-class Hotel(override val rating: Int) : Accomodation {
+class Hotel(override val rating: Int) : Accommodation {
     override fun accept(visitor: Visitor) {
         visitor.visit(this)
     }
 }
 
-class Lodging(override val rating: Int) : Accomodation {
+class Lodging(override val rating: Int) : Accommodation {
     override fun accept(visitor: Visitor) {
         visitor.visit(this)
     }
 }
 
-class AirBnb(override val rating: Int) : Accomodation {
+class AirBnb(override val rating: Int) : Accommodation {
     override fun accept(visitor: Visitor) {
         visitor.visit(this)
     }

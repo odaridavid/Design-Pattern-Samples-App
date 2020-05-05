@@ -15,7 +15,7 @@
         <activity android:name=".BaseActivity" />
         <activity
             android:name=".AboutActivity"
-            android:label="@string/about"
+            android:label="@string/menu_about"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DesignPatternDetailActivity"

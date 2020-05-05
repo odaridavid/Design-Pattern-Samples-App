@@ -14,6 +14,4 @@
 package com.github.odaridavid.designpatterns
 
 
-class FlyweightPatternUnitTest {
-//TODO
-}
+class FlyweightPatternUnitTest

@@ -17,9 +17,9 @@
     }
 
     <span class="keyword">fun</span> notifySubscribedReaders() {
-        observers.<span class="stdlib">forEach</span> { observer ->
+        observers.<span class="stdlib">forEach</span> <span class="stdlib">{</span> observer ->
             observer.onNewsletterPublished()
-        }
+        <span class="stdlib">}</span>
     }
 }
 

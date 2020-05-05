@@ -13,5 +13,15 @@
  **/
 package com.github.odaridavid.designpatterns
 
+import com.github.odaridavid.designpatterns.templatemethod.RectangularWindow
+import org.junit.Test
 
-class IteratorPatternUnitTest
+
+class TemplateMethodUnitTest {
+
+    @Test
+    fun window_templateMethod() {
+        val rectangularWindow = RectangularWindow()
+        rectangularWindow.draw()
+    }
+}

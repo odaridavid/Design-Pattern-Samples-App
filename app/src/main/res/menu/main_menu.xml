@@ -17,7 +17,7 @@
     <item
         android:id="@+id/action_about"
         android:icon="@drawable/ic_info_outline_black_24dp"
-        android:title="@string/about"
+        android:title="@string/menu_about"
         app:iconTint="@color/iconTint"
         app:showAsAction="ifRoom" />
 

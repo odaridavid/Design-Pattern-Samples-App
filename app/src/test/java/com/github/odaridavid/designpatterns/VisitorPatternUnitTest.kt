@@ -13,7 +13,7 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.visitor.AccomodationVisitor
+import com.github.odaridavid.designpatterns.visitor.AccommodationVisitor
 import com.github.odaridavid.designpatterns.visitor.AirBnb
 import com.github.odaridavid.designpatterns.visitor.Hotel
 import com.github.odaridavid.designpatterns.visitor.Lodging
@@ -23,15 +23,17 @@ import org.junit.Test
 class VisitorPatternUnitTest {
 
     @Test
-    fun accomodation_VisitorPattern() {
-        val accVisitor = AccomodationVisitor()
-        val hotel = Hotel(4)
-        val lodging = Lodging(9)
-        val airBnb = AirBnb(5)
+    fun accommodation_visitorPattern() {
+        val visitor = AccommodationVisitor()
 
-        airBnb.accept(accVisitor)
-        hotel.accept(accVisitor)
-        lodging.accept(accVisitor)
+        val hotel = Hotel(rating = 4)
+        val lodging = Lodging(rating = 9)
+        val airBnb = AirBnb(rating = 5)
+
+        airBnb.accept(visitor)
+        hotel.accept(visitor)
+        lodging.accept(visitor)
+
     }
 
 }

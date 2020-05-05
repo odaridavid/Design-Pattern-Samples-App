@@ -13,5 +13,3 @@
  **/
 package com.github.odaridavid.designpatterns.flyweight
 
-
-//TODO ,a bit complex

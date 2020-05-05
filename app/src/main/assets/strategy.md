@@ -1,35 +1,35 @@
 <pre>
 <code>
-interface BillingStrategy {
-    fun pay(): String
+<span class="keyword">interface</span> BillingStrategy {
+    <span class="keyword">fun</span> pay(): <span class="types">String</span>
 }
 
-class Mpesa : BillingStrategy {
-    override fun pay(): String = "Pay by M-pesa"
+<span class="keyword">class</span> Mpesa : BillingStrategy {
+    <span class="keyword">override fun</span> pay(): <span class="types">String</span> = <span class="string">"Pay through M-pesa"</span>
 }
 
-class CashOnDelivery : BillingStrategy {
-    override fun pay(): String = "Pay on Delivery"
+<span class="keyword">class</span> CashOnDelivery : BillingStrategy {
+    <span class="keyword">override fun</span> pay(): <span class="keyword">String</span> = <span class="string">"Pay cash on delivery"</span>
 }
 
-class Order {
-    private var billingStrategy: BillingStrategy? = null
+<span class="keyword">class</span> OrderTransaction(<span class="keyword">val</span> transactionProcess: (<span class="types">BillingStrategy</span>) -> <span class="types">String</span>) {
 
-    fun setStrategy(billingStrategy: BillingStrategy) {
-        this.billingStrategy = billingStrategy
-    }
+    <span class="keyword">var</span> billingStrategy: <span class="types">BillingStrategy?</span> = <span class="keyword">null</span>
 
-    fun submitOrder(): String {
-        return billingStrategy?.pay() ?: "No Payment Option Selected"
+    <span class="keyword">fun</span> finalizeTransaction(): <span class="types">String</span> {
+        <span class="keyword">return</span> billingStrategy?<span class="stdlib">.run</span> <span class="stdlib">{</span> transactionProcess(<span class="keyword">this</span>) <span class="stdlib">}</span> ?: <span class="string">"No Billing Method Selected"</span>
     }
 }
 
-//functional
+<span class="keyword">fun</span> main() {
+    <span class="keyword">val</span> order = OrderTransaction <span class="stdlib">{</span> billingStrategy -> billingStrategy.pay() <span class="stdlib">}</span>
+    <span class="assertions">assert</span>(order.finalizeTransaction()<span class="stdlib">.contains</span>(<span class="string">"No Billing Method Selected"</span>))
 
-class MarkdownFormatter(var formatterStrategy: (String) -> String) {
-    fun format(string: String) {
-        println(formatterStrategy(string))
-    }
+    order.billingStrategy = Mpesa()
+    <span class="assertions">assert</span>(order.finalizeTransaction()<span class="stdlib">.contains</span>(<span class="string">"Pay through M-pesa"</span>))
+
+    order.billingStrategy = CashOnDelivery()
+    <span class="assertions">assert</span>(order.finalizeTransaction()<span class="stdlib">.contains</span>(<span class="string">"Pay cash on delivery"</span>))
 }
 </code>
 </pre>

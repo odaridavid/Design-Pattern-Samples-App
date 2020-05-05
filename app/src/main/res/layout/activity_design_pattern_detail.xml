@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_default"
-        android:text="@string/code_sample"
+        android:text="@string/title_code_sample"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
     <us.feras.mdv.MarkdownView

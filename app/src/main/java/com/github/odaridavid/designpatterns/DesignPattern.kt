@@ -54,7 +54,7 @@ fun generateDesignPatterns(): List<DesignPattern> {
         DesignPattern(R.string.title_singleton, R.string.desc_singleton, CodeSample.SINGLETON),
         DesignPattern(R.string.title_state, R.string.desc_state, CodeSample.STATE),
         DesignPattern(R.string.title_strategy, R.string.desc_strategy, CodeSample.STRATEGY),
-        DesignPattern(R.string.title_template, R.string.desc_template, CodeSample.TEMPLATE_METHOD),
+        DesignPattern(R.string.title_template, R.string.desc_template_method, CodeSample.TEMPLATE_METHOD),
         DesignPattern(R.string.title_visitor, R.string.desc_visitor, CodeSample.VISITOR)
     )
 }

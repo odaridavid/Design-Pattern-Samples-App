@@ -51,7 +51,7 @@
     <span class="keyword">val</span> iceCreamRetailer = IceCreamRetailer(<span class="arguments">nextHandler</span> = iceCreamFactory)
     <span class="keyword">val</span> iceCreamVendor = IceCreamVendor(<span class="arguments">nextHandler</span> = iceCreamRetailer)
 
-    <span class="keyword">val</span> order = IceCreamOrder(mapOf(<span class="string">"Vanilla"</span> <span class="stdlib">to</span> <span class="literal">10</span>, <span class="string">"Chocolate"</span> <span class="stdlib">to</span> <span class="literals">9</span>, <span class="string">"Pistachio"</span> <span class="stdlib">to</span> <span class="literals">5</span>))
+    <span class="keyword">val</span> order = IceCreamOrder(<span class="stdlib">mapOf</span>(<span class="string">"Vanilla"</span> <span class="stdlib">to</span> <span class="literal">10</span>, <span class="string">"Chocolate"</span> <span class="stdlib">to</span> <span class="literals">9</span>, <span class="string">"Pistachio"</span> <span class="stdlib">to</span> <span class="literals">5</span>))
     iceCreamVendor.handleRequest(order)
 }
 </code>

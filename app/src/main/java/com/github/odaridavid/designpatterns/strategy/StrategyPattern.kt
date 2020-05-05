@@ -19,29 +19,18 @@ interface BillingStrategy {
 }
 
 class Mpesa : BillingStrategy {
-    override fun pay(): String = "Pay by M-pesa"
+    override fun pay(): String = "Pay through M-pesa"
 }
 
 class CashOnDelivery : BillingStrategy {
-    override fun pay(): String = "Pay on Delivery"
+    override fun pay(): String = "Pay cash on delivery"
 }
 
-class Order {
-    private var billingStrategy: BillingStrategy? = null
+class OrderTransaction(val transactionProcess: (BillingStrategy) -> String) {
 
-    fun setStrategy(billingStrategy: BillingStrategy) {
-        this.billingStrategy = billingStrategy
-    }
+    var billingStrategy: BillingStrategy? = null
 
-    fun submitOrder(): String {
-        return billingStrategy?.pay() ?: "No Payment Option Selected"
-    }
-}
-
-//functional
-
-class MarkdownFormatter(var formatterStrategy: (String) -> String) {
-    fun format(string: String) {
-        println(formatterStrategy(string))
+    fun finalizeTransaction(): String {
+        return billingStrategy?.run { transactionProcess(this) } ?: "No Billing Method Selected"
     }
 }

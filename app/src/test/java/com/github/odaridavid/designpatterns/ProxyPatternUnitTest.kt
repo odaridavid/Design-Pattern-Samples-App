@@ -20,15 +20,11 @@ import org.junit.Test
 class ProxyPatternUnitTest {
 
     @Test
-    fun drive_ProxyCar_withoutKey() {
-        ProxyCar().drive()
-    }
+    fun driveProxyCar_ProxyPattern() {
+        val proxyCar = ProxyCar()
+        assert(proxyCar.drive().contains("No keys available"))
 
-    @Test
-    fun drive_ProxyCar_withKey() {
-        ProxyCar().apply {
-            key = "ignite"
-            drive()
-        }
+        proxyCar.key = "available"
+        assert(proxyCar.drive().contains("Ignition On"))
     }
 }

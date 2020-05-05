@@ -21,20 +21,20 @@ import org.junit.Test
 class MementoPatternUnitTest {
 
     @Test
-    fun mementoPattern() {
+    fun savingStates_mementoPattern() {
         val originator = Originator(state = "Start State")
         val careTaker = CareTaker()
-        careTaker.saveState(originator.createMemento())
+        careTaker.saveState(originator.saveToMemento())
 
         originator.state = "Second State"
-        careTaker.saveState(originator.createMemento())
+        careTaker.saveState(originator.saveToMemento())
 
         originator.state = "Third State"
         originator.state ="Fourth State"
-        careTaker.saveState(originator.createMemento())
+        careTaker.saveState(originator.saveToMemento())
         assert(originator.state == "Fourth State")
 
-        originator.restore(careTaker.restore(0))
+        originator.restoreFromMemento(careTaker.restore(0))
         assert(originator.state == "Start State")
     }
 

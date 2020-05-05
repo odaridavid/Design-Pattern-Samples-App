@@ -14,19 +14,23 @@
 package com.github.odaridavid.designpatterns.proxy
 
 
-open class Car {
-    open fun drive() {
-        println("Driving")
+interface Car {
+    fun drive(): String
+}
+
+class RealCar : Car {
+    override fun drive(): String {
+        return "Ignition On"
     }
 }
 
-class ProxyCar : Car() {
+class ProxyCar : Car {
+    private val realCar = RealCar()
     var key = "none"
 
-    override fun drive() {
-        super.drive()
-        if (key == "none")
-            println("No keys to access vehicle")
-        else println("Enjoy your drive")
+    override fun drive(): String {
+        return if (key == "none")
+            "No keys available"
+        else realCar.drive()
     }
 }

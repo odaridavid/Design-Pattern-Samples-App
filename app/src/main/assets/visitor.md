@@ -1,48 +1,60 @@
 <pre>
 <code>
-interface Visitor {
-    fun visit(hotel: Hotel)
-    fun visit(lodging: Lodging)
-    fun visit(airBnb: AirBnb)
+<span class="keyword">interface</span> Visitor {
+    <span class="keyword">fun</span> visit(hotel: <span class="types">Hotel</span>)
+    <span class="keyword">fun</span> visit(lodging: <span class="types">Lodging</span>)
+    <span class="keyword">fun</span> visit(airBnb: <span class="types">AirBnb</span>)
 }
 
-interface Accomodation {
-    val rating: Int
-    fun accept(visitor: Visitor)
+<span class="keyword">interface</span> Accommodation {
+    <span class="keyword">val</span> rating: <span class="types">Int</span>
+    <span class="keyword">fun</span> accept(visitor: <span class="types">Visitor</span>)
 }
 
-class AccomodationVisitor : Visitor {
+<span class="keyword">class</span> AccommodationVisitor : Visitor {
 
-    override fun visit(hotel: Hotel) {
-        println("Hotel rating on visit ${hotel.rating}")
+    <span class="keyword">override fun</span> visit(hotel: <span class="types">Hotel</span>) {
+        <span class="stdlib">println</span>(<span class="string">"Hotel score on visit <span class="string-template">${hotel.rating / 10 * 100}</span>"</span>)
     }
 
-    override fun visit(lodging: Lodging) {
-        println("Lodging rating on visit ${lodging.rating}")
+    <span class="keyword">override fun</span> visit(lodging: <span class="types">Lodging</span>) {
+        <span class="stdlib">println</span>(<span class="string">"Lodging score on visit <span class="string-template">${lodging.rating / 10 * 100}</span>"</span>)
     }
 
-    override fun visit(airBnb: AirBnb) {
-        println("Airbnb rating on visit ${airBnb.rating}")
+    <span class="keyword">override fun</span> visit(airBnb: <span class="types">AirBnb</span>) {
+        <span class="stdlib">println</span>(<span class="string">"AirBnb score on visit <span class="string-template">${airBnb.rating / 10 * 100}</span>"</span>)
     }
 
 }
 
-class Hotel(override val rating: Int) : Accomodation {
-    override fun accept(visitor: Visitor) {
-        visitor.visit(this)
-    }
-}
-
-class Lodging(override val rating: Int) : Accomodation {
-    override fun accept(visitor: Visitor) {
-        visitor.visit(this)
+<span class="keyword">class</span> Hotel(<span class="keyword">override val</span> rating: <span class="types">Int</span>) : Accommodation {
+    <span class="keyword">override fun</span> accept(visitor: <span class="types">Visitor</span>) {
+        visitor.visit(<span class="keyword">this</span>)
     }
 }
 
-class AirBnb(override val rating: Int) : Accomodation {
-    override fun accept(visitor: Visitor) {
-        visitor.visit(this)
+<span class="keyword">class</span> Lodging(<span class="keyword">override val</span> rating: <span class="types">Int</span>) : Accommodation {
+    <span class="keyword">override fun</span> accept(visitor: <span class="types">Visitor</span>) {
+        visitor.visit(<span class="keyword">this</span>)
     }
+}
+
+<span class="keyword">class</span> AirBnb(<span class="keyword">override val</span> rating: <span class="types">Int</span>) : Accommodation {
+    <span class="keyword">override fun</span> accept(visitor: <span class="types">Visitor</span>) {
+        visitor.visit(<span class="keyword">this</span>)
+    }
+}
+
+<span class="keyword">fun</span> main() {
+    <span class="keyword">val</span> visitor = AccommodationVisitor()
+
+    <span class="keyword">val</span> hotel = Hotel(<span class="arguments">rating</span> = <span class="literals">4</span>)
+    <span class="keyword">val</span> lodging = Lodging(<span class="arguments">rating</span> = <span class="literals">9</span>)
+    <span class="keyword">val</span> airBnb = AirBnb(<span class="arguments">rating</span> = <span class="literals">5</span>)
+
+    airBnb.accept(visitor)
+    hotel.accept(visitor)
+    lodging.accept(visitor)
 }
 </code>
 </pre>
