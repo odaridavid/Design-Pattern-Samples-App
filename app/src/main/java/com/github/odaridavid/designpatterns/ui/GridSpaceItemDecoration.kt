@@ -11,7 +11,7 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.ui
 
 import android.graphics.Rect
 import android.view.View

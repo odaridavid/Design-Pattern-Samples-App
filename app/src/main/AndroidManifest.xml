@@ -12,16 +12,16 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup"
         tools:replace="android:allowBackup">
-        <activity android:name=".BaseActivity" />
+        <activity android:name=".base.BaseActivity" />
         <activity
-            android:name=".AboutActivity"
+            android:name=".ui.AboutActivity"
             android:label="@string/menu_about"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ui.MainActivity" />
         <activity
-            android:name=".DesignPatternDetailActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".ui.DesignPatternDetailActivity"
+            android:parentActivityName=".ui.MainActivity" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -11,21 +11,24 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.helpers
 
-import android.app.Activity
+import android.os.Build
+import androidx.annotation.IntRange
 
-
-class NavigationController(private val activity: Activity) {
-
-    fun navigateToDetails(designPattern: DesignPattern) {
-        activity.navigateTo<DesignPatternDetailActivity>() { intent ->
-            intent.putExtra(KEY_DESIGN_PATTERN,designPattern)
-        }
+object SdkUtils {
+    fun versionFrom(@IntRange(from = 0, to = 29) versionCodes: Int): Boolean {
+        return Build.VERSION.SDK_INT >= versionCodes
     }
-
-    companion object {
-        const val KEY_DESIGN_PATTERN = "design_pattern"
-    }
-
 }
+
+
+
+
+
+
+
+
+
+
+

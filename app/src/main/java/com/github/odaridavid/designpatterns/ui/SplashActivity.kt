@@ -1,9 +1,8 @@
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.ui
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import com.github.odaridavid.designpatterns.helpers.navigateTo
 
 class SplashActivity : AppCompatActivity() {
 

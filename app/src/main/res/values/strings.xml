@@ -33,6 +33,7 @@
     <string name="libraries">Libraries</string>
     <string name="info_design_patterns_app_icon">Design Patterns App Icon</string>
     <string name="template_app_version" translatable="false">v%1$s</string>
+    <string name="menu_view_source_code">View Source Code</string>
 
     <!--Main Activity-->
     <string name="info_design_pattern_image">Puzzle piece image as design pattern card icon</string>
@@ -143,12 +144,12 @@
 
     <!--    TODO Look into iterator and flyweight-->
     <string name="desc_iterator">
-        A behavioral design pattern
+        in which an iterator is used to traverse a container and access the container\'s elements.
     </string>
 
     <string name="desc_flyweight">
         A structural design pattern
     </string>
-    <string name="menu_view_source_code">View Source Code</string>
+
 
 </resources>

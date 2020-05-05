@@ -18,12 +18,13 @@ interface Container {
     fun extractContent()
 }
 
-class IceCreamContainer : Container{
+class IceCreamContainer : Container {
     override fun extractContent() {
         println("Ice Cream inside")
     }
 }
-class MagarineContainer : Container{
+
+class MagarineContainer : Container {
     override fun extractContent() {
         println("Magarine Empty")
     }

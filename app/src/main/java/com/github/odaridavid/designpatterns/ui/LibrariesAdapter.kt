@@ -1,64 +1,32 @@
-package com.github.odaridavid.designpatterns
+/**
+ *
+ * Copyright 2020 David Odari
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *            http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ *
+ **/
+package com.github.odaridavid.designpatterns.ui
 
-import android.content.Intent
-import android.os.Bundle
-import android.view.*
-import androidx.core.net.toUri
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.github.odaridavid.designpatterns.databinding.ActivityAboutBinding
 import com.github.odaridavid.designpatterns.databinding.ItemLibraryBinding
-import com.mikepenz.aboutlibraries.Libs
 import com.mikepenz.aboutlibraries.entity.Library
-import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 
-class AboutActivity : BaseActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding = ActivityAboutBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        val libs = Libs(this).libraries
-
-        binding.appVersionTextView.text =
-            getString(R.string.template_app_version, BuildConfig.VERSION_NAME)
-
-        val librariesAdapter = LibrariesAdapter { url ->
-            val repoUrl = checkUrlScheme(url)
-            openBrowser(repoUrl)
-        }
-
-        binding.licensesRecyclerView.adapter = ScaleInAnimationAdapter(librariesAdapter.apply {
-            submitList(libs)
-        })
-    }
-
-    private fun openBrowser(repoUrl: String) {
-        val browserIntent = Intent(Intent.ACTION_VIEW, repoUrl.toUri())
-        startActivity(browserIntent)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.about_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_open_source_code -> {
-                openBrowser("https://github.com/odaridavid/Design-Pattern-Samples-App")
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-}
 
 class LibrariesAdapter(val onClick: (String) -> Unit) :
-    ListAdapter<Library, LibrariesAdapter.LicenseViewHolder>(DiffUtil) {
+    ListAdapter<Library, LibrariesAdapter.LicenseViewHolder>(
+        DiffUtil
+    ) {
 
     override fun onBindViewHolder(holder: LicenseViewHolder, position: Int) {
         getItem(position).let { holder.bind(it) }

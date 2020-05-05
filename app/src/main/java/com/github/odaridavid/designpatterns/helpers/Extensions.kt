@@ -11,17 +11,12 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.helpers
 
 import android.app.Activity
 import android.content.Intent
-import android.os.Build
-import androidx.annotation.IntRange
 import us.feras.mdv.MarkdownView
 
-fun versionFrom(@IntRange(from = 0, to = 29) versionCodes: Int): Boolean {
-    return Build.VERSION.SDK_INT >= versionCodes
-}
 
 inline fun <reified T> Activity.navigateTo(noinline intentExtras: ((Intent) -> Unit)? = null) {
     val intent = Intent(this, T::class.java)
@@ -31,20 +26,15 @@ inline fun <reified T> Activity.navigateTo(noinline intentExtras: ((Intent) -> U
     startActivity(intent)
 }
 
-fun checkUrlScheme(url: String): String {
-    return if (!url.startsWith("http://") && !url.startsWith("https://"))
-        "http://$url"
-    else url
-}
-
-
 fun MarkdownView.loadWithKotlinCss(filePath: String) {
-    loadMarkdownFile(filePath, KOTLIN_CSS_PATH)
+    loadMarkdownFile(
+        filePath,
+        KOTLIN_CSS_PATH
+    )
 }
 
-
-
-
-
-
-
+fun String.checkUrlScheme(): String {
+    return if (!startsWith("http://") && !startsWith("https://"))
+        "http://$this"
+    else this
+}

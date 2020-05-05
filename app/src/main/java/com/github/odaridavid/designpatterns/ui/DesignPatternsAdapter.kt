@@ -11,7 +11,7 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns;
+package com.github.odaridavid.designpatterns.ui;
 
 import android.view.LayoutInflater
 import android.view.View
@@ -20,10 +20,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.github.odaridavid.designpatterns.databinding.ItemDesignPatternBinding
+import com.github.odaridavid.designpatterns.models.DesignPattern
 
 
 class DesignPatternsAdapter(val onClick: (DesignPattern) -> Unit) :
-    ListAdapter<DesignPattern, DesignPatternsAdapter.DesignPatternViewHolder>(DiffUtil) {
+    ListAdapter<DesignPattern, DesignPatternsAdapter.DesignPatternViewHolder>(
+        DiffUtil
+    ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DesignPatternViewHolder {
         val context = parent.context

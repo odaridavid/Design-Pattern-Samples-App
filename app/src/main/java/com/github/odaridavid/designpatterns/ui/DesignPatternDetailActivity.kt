@@ -1,7 +1,11 @@
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.ui
 
 import android.os.Bundle
+import com.github.odaridavid.designpatterns.base.BaseActivity
 import com.github.odaridavid.designpatterns.databinding.ActivityDesignPatternDetailBinding
+import com.github.odaridavid.designpatterns.helpers.NavigationUtils
+import com.github.odaridavid.designpatterns.helpers.loadWithKotlinCss
+import com.github.odaridavid.designpatterns.models.DesignPattern
 
 class DesignPatternDetailActivity : BaseActivity() {
 
@@ -12,7 +16,7 @@ class DesignPatternDetailActivity : BaseActivity() {
         setContentView(view)
 
         val designPattern =
-            intent.getParcelableExtra<DesignPattern>(NavigationController.KEY_DESIGN_PATTERN)
+            intent.getParcelableExtra<DesignPattern>(NavigationUtils.KEY_DESIGN_PATTERN)
                 ?: return
 
         supportActionBar?.setTitle(designPattern.name)
