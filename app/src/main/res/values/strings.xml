@@ -40,30 +40,28 @@
     <string name="code_sample">Code Sample</string>
 
     <!-- Pattern Descriptions-->
-    <!--    TODO Update descriptions-->
     <string name="desc_abstract_factory">A creational design pattern that encapsulates a group of individual factories that have a common theme without specifying their concrete classes.</string>
     <string name="desc_adapter">A structural design pattern that lets incompatible interfaces work in harmony by providing a wrapper to make the existing classes work without modifying the source code using one of the existing interfaces.</string>
     <string name="desc_bridge">A structural design pattern that decouples abstractions from their implementation.It has a very similar structure to the adapter pattern.</string>
-    <string name="desc_builder">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_chain_of_responsibility">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_command">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_composite">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_decorator">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_facade">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_factory">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_flyweight">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_iterator">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_main">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_mediator">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_memento">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_observer">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_builder">A creational design pattern that provides stepwise construction of complex objects</string>
+    <string name="desc_chain_of_responsibility">A behavioral design pattern consisting of a chain of receivers known as handlers,each handler will process a request and pass it on to the next for further processing.</string>
+    <string name="desc_command">A behavioral design pattern  behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time</string>
+    <string name="desc_composite">A structural design pattern where a group of objects are treated as one</string>
+    <string name="desc_observer">A behavioral design pattern where an object known as a publisher maintains a list of objects known as observers which get notified on state changes.</string>
+    <string name="desc_state">A behavioral design pattern where an object alters its behaviours when its internal state changes.</string>
+    <string name="desc_decorator">A structural design patterns that adds behavior to an object using a wrapper without altering the structure of affected objects.</string>
+    <string name="desc_facade">A structural design pattern that abstracts complexities by providing a simplified interface.</string>
+    <string name="desc_factory">A creational design pattern which provides an interface to create objects at runtime</string>
+    <string name="desc_singleton">A creational design pattern that ensures the created object has only one instance</string>
+    <string name="desc_mediator">A behavioral design pattern that enforces loose coupling between objects by reducing communication complexity in how they interact.</string>
+    <string name="desc_memento">A behavioral...</string>
+
     <string name="desc_prototype">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
     <string name="desc_proxy">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_singleton">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
-    <string name="desc_state">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
     <string name="desc_strategy">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
     <string name="desc_template">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
     <string name="desc_visitor">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
 
-
+    <string name="desc_iterator">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
+    <string name="desc_flyweight">Encapsulates a group of individual factories that have a common theme without specifying their concrete classes</string>
 </resources>

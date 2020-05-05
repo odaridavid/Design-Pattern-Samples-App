@@ -22,10 +22,10 @@ class StatePatternUnitTest {
     @Test
     fun door_statePattern() {
         val door = Door()
-        assert(door.enter() == "Can't get in")
+        assert(door.enter().contains("Can't get in"))
 
         door.open()
-        assert(door.enter() == "Welcome")
+        assert(door.enter().contains("Welcome"))
 
         door.close()
     }

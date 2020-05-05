@@ -14,39 +14,31 @@
 package com.github.odaridavid.designpatterns.observer
 
 
-interface OrderObserver {
-    fun onReceived()
+interface NewsletterSubscription {
+    fun onNewsletterPublished()
 }
 
-class OrderRepository {
+class NewsletterPublisher {
 
-    private val observers = ArrayList<OrderObserver>()
+    private val observers = ArrayList<NewsletterSubscription>()
 
-    fun subscribe(orderObserver: OrderObserver) {
-        observers.add(orderObserver)
+    fun subscribe(newsletterSubscription: NewsletterSubscription) {
+        observers.add(newsletterSubscription)
     }
 
-    fun unsubscribe(orderObserver: OrderObserver) {
-        observers.remove(orderObserver)
+    fun unsubscribe(newsletterSubscription: NewsletterSubscription) {
+        observers.remove(newsletterSubscription)
     }
 
-    fun notifyObservers() {
-        for (observer in observers) {
-            observer.onReceived()
+    fun notifySubscribedReaders() {
+        observers.forEach { observer ->
+            observer.onNewsletterPublished()
         }
     }
 }
 
-class Customer : OrderObserver {
-    override fun onReceived() {
-        println("Customer Received Order")
+class Reader : NewsletterSubscription {
+    override fun onNewsletterPublished() {
+        println("Hey!! Check out our latest newsletter.")
     }
-
-}
-
-class Store : OrderObserver {
-    override fun onReceived() {
-        println("Order Delivered Successfully")
-    }
-
 }

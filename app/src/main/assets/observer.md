@@ -1,40 +1,43 @@
 <pre>
 <code>
-interface OrderObserver {
-    fun onReceived()
+<span class="keyword">interface</span> NewsletterSubscription {
+    <span class="keyword">fun</span> onNewsletterPublished()
 }
 
-class OrderRepository {
+<span class="keyword">class</span> NewsletterPublisher {
 
-    private val observers = ArrayList<OrderObserver>()
+    <span class="keyword">private val</span> observers = <span class="stdlib">ArrayList</span><<span class="types">NewsletterSubscription</span>>()
 
-    fun subscribe(orderObserver: OrderObserver) {
-        observers.add(orderObserver)
+    <span class="keyword">fun</span> subscribe(newsletterSubscription: <span class="types">NewsletterSubscription</span>) {
+        observers.add(newsletterSubscription)
     }
 
-    fun unsubscribe(orderObserver: OrderObserver) {
-        observers.remove(orderObserver)
+    <span class="keyword">fun</span> unsubscribe(newsletterSubscription: <span class="types">NewsletterSubscription</span>) {
+        observers.remove(newsletterSubscription)
     }
 
-    fun notifyObservers() {
-        for (observer in observers) {
-            observer.onReceived()
+    <span class="keyword">fun</span> notifySubscribedReaders() {
+        observers.<span class="stdlib">forEach</span> { observer ->
+            observer.onNewsletterPublished()
         }
     }
 }
 
-class Customer : OrderObserver {
-    override fun onReceived() {
-        println("Customer Received Order")
+<span class="keyword">class</span> Reader : NewsletterSubscription {
+    <span class="keyword">override fun</span> onNewsletterPublished() {
+        <span class="stdlib">println</span>(<span class="string">"Hey!! Check out our latest newsletter."</span>)
     }
-
 }
 
-class Store : OrderObserver {
-    override fun onReceived() {
-        println("Order Delivered Successfully")
-    }
+<span class="keyword">fun</span> main() {
+    <span class="keyword">val</span> newsletterPublisher = NewsletterPublisher()
+    <span class="keyword">val</span> reader1 = Reader()
+    <span class="keyword">val</span> reader2 = Reader()
 
+    newsletterPublisher.subscribe(reader1)
+    newsletterPublisher.subscribe(reader2)
+
+    newsletterPublisher.notifySubscribedReaders()
 }
 </code>
 </pre>

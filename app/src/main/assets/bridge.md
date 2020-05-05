@@ -13,7 +13,7 @@
 }
 
 <span class="keyword">class</span> Chair(<span class="keyword">private val</span> theme: FurnitureTheme) : Furniture(theme) {
-    <span class="keyword">override fun</span> getType(): <span class="types">String</span> = <span class="string">"${theme.getTheme()} Chair."</span>
+    <span class="keyword">override fun</span> getType(): <span class="types">String</span> = <span class="string">"<span class="string-template">${theme.getTheme()}</span> Chair."</span>
 }
 
 <span class="keyword">fun</span> main(){

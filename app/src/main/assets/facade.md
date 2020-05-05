@@ -1,41 +1,39 @@
 <pre>
 <code>
-class User(val id: Long, val name: String, val followers: Int, val following: Int)
-class Post(val id: Long, val content: String, val comments: List<Comment>)
-class Comment(val content: String, val userId: Long, val postId: Long)
+<span class="keyword">interface</span> Animator {
+    <span class="keyword">fun</span> animate()
+}
 
-class UsersApi {
-    fun getUsers(): List<User> {
-        return mutableListOf(User(909, "David", 38, 289))
+<span class="keyword">interface</span> Interpolator {
+    <span class="keyword">fun</span> interpolate()
+}
+
+<span class="keyword">class</span> SwingAnimator : Animator {
+    <span class="keyword">override fun</span> animate() {
+        <span class="stdlib">println</span>(<span class="string">"Doing Swing Animation"</span>)
     }
 }
 
-class PostsApi {
-    fun loadPosts(userId: Long): List<Post> {
-        return mutableListOf(Post(9898, "", emptyList()))
+<span class="keyword">class</span> LinearInterpolator : Interpolator {
+    <span class="keyword">override fun</span> interpolate() {
+        <span class="stdlib">println</span>(<span class="string">"Applying Interpolator to animation"</span>)
     }
 }
 
-class CommentsApi {
-    fun loadComments(postId: Long): Comment {
-        return Comment("", 9898, postId)
+<span class="comments">//Facade</span>
+<span class="keyword">class</span> AnimationDirector {
+    <span class="keyword">private val</span> interpolator: <span class="types">Interpolator</span> = LinearInterpolator()
+    <span class="keyword">private val</span> animator: <span class="types">Animator</span> = SwingAnimator()
+
+    <span class="keyword">fun</span> performAnimations() {
+        interpolator.interpolate()
+        animator.animate()
     }
 }
 
-class TimeLineFacade {
-    private val commentsApi = CommentsApi()
-    private val postsApi = PostsApi()
-    private val usersApi = UsersApi()
-    fun loadTimeLine() {
-        for (users in usersApi.getUsers()) {
-            val posts = postsApi.loadPosts(users.id)
-            for (post in posts) {
-                val comments = commentsApi.loadComments(post.id)
-            }
-            //Etc...
-        }
-    }
+<span class="keyword">fun</span> main() {
+    <span class="keyword">val</span> animationDirector = AnimationDirector()
+    animationDirector.performAnimations()
 }
-
 </code>
 </pre>

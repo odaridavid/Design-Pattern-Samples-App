@@ -17,7 +17,7 @@ interface Command {
     fun execute()
 }
 
-class Race {
+class RaceOrganizer {
     private val queue = ArrayList<Command>()
 
     fun register(command: Command) {

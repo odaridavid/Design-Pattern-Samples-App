@@ -1,56 +1,28 @@
 <pre>
 <code>
-open class Kitchen {
-    fun setupEquipment() {
-        println("Unpacking Equipment")
-        println("Setting up...")
-        Thread.sleep(2000)
-        println("Equipment setup complete")
-    }
-}
+<span class="keyword">sealed class</span> Chair(<span class="keyword">val</span> capacity: <span class="types">Int</span>)
 
-class LShapedKitchen : Kitchen()
+<span class="keyword">class</span> Sofa(capacity: <span class="types">Int</span>) : Chair(capacity)
 
-class PeninsulaKitchen : Kitchen()
+<span class="keyword">class</span> ParkBench(capacity: <span class="types">Int</span>) : Chair(capacity)
 
-class IslandKitchen : Kitchen()
-
-enum class FloorPlan {
-    SPACED, DETACHED, EXTENDING
-}
-
-object KitchenFloorFactory {
-    inline fun <reified T> getFloorPlan(): FloorPlan {
-        return when (T::class) {
-            PeninsulaKitchen::class -> FloorPlan.DETACHED
-            IslandKitchen::class -> FloorPlan.EXTENDING
-            LShapedKitchen::class -> FloorPlan.SPACED
-            else -> throw IllegalStateException("Unknown plan selected:No Available Kitchen")//or provide default
+<span class="keyword">object</span> ChairFactory {
+    <span class="annotation">@JvmStatic</span>
+    <span class="keyword">inline fun <reified <span class="generic">T</span>></span> getChair(): <span class="types">Chair</span> {
+        <span class="keyword">return when (<span class="generic">T</span>::class)</span> {
+            Sofa::<span class="keyword">class</span> -> Sofa(<span class="literals">5</span>)
+            DeskChair::<span class="keyword">class</span> -> DeskChair(<span class="literals">1</span>)
+            ParkBench::<span class="keyword">class</span> -> ParkBench(<span class="literals">3</span>)
+            <span class="keyword">else</span> -> <span class="keyword">throw</span> IllegalArgumentException(<span class="string">"Unknown type of chair"</span>)
         }
     }
 }
 
-//Currency Example
-sealed class Country
-
-object Uganda : Country()
-object Kenya : Country()
-object Tanzania : Country()
-object Rwanda : Country()
-
-class Currency(val code: String)
-
-object CurrencyFactory {
-    fun getCurrency(country: Country): Currency {
-        return when (country) {
-            is Uganda -> Currency("UG")
-            is Kenya -> Currency("KSH")
-            is Tanzania -> Currency("TZ")
-            is Rwanda -> Currency("RW")
-        }
-    }
+<span class="keyword">fun</span> main() {
+    <span class="keyword">val</span> sofa = ChairFactory.getChair<<span class="types">Sofa</span>>()
+    <span class="keyword">val</span> parkBench = ChairFactory.getChair<<span class="types">ParkBench</span>>()
+    <span class="assertions">assert</span>(sofa.capacity == <span class="literals">5</span>)
+    <span class="assertions">assert</span>(parkBench.capacity == <span class="literals">3</span>)
 }
-
-
 </code>
 </pre>

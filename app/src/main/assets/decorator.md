@@ -1,62 +1,43 @@
 <pre>
 <code>
-interface Bar {
-    fun open()
-    fun close()
-    fun executeHappyHour()
-    fun setup()
+<span class="keyword">interface</span> Bar {
+    <span class="keyword">fun</span> setup()
 }
 
-class CollegeBar : Bar {
-    override fun setup() {
-        println("College Bar Setup")
-    }
-
-    override fun open() {
-        println("College Bar open")
-    }
-
-    override fun close() {
-        println("College Bar closed")
-    }
-
-    override fun executeHappyHour() {
-        println("College Bar Happy Hour")
+<span class="keyword">class</span> CollegeBar : Bar {
+    <span class="keyword">override fun</span> setup() {
+        <span class="stdlib">println</span>(<span class="string">"College Bar Setup"</span>)
     }
 }
 
-class SportsBar : Bar {
-    override fun setup() {
-        println("Sports Bar Setup")
-    }
-
-    override fun open() {
-        println("Sports Bar open")
-    }
-
-    override fun close() {
-        println("Sports Bar closed")
-    }
-
-    override fun executeHappyHour() {
-        println("Sports Bar Happy Hour")
+<span class="keyword">class</span> SportsBar : Bar {
+    <span class="keyword">override fun</span> setup() {
+        <span class="stdlib">println</span>(<span class="string">"Sports Bar Setup"</span>)
     }
 }
 
-abstract class BarDecorator(bar: Bar) : Bar by bar
+<span class="keyword">abstract class</span> BarDecorator(bar: <span class="types">Bar</span>) : Bar <span class="keyword">by</span> bar
 
-class HalloweenBarDecorator(bar: Bar) : BarDecorator(bar) {
-    override fun setup() {
-        super.setup()
-        println("Adding Halloween Ornaments")
+<span class="keyword">class</span> HalloweenBarDecorator(bar: <span class="types">Bar</span>) : BarDecorator(bar) {
+    <span class="keyword">override fun</span> setup() {
+        <span class="keyword">super</span>.setup()
+        <span class="keyword">println</span>(<span class="string">"Adding Halloween Ornaments"</span>)
     }
 }
 
-class ChristmasBarDecorator(bar: Bar) : BarDecorator(bar) {
-    override fun setup() {
-        super.setup()
-        println("Adding Christmas Ornaments")
+<span class="keyword">class</span> ChristmasBarDecorator(bar: <span class="types">Bar</span>) : BarDecorator(bar) {
+    <span class="keyword">override fun</span> setup() {
+        <span class="keyword">super</span>.setup()
+        <span class="stdlib">println</span>(<span class="string">"Adding Christmas Ornaments"</span>)
     }
+}
+
+<span class="keyword">fun</span> main() {
+    <span class="keyword">val</span> sportsBar = SportsBar()
+    <span class="keyword">val</span> collegeBar = CollegeBar()
+
+    HalloweenBarDecorator(sportsBar).setup()
+    ChristmasBarDecorator(collegeBar).setup()
 }
 </code>
 </pre>

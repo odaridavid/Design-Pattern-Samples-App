@@ -14,53 +14,20 @@
 package com.github.odaridavid.designpatterns.factory
 
 
-open class Kitchen {
-    fun setupEquipment() {
-        println("Unpacking Equipment")
-        println("Setting up...")
-        Thread.sleep(2000)
-        println("Equipment setup complete")
-    }
-}
+sealed class Chair(val capacity: Int)
 
-class LShapedKitchen : Kitchen()
+class Sofa(capacity: Int) : Chair(capacity)
 
-class PeninsulaKitchen : Kitchen()
+class ParkBench(capacity: Int) : Chair(capacity)
 
-class IslandKitchen : Kitchen()
-
-enum class FloorPlan {
-    SPACED, DETACHED, EXTENDING
-}
-
-object KitchenFloorFactory {
-    inline fun <reified T> getFloorPlan(): FloorPlan {
+object ChairFactory {
+    @JvmStatic
+    inline fun <reified T> getChair(): Chair {
         return when (T::class) {
-            PeninsulaKitchen::class -> FloorPlan.DETACHED
-            IslandKitchen::class -> FloorPlan.EXTENDING
-            LShapedKitchen::class -> FloorPlan.SPACED
-            else -> throw IllegalStateException("Unknown plan selected:No Available Kitchen")//or provide default
+            Sofa::class -> Sofa(5)
+            ParkBench::class -> ParkBench(3)
+            else -> throw IllegalArgumentException("Unknown type of chair")
         }
     }
 }
 
-//Currency Example
-sealed class Country
-
-object Uganda : Country()
-object Kenya : Country()
-object Tanzania : Country()
-object Rwanda : Country()
-
-class Currency(val code: String)
-
-object CurrencyFactory {
-    fun getCurrency(country: Country): Currency {
-        return when (country) {
-            is Uganda -> Currency("UG")
-            is Kenya -> Currency("KSH")
-            is Tanzania -> Currency("TZ")
-            is Rwanda -> Currency("RW")
-        }
-    }
-}

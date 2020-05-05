@@ -13,28 +13,22 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.observer.Customer
-import com.github.odaridavid.designpatterns.observer.OrderRepository
-import com.github.odaridavid.designpatterns.observer.Store
-import org.junit.Test
 
+import com.github.odaridavid.designpatterns.observer.NewsletterPublisher
+import com.github.odaridavid.designpatterns.observer.Reader
+import org.junit.Test
 
 class ObserverPatternUnitTest {
 
     @Test
-    fun orders_observerPattern() {
-        val customers = Customer()
-        val store = Store()
+    fun newsletterSubscription_observerPattern() {
+        val newsletterPublisher = NewsletterPublisher()
+        val reader1 = Reader()
+        val reader2 = Reader()
 
-        val orderRepo = OrderRepository()
-        orderRepo.subscribe(customers)
-        orderRepo.subscribe(store)
+        newsletterPublisher.subscribe(reader1)
+        newsletterPublisher.subscribe(reader2)
 
-        orderRepo.notifyObservers()
-
-        orderRepo.unsubscribe(customers)
-        orderRepo.unsubscribe(store)
-
-        orderRepo.notifyObservers()
+        newsletterPublisher.notifySubscribedReaders()
     }
 }

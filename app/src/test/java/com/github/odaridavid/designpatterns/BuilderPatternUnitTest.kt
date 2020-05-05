@@ -13,7 +13,10 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.builder.*
+import com.github.odaridavid.designpatterns.builder.GameEnvironmentBuilder
+import com.github.odaridavid.designpatterns.builder.RenderQuality
+import com.github.odaridavid.designpatterns.builder.Scene
+import com.github.odaridavid.designpatterns.builder.TimeOfDay
 import org.junit.Test
 
 class BuilderPatternUnitTest {
@@ -28,15 +31,7 @@ class BuilderPatternUnitTest {
             build()
         }
 
-        val gvDsl = createEnvironment {
-            frequency = 0.3f
-            quality = RenderQuality.MEDIUM
-            timeOfDay = TimeOfDay.MORNING
-            scene = Scene.CITY
-        }
-
         assert(gv.quality == RenderQuality.ULTRA)
-        assert(gvDsl.quality == RenderQuality.MEDIUM)
     }
 
 }

@@ -14,22 +14,13 @@
 package com.github.odaridavid.designpatterns
 
 import com.github.odaridavid.designpatterns.singleton.CentralBank
-import com.github.odaridavid.designpatterns.singleton.SomeProvider
 import org.junit.Test
 
 
 class SingletonPatternUnitTest {
 
     @Test
-    fun singleton_isSameInstance() {
-        assert(CentralBank.getInstance() === CentralBank.getInstance())
-    }
-
-    @Test
-    fun someProvider_isSameInstance() {
-        assert(SomeProvider.getInstance("Hello") === SomeProvider.getInstance("Hello"))
-        println(SomeProvider.getInstance("P"))
-        println(SomeProvider.getInstance("Pc"))
-        println(SomeProvider.getInstance("cP"))
+    fun centralBankGetMoney_isSameInstance_singletonPattern() {
+        assert(CentralBank.getMoney() === CentralBank.getMoney())
     }
 }

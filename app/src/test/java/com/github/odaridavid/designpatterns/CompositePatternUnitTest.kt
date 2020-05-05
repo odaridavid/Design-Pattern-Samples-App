@@ -13,20 +13,25 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.composite.BMWRace
-import com.github.odaridavid.designpatterns.composite.FerrariRace
-import com.github.odaridavid.designpatterns.composite.RaceEvent
+import com.github.odaridavid.designpatterns.composite.IceCreamContainer
+import com.github.odaridavid.designpatterns.composite.LargeContainer
+import com.github.odaridavid.designpatterns.composite.MagarineContainer
 import org.junit.Test
 
 
 class CompositePatternUnitTest {
 
     @Test
-    fun compositePattern(){
-        val raceCarEvent = RaceEvent()
-        raceCarEvent.registerCar(BMWRace())
-        raceCarEvent.registerCar(FerrariRace())
-        raceCarEvent.race()
+    fun containers_compositePattern() {
+        val largeContainer = LargeContainer()
+
+        largeContainer.addContainer(MagarineContainer())
+        largeContainer.addContainer(IceCreamContainer())
+
+        val largestContainer = LargeContainer()
+        largestContainer.addContainer(largeContainer)
+
+        largestContainer.extractContent()
     }
 
 }

@@ -14,30 +14,34 @@
 package com.github.odaridavid.designpatterns.composite
 
 
-interface Race {
-    fun race() {
-        println("Take off!!")
+interface Container {
+    fun extractContent()
+}
+
+class IceCreamContainer : Container{
+    override fun extractContent() {
+        println("Ice Cream inside")
+    }
+}
+class MagarineContainer : Container{
+    override fun extractContent() {
+        println("Magarine Empty")
     }
 }
 
-class FerrariRace : Race
-class BMWRace : Race
+class LargeContainer : Container {
+    private var containers = mutableListOf<Container>()
 
-class RaceEvent : Race {
-    private var raceCars = mutableListOf<Race>()
-
-    fun registerCar(race: Race) {
-        raceCars.add(race)
+    fun addContainer(container: Container) {
+        containers.add(container)
     }
 
-    fun deregisterCar(race: Race) {
-        raceCars.remove(race)
-    }
-
-    override fun race() {
-        for (raceCar in raceCars) {
-            raceCar.race()
+    override fun extractContent() {
+        println("Opened Large Container")
+        for (container in containers) {
+            container.extractContent()
         }
     }
+
 }
 

@@ -23,7 +23,7 @@ import org.junit.Test
 class DecoratorPatternUnitTest {
 
     @Test
-    fun decoratorTest() {
+    fun barDecoration_decoratorPattern() {
         val sportsBar = SportsBar()
         val collegeBar = CollegeBar()
 

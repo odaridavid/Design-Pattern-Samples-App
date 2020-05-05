@@ -15,8 +15,8 @@ package com.github.odaridavid.designpatterns
 
 import com.github.odaridavid.designpatterns.command.DetourCommand
 import com.github.odaridavid.designpatterns.command.Event
-import com.github.odaridavid.designpatterns.command.Race
 import com.github.odaridavid.designpatterns.command.RaceCommand
+import com.github.odaridavid.designpatterns.command.RaceOrganizer
 import org.junit.Test
 
 
@@ -25,9 +25,13 @@ class CommandPatternUnitTest {
     @Test
     fun raceEvent_commandPattern() {
         val event = Event()
-        Race().apply {
-            register(RaceCommand(event))
-            register(DetourCommand(event))
+
+        val raceCommand = RaceCommand(event)
+        val detourCommand = DetourCommand(event)
+
+        RaceOrganizer().apply {
+            register(raceCommand)
+            register(detourCommand)
             execute()
         }
 

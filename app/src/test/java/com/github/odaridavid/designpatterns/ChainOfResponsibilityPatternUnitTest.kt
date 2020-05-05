@@ -13,22 +13,22 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.chainofresponsibility.ConvertRawMaterial
-import com.github.odaridavid.designpatterns.chainofresponsibility.Labeling
-import com.github.odaridavid.designpatterns.chainofresponsibility.Packaging
+import com.github.odaridavid.designpatterns.chainofresponsibility.IceCreamFactory
+import com.github.odaridavid.designpatterns.chainofresponsibility.IceCreamOrder
+import com.github.odaridavid.designpatterns.chainofresponsibility.IceCreamRetailer
+import com.github.odaridavid.designpatterns.chainofresponsibility.IceCreamVendor
 import org.junit.Test
-
 
 class ChainOfResponsibilityPatternUnitTest {
 
     @Test
-    fun chainOfResponsibility() {
-        val packaging = Packaging()
-        val convertRawMaterial = ConvertRawMaterial()
-        val labeling = Labeling()
+    fun icecreamOrderRequest_chainOfResponsibility() {
+        val iceCreamFactory = IceCreamFactory(nextHandler = null)
+        val iceCreamRetailer = IceCreamRetailer(nextHandler = iceCreamFactory)
+        val iceCreamVendor = IceCreamVendor(nextHandler = iceCreamRetailer)
 
-        convertRawMaterial.processProduct(packaging)
-        packaging.processProduct(labeling)
-
+        val order = IceCreamOrder(mapOf("Vanilla" to 10, "Chocolate" to 9, "Pistachio" to 5))
+        iceCreamVendor.handleRequest(order)
     }
+
 }

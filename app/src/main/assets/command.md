@@ -1,43 +1,55 @@
 <pre>
 <code>
-interface Command {
-    fun execute()
+<span class="keyword">interface</span> Command {
+    <span class="keyword">fun</span> execute()
 }
 
-class Race {
-    private val queue = ArrayList<Command>()
+<span class="keyword">class</span> RaceOrganizer {
+    <span class="keyword">private val</span> queue = <span class="stdlib">ArrayList</span><<span class="types">Command</span>>()
 
-    fun register(command: Command) {
+    <span class="keyword">fun</span> register(command: <span class="types">Command</span>) {
         queue.add(command)
     }
 
-    fun execute() {
-        for (command in queue) {
+    <span class="keyword">fun</span> execute() {
+        <span class="keyword">for</span> (command <span class="keyword">in</span> queue) {
             command.execute()
         }
     }
-
 }
 
-class RaceCommand(private val event: Event) : Command {
-    override fun execute() {
+<span class="keyword">class</span> RaceCommand(<span class="keyword">private val</span> event: <span class="types">Event</span>) : Command {
+    <span class="keyword">override fun</span> execute() {
         event.beginRace()
     }
 }
 
-class DetourCommand(private val event: Event) : Command {
-    override fun execute() {
+<span class="keyword">class</span> DetourCommand(<span class="keyword">private val</span> event: <span class="types">Event</span>) : Command {
+    <span class="keyword">override fun</span> execute() {
         event.takeDetour()
     }
 }
 
-class Event {
-    fun beginRace() {
-        println("Racing Begins")
+<span class="keyword">class</span> Event {
+    <span class="keyword">fun</span> beginRace() {
+        <span class="stdlib">println</span>(<span class="string">"Racing Begins"</span>)
     }
 
-    fun takeDetour() {
-        println("Changing track")
+    <span class="keyword">fun</span> takeDetour() {
+        <span class="stdlib">println</span>(<span class="string">"Changing track"</span>)
+    }
+}
+
+<span class="keyword">fun</span> main(){
+    <span class="keyword">val</span> event = Event()
+
+    <span class="keyword">val</span> raceCommand = RaceCommand(event)
+    <span class="keyword">val</span> detourCommand = DetourCommand(event)
+
+    RaceOrganizer().<span class="stdlib">apply</span> {
+        register(raceCommand)
+        register(detourCommand)
+        execute()
     }
 }
 </code>

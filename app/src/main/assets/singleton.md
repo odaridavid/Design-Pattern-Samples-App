@@ -1,27 +1,12 @@
 <pre>
 <code>
-/Object provides singleton out of the box
-object CentralBank {
-    fun getInstance(): CentralBank = this //Unnecessary
+<span class="comment">//Object provides singleton out of the box</span>
+<span class="keyword">object</span> CentralBank {
+    <span class="keyword">fun</span> getMoney() = <span class="string">"$10 Billion"</span>
 }
 
-class SomeProvider private constructor(name: String) {
-
-    companion object {
-        @Volatile
-        private var instance: SomeProvider? = null
-
-        fun getInstance(name: String): SomeProvider? {
-            return synchronized(this) {
-                if (instance != null)
-                    instance
-                else {
-                    instance = SomeProvider(name)
-                    instance
-                }
-            }
-        }
-    }
+<span class="keyword">fun</span> main() {
+    <span class="assertions">assert</span>(CentralBank.getMoney() === CentralBank.getMoney())
 }
 </code>
 </pre>

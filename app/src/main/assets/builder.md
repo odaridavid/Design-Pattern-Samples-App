@@ -2,10 +2,10 @@
 <code>
 <span class="keyword">class</span> GameEnvironmentBuilder {
 
-    <span class="keyword">var</span> quality = RenderQuality.<span class="static">MEDIUM</span>
-    <span class="keyword">var</span> frequency = <span class="literals">0.0f</span>
-    <span class="keyword">var</span> timeOfDay = TimeOfDay.<span class="static">MORNING</span>
-    <span class="keyword">var</span> scene = Scene.<span class="static">BARRACKS</span>
+    <span class="keyword">private var</span> quality = RenderQuality.<span class="static">MEDIUM</span>
+    <span class="keyword">private var</span> frequency = <span class="literals">0.0f</span>
+    <span class="keyword">private var</span> timeOfDay = TimeOfDay.<span class="static">MORNING</span>
+    <span class="keyword">private var</span> scene = Scene.<span class="static">BARRACKS</span>
 
     <span class="keyword">fun</span> setRenderQuality(quality: RenderQuality): <span class="types">GameEnvironmentBuilder</span> {
         <span class="keyword">this</span>.quality = quality
@@ -36,15 +36,15 @@
 }
 
 <span class="keyword">enum class</span> TimeOfDay {
-    MORNING, NOON, AFTERNOON, EVENING, NIGHT
+    <span class="static">MORNING, NOON, AFTERNOON, EVENING, NIGHT</span>
 }
 
 <span class="keyword">enum class</span> Scene {
-    FOREST, CITY, CAVE, BARRACKS, CLUB
+    <span class="static">FOREST, CITY, CAVE, BARRACKS, CLUB</span>
 }
 
 <span class="keyword">enum class</span> RenderQuality {
-    LOW, MEDIUM, MAX, ULTRA
+    <span class="static">LOW, MEDIUM, MAX, ULTRA</span>
 }
 
 <span class="keyword">data class</span> GameEnvironment(
@@ -54,32 +54,16 @@
     <span class="keyword">val</span> scene: <span class="types">Scene</span>
 )
 
-//DSL Format
-<span class="keyword">fun</span> createEnvironment(init: <span class="types">GameEnvironmentBuilder.() -> Unit</span>): <span class="types">GameEnvironment</span> {
-    <span class="keyword">val</span> gameEnvironmentBuilder = GameEnvironmentBuilder()
-    init(gameEnvironmentBuilder)
-    <span class="keyword">return</span> gameEnvironmentBuilder.build()
-}
-
 <span class="keyword">fun</span> main(){
-    <span class="keyword">val</span> gv = GameEnvironmentBuilder().run {
-                setRenderQuality(RenderQuality.ULTRA)
-                setRocksFrequency(0.8f)
-                setScene(Scene.CLUB)
-                setTimeOfDay(TimeOfDay.MORNING)
+    <span class="keyword">val</span> gv = GameEnvironmentBuilder().<span class="stdlib">run</span> {
+                setRenderQuality(RenderQuality.<span class="static">ULTRA</span>)
+                setRocksFrequency(<span class="literals">0.8f</span>)
+                setScene(Scene.<span class="static">CLUB</span>)
+                setTimeOfDay(TimeOfDay.<span class="static">MORNING</span>)
                 build()
              }
 
-    <span class="comment">//DSL Format</span>
-    <span class="keyword">val</span> gvDsl = createEnvironment {
-                  frequency = 0.3f
-                  quality = RenderQuality.MEDIUM
-                  timeOfDay = TimeOfDay.MORNING
-                  scene = Scene.CITY
-                }
-
-    <span class="assertions">assert</span>(gv.quality == RenderQuality.ULTRA)
-    <span class="assertions">assert</span>(gvDsl.quality == RenderQuality.MEDIUM)
+    <span class="assertions">assert</span>(gv.quality == RenderQuality.<span class="static">ULTRA</span>)
 }
 </code>
 </pre>

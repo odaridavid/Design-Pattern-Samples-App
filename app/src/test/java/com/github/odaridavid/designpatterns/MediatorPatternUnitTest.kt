@@ -22,16 +22,17 @@ import org.junit.Test
 class MediatorPatternUnitTest {
 
     @Test
-    fun mediatorPattern() {
+    fun parcel_mediatorPattern() {
         val john = User(name = "John", parcelId = 1)
         val mary = User(name = "Mary", parcelId = 1)
         val don = User(name = "Don", parcelId = 2)
 
         val parcelMediator = ParcelMediator()
-        val parcel = Parcel(1, "En-Route", parcelMediator)
+        val parcel = Parcel(id=1, status="En-Route", mediator=parcelMediator)
 
         parcelMediator.receivers(john)
         parcelMediator.receivers(mary)
+        //Won't Receive
         parcelMediator.receivers(don)
 
         parcel.sendParcel()

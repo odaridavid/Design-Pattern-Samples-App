@@ -13,15 +13,16 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.facade.TimeLineFacade
-import org.junit.Test
 
+import com.github.odaridavid.designpatterns.facade.AnimationDirector
+import org.junit.Test
 
 class FacadePatternUnitTest {
 
     @Test
-    fun loadTimeline_facadePattern() {
-        TimeLineFacade().loadTimeLine()
+    fun performAnimations_facadePattern() {
+        val animationDirector = AnimationDirector()
+        animationDirector.performAnimations()
     }
 
 }

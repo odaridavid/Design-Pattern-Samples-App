@@ -13,29 +13,49 @@
  **/
 package com.github.odaridavid.designpatterns.chainofresponsibility
 
-//TODO Revisit chain of responsibility
-interface Processing {
-    var process: String
-    fun processProduct(next: Processing): Processing
+interface OrderHandler {
+    val nextHandler: OrderHandler?
+    fun handleRequest(order: Order)
 }
 
-abstract class BaseProcessing(override var process: String, var next: Processing? = null) :
-    Processing {
+interface Order {
+    val items: Map<String, Int>
+}
 
-    override fun processProduct(next: Processing): Processing {
-        this.next = next
-        println("From $process")
-        println("To ${next.process}")
-        return this
+class IceCreamOrder(override val items: Map<String, Int>) : Order
+
+class IceCreamVendor(override val nextHandler: OrderHandler?) : OrderHandler {
+    override fun handleRequest(order: Order) {
+        val orderSize = order.items.values.sum()
+        if (orderSize > 5) {
+            println("Vendor: I'll have to get some")
+            nextHandler?.handleRequest(order) ?: println("This is the end buddy")
+        } else {
+            println("Order of ${order.items.keys} coming right up")
+        }
     }
-
 }
 
-class ConvertRawMaterial : BaseProcessing("Convert Raw Material")
+class IceCreamRetailer(override val nextHandler: OrderHandler?) : OrderHandler {
+    override fun handleRequest(order: Order) {
+        val orderSize = order.items.values.sum()
+        if (orderSize > 10) {
+            println("Retailer: Hmm guess I'll have to order more too")
+            nextHandler?.handleRequest(order) ?: println("This is the end buddy")
+        } else {
+            println("Order of ${order.items.keys} enroute to vendor")
+        }
+    }
+}
 
-class Packaging : BaseProcessing("Packaging")
-
-class Labeling : BaseProcessing("Labeling")
-
-
+class IceCreamFactory(override val nextHandler: OrderHandler?) : OrderHandler {
+    override fun handleRequest(order: Order) {
+        val orderSize = order.items.values.sum()
+        if (orderSize > 100) {
+            nextHandler?.handleRequest(order) ?: println("This is the end buddy")
+        } else {
+            println("Factory: Order of ${order.items.keys} coming enroute to retailer")
+        }
+    }
+}
 

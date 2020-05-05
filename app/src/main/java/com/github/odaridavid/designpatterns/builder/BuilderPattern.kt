@@ -15,13 +15,12 @@ package com.github.odaridavid.designpatterns.builder
 
 import androidx.annotation.FloatRange
 
-//Builder methods
 class GameEnvironmentBuilder {
 
-    var quality = RenderQuality.MEDIUM
-    var frequency = 0.0f
-    var timeOfDay = TimeOfDay.MORNING
-    var scene = Scene.BARRACKS
+    private var quality = RenderQuality.MEDIUM
+    private var frequency = 0.0f
+    private var timeOfDay = TimeOfDay.MORNING
+    private var scene = Scene.BARRACKS
 
     fun setRenderQuality(quality: RenderQuality): GameEnvironmentBuilder {
         this.quality = quality
@@ -69,10 +68,3 @@ data class GameEnvironment(
     val timeOfDay: TimeOfDay,
     val scene: Scene
 )
-
-//DSL Format
-fun createEnvironment(init: GameEnvironmentBuilder.() -> Unit): GameEnvironment {
-    val gameEnvironmentBuilder = GameEnvironmentBuilder()
-    init(gameEnvironmentBuilder)
-    return gameEnvironmentBuilder.build()
-}

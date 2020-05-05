@@ -13,20 +13,16 @@
  **/
 package com.github.odaridavid.designpatterns.mediator
 
-//Similarity with observer pattern a bit confusing,TODO Will read more on it
-
 class User(val parcelId: Int, val name: String) {
     fun parcelStatus(status: String) {
         println("Update for $name :: Parcel Status : $status")
     }
 }
 
-class Parcel(private val id: Int, var status: String, private val parcelMediator: ParcelMediator) {
-
+class Parcel(private val id: Int, var status: String, private val mediator: ParcelMediator) {
     fun sendParcel() {
-        parcelMediator.updateParcelStatus(id, status)
+        mediator.updateParcelStatus(id, status)
     }
-
 }
 
 class ParcelMediator {
