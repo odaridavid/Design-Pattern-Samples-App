@@ -2,9 +2,7 @@ package com.github.odaridavid.designpatterns
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -29,13 +27,32 @@ class AboutActivity : BaseActivity() {
 
         val librariesAdapter = LibrariesAdapter { url ->
             val repoUrl = checkUrlScheme(url)
-            val browserIntent = Intent(Intent.ACTION_VIEW, repoUrl.toUri())
-            startActivity(browserIntent)
+            openBrowser(repoUrl)
         }
 
         binding.licensesRecyclerView.adapter = ScaleInAnimationAdapter(librariesAdapter.apply {
             submitList(libs)
         })
+    }
+
+    private fun openBrowser(repoUrl: String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, repoUrl.toUri())
+        startActivity(browserIntent)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.about_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_open_source_code -> {
+                openBrowser("https://github.com/odaridavid/Design-Pattern-Samples-App")
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 }

@@ -21,9 +21,12 @@ And Some Wikipedia.🙃
 
 ## Screenshots
 
-|<img src='art/s4.png' width='210'/>|<img src='art/s1.png' width='210'/>|<img src='art/s2.png' width='210'/>|<img src='art/s5.png' width='210'/>|
+|<img src='art/s4.png' width='210'/>|<img src='art/s1.png' width='210'/>|<img src='art/s6.png' width='210'/>|<img src='art/s5.png' width='210'/>|
 |:--:|:--:|:--:|:--:|
 
+## Attributions
+
+<a target="_blank" href="https://icons8.com/icons/set/github">GitHub icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 ## License
 

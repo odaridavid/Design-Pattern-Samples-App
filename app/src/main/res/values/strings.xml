@@ -149,5 +149,6 @@
     <string name="desc_flyweight">
         A structural design pattern
     </string>
+    <string name="menu_view_source_code">View Source Code</string>
 
 </resources>
