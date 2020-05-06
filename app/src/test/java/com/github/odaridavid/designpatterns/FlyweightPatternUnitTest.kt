@@ -13,5 +13,24 @@
  **/
 package com.github.odaridavid.designpatterns
 
+import com.github.odaridavid.designpatterns.flyweight.GameSceneFactory
+import com.github.odaridavid.designpatterns.flyweight.TimeOfDay
+import org.junit.Test
 
-class FlyweightPatternUnitTest
+class FlyweightPatternUnitTest {
+
+    @Test
+    fun gameScenes_flyweightPattern() {
+        //Initial
+        assert(GameSceneFactory.getNoOfStoredScenes() == 0)
+
+        //Store 2 objects
+        GameSceneFactory.getCityScene(TimeOfDay.AFTERNOON)
+        GameSceneFactory.getForestScene(TimeOfDay.NIGHT)
+        assert(GameSceneFactory.getNoOfStoredScenes() == 2)
+
+        //Re-use one object
+        GameSceneFactory.getCityScene(TimeOfDay.AFTERNOON)
+        assert(GameSceneFactory.getNoOfStoredScenes() == 2)
+    }
+}

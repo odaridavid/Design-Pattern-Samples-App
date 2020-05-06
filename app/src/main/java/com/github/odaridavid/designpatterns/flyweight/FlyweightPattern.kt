@@ -13,3 +13,59 @@
  **/
 package com.github.odaridavid.designpatterns.flyweight
 
+import java.util.*
+
+interface GameScene {
+    val timeOfDay: TimeOfDay
+    fun render()
+}
+
+enum class TimeOfDay {
+    MORNING, AFTERNOON, NIGHT
+}
+
+class CityScene(override val timeOfDay: TimeOfDay) : GameScene {
+    override fun render() {
+        println("Entering City")
+    }
+}
+
+class ForestScene(override val timeOfDay: TimeOfDay) : GameScene {
+    override fun render() {
+        println("Entering Forest")
+    }
+}
+
+object GameSceneFactory {
+    private val scenesMap = WeakHashMap<String, GameScene>()
+
+    fun getCityScene(timeOfDay: TimeOfDay): GameScene {
+        val key = "CityScene-$timeOfDay"
+        return synchronized(this) {
+            val scene = scenesMap[key]
+            if (scene != null)
+                scene
+            else {
+                val newScene = CityScene(timeOfDay)
+                scenesMap[key] = newScene
+                newScene
+            }
+        }
+    }
+
+    fun getForestScene(timeOfDay: TimeOfDay): GameScene {
+        val key = "ForestScene-$timeOfDay"
+        return synchronized(this) {
+            val scene = scenesMap[key]
+            if (scene != null)
+                scene
+            else {
+                val newScene = ForestScene(timeOfDay)
+                scenesMap[key] = newScene
+                newScene
+            }
+        }
+    }
+
+    fun getNoOfStoredScenes() = scenesMap.size
+}

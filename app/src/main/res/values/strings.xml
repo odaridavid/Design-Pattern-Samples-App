@@ -148,8 +148,14 @@
     </string>
 
     <string name="desc_flyweight">
-        A structural design pattern
-    </string>
+        A structural design pattern that reduces the number of objects created by fitting more objects
+        into the available amount of RAM by sharing common parts of state between multiple objects
+        hence decreasing memory footprint and increasing performance.
 
+        It may seem similar to singleton however there should be only one Singleton instance,once
+        the required object is created, we cannot create more. whereas a Flyweight class can have
+        multiple instances with different extrinsic attributes provided by the client.In this case
+        the time of day.
+    </string>
 
 </resources>
