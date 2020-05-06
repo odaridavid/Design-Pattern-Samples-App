@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.mikepenz.aboutlibraries.plugin'
-apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     compileSdkVersion 29
@@ -55,9 +54,6 @@ dependencies {
 
     //Analytics
     implementation 'com.google.firebase:firebase-analytics:17.4.0'
-
-    //Crashlytics.
-    implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
 
     //Markdown Support
     implementation 'us.feras.mdv:markdownview:1.1.0'
