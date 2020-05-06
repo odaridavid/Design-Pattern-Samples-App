@@ -2,8 +2,21 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.mikepenz.aboutlibraries.plugin'
+apply plugin: 'com.google.firebase.crashlytics'
+
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias = keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
@@ -26,6 +39,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [crashlyticsEnabled: true]
+            signingConfig signingConfigs.release
+        }
+        debug{
+            manifestPlaceholders = [crashlyticsEnabled: false]
         }
     }
     viewBinding.enabled = true
@@ -54,6 +72,9 @@ dependencies {
 
     //Analytics
     implementation 'com.google.firebase:firebase-analytics:17.4.0'
+
+    //Crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
 
     //Markdown Support
     implementation 'us.feras.mdv:markdownview:1.1.0'
