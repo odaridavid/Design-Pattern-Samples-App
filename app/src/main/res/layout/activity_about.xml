@@ -38,7 +38,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textColor="@color/grey800" />
+            android:textColor="@color/grey800"
+            tools:text="v1.0.0" />
+
+        <TextView
+            android:id="@+id/privacy_policy_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/small_margin"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/title_privacy_policy"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="italic" />
 
     </LinearLayout>
 

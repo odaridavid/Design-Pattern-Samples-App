@@ -25,6 +25,7 @@ class AboutActivity : BaseActivity() {
                 R.string.template_app_version,
                 BuildConfig.VERSION_NAME
             )
+        binding.privacyPolicyTextView.setOnClickListener { openBrowser(APP_PRIVACY_POLICY_URL) }
 
         val librariesAdapter = initLibrariesAdapter()
 
@@ -39,8 +40,8 @@ class AboutActivity : BaseActivity() {
         }.apply { submitList(libraries) }
     }
 
-    private fun openBrowser(repoUrl: String) {
-        val browserIntent = Intent(Intent.ACTION_VIEW, repoUrl.toUri())
+    private fun openBrowser(url: String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, url.toUri())
         startActivity(browserIntent)
     }
 
@@ -61,6 +62,7 @@ class AboutActivity : BaseActivity() {
 
     companion object {
         const val APP_REPO_URL = "https://github.com/odaridavid/Design-Pattern-Samples-App"
+        const val APP_PRIVACY_POLICY_URL = "https://design-patterns.flycricket.io/privacy.html"
     }
 
 }

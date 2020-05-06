@@ -43,3 +43,7 @@ And Some Wikipedia.🙃
   See the License for the specific language governing permissions and
   limitations under the License.
 ```
+
+## [Privacy Policy](https://design-patterns.flycricket.io/privacy.html)
+
+

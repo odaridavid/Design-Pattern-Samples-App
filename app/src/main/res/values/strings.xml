@@ -157,5 +157,6 @@
         multiple instances with different extrinsic attributes provided by the client.In this case
         the time of day.
     </string>
+    <string name="title_privacy_policy">Privacy Policy</string>
 
 </resources>
