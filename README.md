@@ -8,9 +8,14 @@
 
 ## Design Patterns
 
-Exploring Behavioral,Creational and Structural Design Patterns
+Exploring Behavioral,Creational and Structural Design Patterns in Kotlin.
 
 Feel free to improve or provide feedback on any of the patterns.
+
+## Prerequisite
+
+The project uses firebase crashlytics hence setting up a [firebase project](https://firebase.google.com/)
+will be required for a successful build.
 
 ## More References
 
