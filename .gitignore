@@ -13,4 +13,5 @@
 .externalNativeBuild
 .cxx
 keystore.properties
-designpatterns.jks
+*.jks
+*.pepk
