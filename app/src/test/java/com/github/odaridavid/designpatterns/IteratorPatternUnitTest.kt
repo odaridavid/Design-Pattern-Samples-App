@@ -13,5 +13,12 @@
  **/
 package com.github.odaridavid.designpatterns
 
+import com.github.odaridavid.designpatterns.iterator.CarShowroom
+import org.junit.Test
 
-class IteratorPatternUnitTest
+class IteratorPatternUnitTest {
+    @Test
+    fun carShowroom_iteratorPattern() {
+        CarShowroom().showcaseCars()
+    }
+}

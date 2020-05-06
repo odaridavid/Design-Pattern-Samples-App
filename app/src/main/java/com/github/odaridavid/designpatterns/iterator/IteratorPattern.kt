@@ -13,3 +13,46 @@
  **/
 package com.github.odaridavid.designpatterns.iterator
 
+interface Iterator {
+    val next: Car?
+    fun hasNext(): Boolean
+}
+
+interface Container {
+    fun createIterator(): Iterator
+}
+
+class Car(val name: String)
+
+class CarIterator(private val cars: Array<Car>) : Iterator {
+
+    var index: Int = 0
+
+    override val next: Car?
+        get() {
+            val car = cars[index]
+            index++
+            return car
+        }
+
+    override fun hasNext(): Boolean = index < cars.size
+
+}
+
+class CarCollection : Container {
+
+    override fun createIterator(): Iterator {
+        val cars = arrayOf(Car("BMW"), Car("Tesla"), Car("Maserati"))
+        return CarIterator(cars)
+    }
+
+}
+
+class CarShowroom(private val carCollection: CarCollection = CarCollection()) {
+    fun showcaseCars() {
+        val iterator = carCollection.createIterator()
+        while (iterator.hasNext()) {
+            println("We have ${iterator.next?.name}")
+        }
+    }
+}

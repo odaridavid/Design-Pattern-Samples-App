@@ -142,9 +142,9 @@
         modifying their structure by separating the algorithm from the objects structure.
     </string>
 
-    <!--    TODO Look into iterator and flyweight-->
     <string name="desc_iterator">
-        in which an iterator is used to traverse a container and access the container\'s elements.
+       A behavioral design pattern in which an iterator is used to traverse a container and
+        access the container\'s elements.
     </string>
 
     <string name="desc_flyweight">
