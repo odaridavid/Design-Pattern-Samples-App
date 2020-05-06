@@ -57,16 +57,16 @@
 
 <span class="keyword">fun</span> main() {
     <span class="comments">//Initial</span>
-    <span class="assert">assert</span>(GameSceneFactory.getNoOfStoredScenes() == <span class="literals">0</span>)
+    <span class="assertions">assert</span>(GameSceneFactory.getNoOfStoredScenes() == <span class="literals">0</span>)
 
     <span class="comments">//Store 2 objects</span>
     GameSceneFactory.getCityScene(TimeOfDay.<span class="static">AFTERNOON</span>)
     GameSceneFactory.getForestScene(TimeOfDay.<span class="static">NIGHT</span>)
     <span class="assertions">assert</span>(GameSceneFactory.getNoOfStoredScenes() == <span class="literals">2</span>)
 
-    <span class="comments">//Re-use one object</span>
+    <span class="comments">//Re-use city scene object</span>
     GameSceneFactory.getCityScene(TimeOfDay.<span class="static">AFTERNOON</span>)
-    <span class="assert">assert</span>(GameSceneFactory.getNoOfStoredScenes() == <span class="literals">2</span>)
+    <span class="assertions">assert</span>(GameSceneFactory.getNoOfStoredScenes() == <span class="literals">2</span>)
 }
 </code>
 </pre>

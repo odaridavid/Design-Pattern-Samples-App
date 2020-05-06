@@ -14,7 +14,7 @@
 
     <span class="keyword">override fun</span> getHeight(): <span class="types">Float</span> = <span class="literals">512.0f</span>
 
-    <span class="keyword">override fun</span> render(height: <span class="types">Float, width: <span class="types">Float)</span> {
+    <span class="keyword">override fun</span> render(height: <span class="types">Float</span>, width: <span class="types">Float)</span> {
         <span class="stdlib">println</span>(<span class="string">"Rendering window of $height pixels by $width pixels"</span>)
     }
 }
