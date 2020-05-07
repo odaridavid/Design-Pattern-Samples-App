@@ -13,9 +13,9 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.composite.IceCreamContainer
-import com.github.odaridavid.designpatterns.composite.LargeContainer
-import com.github.odaridavid.designpatterns.composite.MagarineContainer
+import com.github.odaridavid.designpatterns.patterns.composite.IceCreamContainer
+import com.github.odaridavid.designpatterns.patterns.composite.LargeContainer
+import com.github.odaridavid.designpatterns.patterns.composite.MagarineContainer
 import org.junit.Test
 
 
@@ -28,7 +28,8 @@ class CompositePatternUnitTest {
         largeContainer.addContainer(MagarineContainer())
         largeContainer.addContainer(IceCreamContainer())
 
-        val largestContainer = LargeContainer()
+        val largestContainer =
+            LargeContainer()
         largestContainer.addContainer(largeContainer)
 
         largestContainer.extractContent()

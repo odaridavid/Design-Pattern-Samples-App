@@ -13,9 +13,9 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.mediator.Parcel
-import com.github.odaridavid.designpatterns.mediator.ParcelMediator
-import com.github.odaridavid.designpatterns.mediator.User
+import com.github.odaridavid.designpatterns.patterns.mediator.Parcel
+import com.github.odaridavid.designpatterns.patterns.mediator.ParcelMediator
+import com.github.odaridavid.designpatterns.patterns.mediator.User
 import org.junit.Test
 
 
@@ -23,12 +23,25 @@ class MediatorPatternUnitTest {
 
     @Test
     fun parcel_mediatorPattern() {
-        val john = User(name = "John", parcelId = 1)
-        val mary = User(name = "Mary", parcelId = 1)
-        val don = User(name = "Don", parcelId = 2)
+        val john = User(
+            name = "John",
+            parcelId = 1
+        )
+        val mary = User(
+            name = "Mary",
+            parcelId = 1
+        )
+        val don = User(
+            name = "Don",
+            parcelId = 2
+        )
 
         val parcelMediator = ParcelMediator()
-        val parcel = Parcel(id=1, status="En-Route", mediator=parcelMediator)
+        val parcel = Parcel(
+            id = 1,
+            status = "En-Route",
+            mediator = parcelMediator
+        )
 
         parcelMediator.receivers(john)
         parcelMediator.receivers(mary)

@@ -13,8 +13,8 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.memento.CareTaker
-import com.github.odaridavid.designpatterns.memento.Originator
+import com.github.odaridavid.designpatterns.patterns.memento.CareTaker
+import com.github.odaridavid.designpatterns.patterns.memento.Originator
 import org.junit.Test
 
 
@@ -30,7 +30,7 @@ class MementoPatternUnitTest {
         careTaker.saveState(originator.saveToMemento())
 
         originator.state = "Third State"
-        originator.state ="Fourth State"
+        originator.state = "Fourth State"
         careTaker.saveState(originator.saveToMemento())
         assert(originator.state == "Fourth State")
 

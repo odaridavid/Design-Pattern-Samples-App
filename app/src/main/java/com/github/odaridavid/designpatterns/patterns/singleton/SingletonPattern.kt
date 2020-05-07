@@ -11,22 +11,9 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.patterns.singleton
 
-import com.github.odaridavid.designpatterns.patterns.state.Door
-import org.junit.Test
-
-
-class StatePatternUnitTest {
-
-    @Test
-    fun door_statePattern() {
-        val door = Door()
-        assert(door.enter().contains("Can't get in"))
-
-        door.open()
-        assert(door.enter().contains("Welcome"))
-
-        door.close()
-    }
+//Object provides singleton out of the box
+object CentralBank {
+    fun getMoney() = "$10 Billion"
 }

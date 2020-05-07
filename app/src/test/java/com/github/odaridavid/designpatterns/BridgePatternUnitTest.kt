@@ -13,8 +13,8 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.bridge.Chair
-import com.github.odaridavid.designpatterns.bridge.VintageFurniture
+import com.github.odaridavid.designpatterns.patterns.bridge.Chair
+import com.github.odaridavid.designpatterns.patterns.bridge.VintageFurniture
 import org.junit.Test
 
 

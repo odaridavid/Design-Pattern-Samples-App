@@ -11,22 +11,26 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
-
-import com.github.odaridavid.designpatterns.patterns.state.Door
-import org.junit.Test
+package com.github.odaridavid.designpatterns.patterns.proxy
 
 
-class StatePatternUnitTest {
+interface Car {
+    fun drive(): String
+}
 
-    @Test
-    fun door_statePattern() {
-        val door = Door()
-        assert(door.enter().contains("Can't get in"))
+class RealCar : Car {
+    override fun drive(): String {
+        return "Ignition On"
+    }
+}
 
-        door.open()
-        assert(door.enter().contains("Welcome"))
+class ProxyCar : Car {
+    private val realCar = RealCar()
+    var key = "none"
 
-        door.close()
+    override fun drive(): String {
+        return if (key == "none")
+            "No keys available"
+        else realCar.drive()
     }
 }

@@ -14,14 +14,15 @@
 package com.github.odaridavid.designpatterns
 
 
-import com.github.odaridavid.designpatterns.facade.AnimationDirector
+import com.github.odaridavid.designpatterns.patterns.facade.AnimationDirector
 import org.junit.Test
 
 class FacadePatternUnitTest {
 
     @Test
     fun performAnimations_facadePattern() {
-        val animationDirector = AnimationDirector()
+        val animationDirector =
+            AnimationDirector()
         animationDirector.performAnimations()
     }
 

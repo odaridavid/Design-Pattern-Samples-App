@@ -11,22 +11,23 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
-
-import com.github.odaridavid.designpatterns.patterns.state.Door
-import org.junit.Test
+package com.github.odaridavid.designpatterns.patterns.factory
 
 
-class StatePatternUnitTest {
+sealed class Chair(val capacity: Int)
 
-    @Test
-    fun door_statePattern() {
-        val door = Door()
-        assert(door.enter().contains("Can't get in"))
+class Sofa(capacity: Int) : Chair(capacity)
 
-        door.open()
-        assert(door.enter().contains("Welcome"))
+class ParkBench(capacity: Int) : Chair(capacity)
 
-        door.close()
+object ChairFactory {
+    @JvmStatic
+    inline fun <reified T> getChair(): Chair {
+        return when (T::class) {
+            Sofa::class -> Sofa(5)
+            ParkBench::class -> ParkBench(3)
+            else -> throw IllegalArgumentException("Unknown type of chair")
+        }
     }
 }
+

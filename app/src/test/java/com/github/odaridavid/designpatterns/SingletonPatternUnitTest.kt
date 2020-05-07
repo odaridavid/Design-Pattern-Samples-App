@@ -13,7 +13,7 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.singleton.CentralBank
+import com.github.odaridavid.designpatterns.patterns.singleton.CentralBank
 import org.junit.Test
 
 

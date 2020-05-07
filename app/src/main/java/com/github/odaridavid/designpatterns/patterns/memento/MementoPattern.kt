@@ -11,22 +11,30 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
-
-import com.github.odaridavid.designpatterns.patterns.state.Door
-import org.junit.Test
+package com.github.odaridavid.designpatterns.patterns.memento
 
 
-class StatePatternUnitTest {
+data class Memento(val state: String)
 
-    @Test
-    fun door_statePattern() {
-        val door = Door()
-        assert(door.enter().contains("Can't get in"))
+class Originator(var state: String) {
 
-        door.open()
-        assert(door.enter().contains("Welcome"))
+    fun saveToMemento(): Memento {
+        return Memento(state)
+    }
 
-        door.close()
+    fun restoreFromMemento(memento: Memento) {
+        state = memento.state
+    }
+}
+
+class CareTaker {
+    private val savedStates = ArrayList<Memento>()
+
+    fun saveState(state: Memento) {
+        savedStates.add(state)
+    }
+
+    fun restore(index: Int): Memento {
+        return savedStates[index]
     }
 }

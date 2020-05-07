@@ -13,23 +13,24 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.builder.GameEnvironmentBuilder
-import com.github.odaridavid.designpatterns.builder.RenderQuality
-import com.github.odaridavid.designpatterns.builder.Scene
-import com.github.odaridavid.designpatterns.builder.TimeOfDay
+import com.github.odaridavid.designpatterns.patterns.builder.GameEnvironmentBuilder
+import com.github.odaridavid.designpatterns.patterns.builder.RenderQuality
+import com.github.odaridavid.designpatterns.patterns.builder.Scene
+import com.github.odaridavid.designpatterns.patterns.builder.TimeOfDay
 import org.junit.Test
 
 class BuilderPatternUnitTest {
 
     @Test
     fun build_returnGameEnvironment() {
-        val gv = GameEnvironmentBuilder().run {
-            setRenderQuality(RenderQuality.ULTRA)
-            setRocksFrequency(0.8f)
-            setScene(Scene.CLUB)
-            setTimeOfDay(TimeOfDay.MORNING)
-            build()
-        }
+        val gv = GameEnvironmentBuilder()
+            .run {
+                setRenderQuality(RenderQuality.ULTRA)
+                setRocksFrequency(0.8f)
+                setScene(Scene.CLUB)
+                setTimeOfDay(TimeOfDay.MORNING)
+                build()
+            }
 
         assert(gv.quality == RenderQuality.ULTRA)
     }

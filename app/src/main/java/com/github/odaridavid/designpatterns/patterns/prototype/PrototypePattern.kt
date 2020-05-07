@@ -11,22 +11,10 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.patterns.prototype
 
-import com.github.odaridavid.designpatterns.patterns.state.Door
-import org.junit.Test
-
-
-class StatePatternUnitTest {
-
-    @Test
-    fun door_statePattern() {
-        val door = Door()
-        assert(door.enter().contains("Can't get in"))
-
-        door.open()
-        assert(door.enter().contains("Welcome"))
-
-        door.close()
+data class Configs(val fallbackUri: String, val defaultPort: Int) {
+    override fun toString(): String {
+        return "$fallbackUri/$defaultPort"
     }
 }

@@ -11,22 +11,23 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.patterns.templatemethod
 
-import com.github.odaridavid.designpatterns.patterns.state.Door
-import org.junit.Test
+abstract class Window {
+    abstract fun getWidth(): Float
+    abstract fun getHeight(): Float
+    abstract fun render(height: Float, width: Float)
+    fun draw() {
+        render(getHeight(), getWidth())
+    }
+}
 
+class RectangularWindow : Window() {
+    override fun getWidth(): Float = 1024.0f
 
-class StatePatternUnitTest {
+    override fun getHeight(): Float = 512.0f
 
-    @Test
-    fun door_statePattern() {
-        val door = Door()
-        assert(door.enter().contains("Can't get in"))
-
-        door.open()
-        assert(door.enter().contains("Welcome"))
-
-        door.close()
+    override fun render(height: Float, width: Float) {
+        println("Rendering window of $height pixels by $width pixels")
     }
 }

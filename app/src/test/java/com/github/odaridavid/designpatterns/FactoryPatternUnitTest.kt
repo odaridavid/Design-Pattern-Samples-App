@@ -13,9 +13,9 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.factory.ChairFactory
-import com.github.odaridavid.designpatterns.factory.ParkBench
-import com.github.odaridavid.designpatterns.factory.Sofa
+import com.github.odaridavid.designpatterns.patterns.factory.ChairFactory
+import com.github.odaridavid.designpatterns.patterns.factory.ParkBench
+import com.github.odaridavid.designpatterns.patterns.factory.Sofa
 import org.junit.Test
 
 class FactoryPatternUnitTest {

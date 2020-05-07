@@ -13,10 +13,10 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.command.DetourCommand
-import com.github.odaridavid.designpatterns.command.Event
-import com.github.odaridavid.designpatterns.command.RaceCommand
-import com.github.odaridavid.designpatterns.command.RaceOrganizer
+import com.github.odaridavid.designpatterns.patterns.command.DetourCommand
+import com.github.odaridavid.designpatterns.patterns.command.Event
+import com.github.odaridavid.designpatterns.patterns.command.RaceCommand
+import com.github.odaridavid.designpatterns.patterns.command.RaceOrganizer
 import org.junit.Test
 
 
@@ -34,6 +34,5 @@ class CommandPatternUnitTest {
             register(detourCommand)
             execute()
         }
-
     }
 }

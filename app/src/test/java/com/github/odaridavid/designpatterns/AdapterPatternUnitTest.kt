@@ -13,8 +13,8 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.adapter.HpPowerBrick
-import com.github.odaridavid.designpatterns.adapter.StockCableAdapter
+import com.github.odaridavid.designpatterns.patterns.adapter.HpPowerBrick
+import com.github.odaridavid.designpatterns.patterns.adapter.StockCableAdapter
 import org.junit.Test
 
 

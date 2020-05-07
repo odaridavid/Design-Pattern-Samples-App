@@ -13,7 +13,7 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.abstractfactory.*
+import com.github.odaridavid.designpatterns.patterns.abstractfactory.*
 import org.junit.BeforeClass
 import org.junit.Test
 

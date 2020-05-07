@@ -11,22 +11,29 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
-
-import com.github.odaridavid.designpatterns.patterns.state.Door
-import org.junit.Test
+package com.github.odaridavid.designpatterns.patterns.state
 
 
-class StatePatternUnitTest {
+sealed class DoorState
 
-    @Test
-    fun door_statePattern() {
-        val door = Door()
-        assert(door.enter().contains("Can't get in"))
+object Open : DoorState()
+object Closed : DoorState()
 
-        door.open()
-        assert(door.enter().contains("Welcome"))
+class Door {
+    private var doorState: DoorState = Closed
 
-        door.close()
+    fun open() {
+        doorState = Open
+    }
+
+    fun close() {
+        doorState = Closed
+    }
+
+    fun enter(): String {
+        return when (doorState) {
+            is Open -> "Welcome"
+            is Closed -> "Can't get in"
+        }
     }
 }

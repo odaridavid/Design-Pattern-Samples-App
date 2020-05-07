@@ -11,22 +11,26 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
-
-import com.github.odaridavid.designpatterns.patterns.state.Door
-import org.junit.Test
+package com.github.odaridavid.designpatterns.patterns.strategy
 
 
-class StatePatternUnitTest {
+interface BillingStrategy {
+    fun pay(): String
+}
 
-    @Test
-    fun door_statePattern() {
-        val door = Door()
-        assert(door.enter().contains("Can't get in"))
+class Mpesa : BillingStrategy {
+    override fun pay(): String = "Pay through M-pesa"
+}
 
-        door.open()
-        assert(door.enter().contains("Welcome"))
+class CashOnDelivery : BillingStrategy {
+    override fun pay(): String = "Pay cash on delivery"
+}
 
-        door.close()
+class OrderTransaction(val transactionProcess: (BillingStrategy) -> String) {
+
+    var billingStrategy: BillingStrategy? = null
+
+    fun finalizeTransaction(): String {
+        return billingStrategy?.run { transactionProcess(this) } ?: "No Billing Method Selected"
     }
 }

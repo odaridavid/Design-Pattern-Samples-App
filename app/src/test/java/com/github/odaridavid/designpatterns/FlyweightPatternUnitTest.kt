@@ -13,8 +13,8 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.flyweight.GameSceneFactory
-import com.github.odaridavid.designpatterns.flyweight.TimeOfDay
+import com.github.odaridavid.designpatterns.patterns.flyweight.GameSceneFactory
+import com.github.odaridavid.designpatterns.patterns.flyweight.TimeOfDay
 import org.junit.Test
 
 class FlyweightPatternUnitTest {

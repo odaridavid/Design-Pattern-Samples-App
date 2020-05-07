@@ -11,22 +11,20 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns
+package com.github.odaridavid.designpatterns.patterns.bridge
 
-import com.github.odaridavid.designpatterns.patterns.state.Door
-import org.junit.Test
+interface FurnitureTheme {
+    fun getTheme(): String
+}
 
+class VintageFurniture : FurnitureTheme {
+    override fun getTheme(): String = "Vintage"
+}
 
-class StatePatternUnitTest {
+abstract class Furniture(val furnitureTheme: FurnitureTheme) {
+    abstract fun getType(): String
+}
 
-    @Test
-    fun door_statePattern() {
-        val door = Door()
-        assert(door.enter().contains("Can't get in"))
-
-        door.open()
-        assert(door.enter().contains("Welcome"))
-
-        door.close()
-    }
+class Chair(private val theme: FurnitureTheme) : Furniture(theme) {
+    override fun getType(): String = "${theme.getTheme()} Chair."
 }
