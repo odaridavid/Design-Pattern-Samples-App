@@ -21,8 +21,7 @@ will be required for a successful build.
 
 - [Design-Patterns-In-Kotlin](https://github.com/dbacinski/Design-Patterns-In-Kotlin)
 - [Refactoring Guru Design Patterns](https://refactoring.guru/design-patterns)
-
-And Some Wikipedia.🙃
+- [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern)
 
 ## Screenshots
 
