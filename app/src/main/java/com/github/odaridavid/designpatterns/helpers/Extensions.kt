@@ -15,6 +15,7 @@ package com.github.odaridavid.designpatterns.helpers
 
 import android.app.Activity
 import android.content.Intent
+import android.widget.Toast
 import us.feras.mdv.MarkdownView
 
 
@@ -37,4 +38,8 @@ fun String.checkUrlScheme(): String {
     return if (!startsWith("http://") && !startsWith("https://"))
         "http://$this"
     else this
+}
+
+fun Activity.showToast(msg: String) {
+    Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
 }

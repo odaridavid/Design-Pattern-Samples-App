@@ -1,14 +1,19 @@
 package com.github.odaridavid.designpatterns.ui
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.github.odaridavid.designpatterns.InAppUpdateManager
 import com.github.odaridavid.designpatterns.R
 import com.github.odaridavid.designpatterns.base.BaseActivity
 import com.github.odaridavid.designpatterns.databinding.ActivityMainBinding
 import com.github.odaridavid.designpatterns.helpers.NavigationUtils
 import com.github.odaridavid.designpatterns.helpers.navigateTo
+import com.github.odaridavid.designpatterns.helpers.showToast
 import com.github.odaridavid.designpatterns.models.generateDesignPatterns
+import com.google.android.play.core.install.model.ActivityResult
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 
 class MainActivity : BaseActivity() {
@@ -38,11 +43,30 @@ class MainActivity : BaseActivity() {
         )
         binding.designPatternsRecyclerView.adapter =
             ScaleInAnimationAdapter(designPatternsAdapter.apply { submitList(designPatterns) })
+
+        InAppUpdateManager(baseContext, this).checkForUpdate()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (InAppUpdateManager.RQ_REQUEST_UPDATE == requestCode) {
+            when (resultCode) {
+                Activity.RESULT_OK -> {
+                    showToast(getString(R.string.app_update_success))
+                }
+                Activity.RESULT_CANCELED -> {
+                    showToast(getString(R.string.app_update_cancelled))
+                }
+                ActivityResult.RESULT_IN_APP_UPDATE_FAILED -> {
+                    showToast(getString(R.string.app_update_failed))
+                }
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
