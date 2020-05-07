@@ -13,7 +13,7 @@
  **/
 package com.github.odaridavid.designpatterns.patterns.templatemethod
 
-abstract class Window {
+internal abstract class Window {
     abstract fun getWidth(): Float
     abstract fun getHeight(): Float
     abstract fun render(height: Float, width: Float)
@@ -22,7 +22,7 @@ abstract class Window {
     }
 }
 
-class RectangularWindow : Window() {
+internal class RectangularWindow : Window() {
     override fun getWidth(): Float = 1024.0f
 
     override fun getHeight(): Float = 512.0f

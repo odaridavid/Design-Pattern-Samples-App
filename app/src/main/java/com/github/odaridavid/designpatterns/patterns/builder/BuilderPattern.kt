@@ -15,7 +15,7 @@ package com.github.odaridavid.designpatterns.patterns.builder
 
 import androidx.annotation.FloatRange
 
-class GameEnvironmentBuilder {
+internal class GameEnvironmentBuilder {
 
     private var quality = RenderQuality.MEDIUM
     private var frequency = 0.0f
@@ -50,19 +50,19 @@ class GameEnvironmentBuilder {
 
 }
 
-enum class TimeOfDay {
+internal enum class TimeOfDay {
     MORNING, NOON, AFTERNOON, EVENING, NIGHT
 }
 
-enum class Scene {
+internal enum class Scene {
     FOREST, CITY, CAVE, BARRACKS, CLUB
 }
 
-enum class RenderQuality {
+internal enum class RenderQuality {
     LOW, MEDIUM, MAX, ULTRA
 }
 
-data class GameEnvironment(
+internal data class GameEnvironment(
     val quality: RenderQuality,
     val frequencyOfRocks: Float,
     val timeOfDay: TimeOfDay,

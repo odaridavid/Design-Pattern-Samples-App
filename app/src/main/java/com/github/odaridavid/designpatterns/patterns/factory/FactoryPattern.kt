@@ -14,13 +14,13 @@
 package com.github.odaridavid.designpatterns.patterns.factory
 
 
-sealed class Chair(val capacity: Int)
+internal sealed class Chair(val capacity: Int)
 
-class Sofa(capacity: Int) : Chair(capacity)
+internal class Sofa(capacity: Int) : Chair(capacity)
 
-class ParkBench(capacity: Int) : Chair(capacity)
+internal class ParkBench(capacity: Int) : Chair(capacity)
 
-object ChairFactory {
+internal object ChairFactory {
     @JvmStatic
     inline fun <reified T> getChair(): Chair {
         return when (T::class) {

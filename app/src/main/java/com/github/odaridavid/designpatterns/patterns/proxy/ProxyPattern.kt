@@ -14,11 +14,11 @@
 package com.github.odaridavid.designpatterns.patterns.proxy
 
 
-interface Car {
+internal interface Car {
     fun drive(): String
 }
 
-class RealCar : Car {
+internal class RealCar : Car {
     override fun drive(): String {
         return "Ignition On"
     }

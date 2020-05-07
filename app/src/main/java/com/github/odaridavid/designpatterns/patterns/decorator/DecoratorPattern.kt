@@ -14,32 +14,32 @@
 package com.github.odaridavid.designpatterns.patterns.decorator
 
 
-interface Bar {
+internal interface Bar {
     fun setup()
 }
 
-class CollegeBar : Bar {
+internal class CollegeBar : Bar {
     override fun setup() {
         println("College Bar Setup")
     }
 }
 
-class SportsBar : Bar {
+internal class SportsBar : Bar {
     override fun setup() {
         println("Sports Bar Setup")
     }
 }
 
-abstract class BarDecorator(bar: Bar) : Bar by bar
+internal abstract class BarDecorator(bar: Bar) : Bar by bar
 
-class HalloweenBarDecorator(bar: Bar) : BarDecorator(bar) {
+internal class HalloweenBarDecorator(bar: Bar) : BarDecorator(bar) {
     override fun setup() {
         super.setup()
         println("Adding Halloween Ornaments")
     }
 }
 
-class ChristmasBarDecorator(bar: Bar) : BarDecorator(bar) {
+internal class ChristmasBarDecorator(bar: Bar) : BarDecorator(bar) {
     override fun setup() {
         super.setup()
         println("Adding Christmas Ornaments")

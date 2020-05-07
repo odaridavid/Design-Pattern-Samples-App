@@ -15,28 +15,28 @@ package com.github.odaridavid.designpatterns.patterns.flyweight
 
 import java.util.*
 
-interface GameScene {
+internal interface GameScene {
     val timeOfDay: TimeOfDay
     fun render()
 }
 
-enum class TimeOfDay {
+internal enum class TimeOfDay {
     MORNING, AFTERNOON, NIGHT
 }
 
-class CityScene(override val timeOfDay: TimeOfDay) : GameScene {
+internal class CityScene(override val timeOfDay: TimeOfDay) : GameScene {
     override fun render() {
         println("Entering City")
     }
 }
 
-class ForestScene(override val timeOfDay: TimeOfDay) : GameScene {
+internal class ForestScene(override val timeOfDay: TimeOfDay) : GameScene {
     override fun render() {
         println("Entering Forest")
     }
 }
 
-object GameSceneFactory {
+internal object GameSceneFactory {
     private val scenesMap = WeakHashMap<String, GameScene>()
 
     fun getCityScene(timeOfDay: TimeOfDay): GameScene {

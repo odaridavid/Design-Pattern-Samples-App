@@ -13,18 +13,18 @@
  **/
 package com.github.odaridavid.designpatterns.patterns.bridge
 
-interface FurnitureTheme {
+internal interface FurnitureTheme {
     fun getTheme(): String
 }
 
-class VintageFurniture : FurnitureTheme {
+internal class VintageFurniture : FurnitureTheme {
     override fun getTheme(): String = "Vintage"
 }
 
-abstract class Furniture(val furnitureTheme: FurnitureTheme) {
+internal abstract class Furniture(val furnitureTheme: FurnitureTheme) {
     abstract fun getType(): String
 }
 
-class Chair(private val theme: FurnitureTheme) : Furniture(theme) {
+internal class Chair(private val theme: FurnitureTheme) : Furniture(theme) {
     override fun getType(): String = "${theme.getTheme()} Chair."
 }

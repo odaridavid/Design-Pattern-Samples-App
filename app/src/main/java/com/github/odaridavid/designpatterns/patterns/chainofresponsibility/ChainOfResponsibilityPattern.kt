@@ -13,18 +13,18 @@
  **/
 package com.github.odaridavid.designpatterns.patterns.chainofresponsibility
 
-interface OrderHandler {
+internal interface OrderHandler {
     val nextHandler: OrderHandler?
     fun handleRequest(order: Order)
 }
 
-interface Order {
+internal interface Order {
     val items: Map<String, Int>
 }
 
-class IceCreamOrder(override val items: Map<String, Int>) : Order
+internal class IceCreamOrder(override val items: Map<String, Int>) : Order
 
-class IceCreamVendor(override val nextHandler: OrderHandler?) : OrderHandler {
+internal class IceCreamVendor(override val nextHandler: OrderHandler?) : OrderHandler {
     override fun handleRequest(order: Order) {
         val orderSize = order.items.values.sum()
         if (orderSize > 5) {
@@ -36,7 +36,7 @@ class IceCreamVendor(override val nextHandler: OrderHandler?) : OrderHandler {
     }
 }
 
-class IceCreamRetailer(override val nextHandler: OrderHandler?) : OrderHandler {
+internal class IceCreamRetailer(override val nextHandler: OrderHandler?) : OrderHandler {
     override fun handleRequest(order: Order) {
         val orderSize = order.items.values.sum()
         if (orderSize > 10) {
@@ -48,7 +48,7 @@ class IceCreamRetailer(override val nextHandler: OrderHandler?) : OrderHandler {
     }
 }
 
-class IceCreamFactory(override val nextHandler: OrderHandler?) : OrderHandler {
+internal class IceCreamFactory(override val nextHandler: OrderHandler?) : OrderHandler {
     override fun handleRequest(order: Order) {
         val orderSize = order.items.values.sum()
         if (orderSize > 100) {

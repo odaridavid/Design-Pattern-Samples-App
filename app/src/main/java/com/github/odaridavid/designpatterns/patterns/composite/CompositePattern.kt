@@ -14,23 +14,23 @@
 package com.github.odaridavid.designpatterns.patterns.composite
 
 
-interface Container {
+internal interface Container {
     fun extractContent()
 }
 
-class IceCreamContainer : Container {
+internal class IceCreamContainer : Container {
     override fun extractContent() {
         println("Ice Cream inside")
     }
 }
 
-class MagarineContainer : Container {
+internal class MagarineContainer : Container {
     override fun extractContent() {
         println("Magarine Empty")
     }
 }
 
-class LargeContainer : Container {
+internal class LargeContainer : Container {
     private var containers = mutableListOf<Container>()
 
     fun addContainer(container: Container) {

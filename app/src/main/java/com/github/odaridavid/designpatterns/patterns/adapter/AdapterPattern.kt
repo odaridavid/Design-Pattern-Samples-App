@@ -13,27 +13,27 @@
  **/
 package com.github.odaridavid.designpatterns.patterns.adapter
 
-interface LaptopCable {
+internal interface LaptopCable {
     fun onConnectedToPowerPort()
 }
 
-interface PowerBrick {
+internal interface PowerBrick {
     fun onConnectedToSocket()
 }
 
-class HpPowerBrick : PowerBrick {
+internal class HpPowerBrick : PowerBrick {
     override fun onConnectedToSocket() {
         println("PowerBrick Receiving Power Supply")
     }
 }
 
-open class StockCable : LaptopCable {
+internal open class StockCable : LaptopCable {
     override fun onConnectedToPowerPort() {
         println("Cable Connected To Laptop")
     }
 }
 
-class StockCableAdapter(private val hpPowerBrick: HpPowerBrick) : StockCable() {
+internal class StockCableAdapter(private val hpPowerBrick: HpPowerBrick) : StockCable() {
     override fun onConnectedToPowerPort() {
         super.onConnectedToPowerPort()
         hpPowerBrick.onConnectedToSocket()

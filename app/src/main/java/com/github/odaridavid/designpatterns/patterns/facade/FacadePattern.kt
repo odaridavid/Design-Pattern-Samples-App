@@ -14,27 +14,27 @@
 package com.github.odaridavid.designpatterns.patterns.facade
 
 
-interface Animator {
+internal interface Animator {
     fun animate()
 }
 
-interface Interpolator {
+internal interface Interpolator {
     fun interpolate()
 }
 
-class SwingAnimator : Animator {
+internal class SwingAnimator : Animator {
     override fun animate() {
         println("Doing Swing Animation")
     }
 }
 
-class LinearInterpolator : Interpolator {
+internal class LinearInterpolator : Interpolator {
     override fun interpolate() {
         println("Applying Interpolator to animation")
     }
 }
 
-class AnimationDirector {
+internal class AnimationDirector {
     private val interpolator: Interpolator = LinearInterpolator()
     private val animator: Animator = SwingAnimator()
 

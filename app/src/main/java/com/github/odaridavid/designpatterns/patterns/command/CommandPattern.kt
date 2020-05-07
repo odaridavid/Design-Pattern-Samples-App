@@ -13,11 +13,11 @@
  **/
 package com.github.odaridavid.designpatterns.patterns.command
 
-interface Command {
+internal interface Command {
     fun execute()
 }
 
-class RaceOrganizer {
+internal class RaceOrganizer {
     private val queue = ArrayList<Command>()
 
     fun register(command: Command) {
@@ -32,19 +32,19 @@ class RaceOrganizer {
 
 }
 
-class RaceCommand(private val event: Event) : Command {
+internal class RaceCommand(private val event: Event) : Command {
     override fun execute() {
         event.beginRace()
     }
 }
 
-class DetourCommand(private val event: Event) : Command {
+internal class DetourCommand(private val event: Event) : Command {
     override fun execute() {
         event.takeDetour()
     }
 }
 
-class Event {
+internal class Event {
     fun beginRace() {
         println("Racing Begins")
     }

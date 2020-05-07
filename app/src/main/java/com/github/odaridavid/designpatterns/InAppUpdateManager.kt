@@ -22,7 +22,7 @@ import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
 
 
-class InAppUpdateManager(private val context: Context, private val activity: Activity) {
+internal class InAppUpdateManager(private val context: Context, private val activity: Activity) {
 
     fun checkForUpdate() {
         val appUpdateManager: AppUpdateManager = AppUpdateManagerFactory.create(context)

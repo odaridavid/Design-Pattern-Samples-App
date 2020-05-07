@@ -14,11 +14,11 @@
 package com.github.odaridavid.designpatterns.patterns.observer
 
 
-interface NewsletterSubscription {
+internal interface NewsletterSubscription {
     fun onNewsletterPublished()
 }
 
-class NewsletterPublisher {
+internal class NewsletterPublisher {
 
     private val observers = ArrayList<NewsletterSubscription>()
 
@@ -37,7 +37,7 @@ class NewsletterPublisher {
     }
 }
 
-class Reader : NewsletterSubscription {
+internal class Reader : NewsletterSubscription {
     override fun onNewsletterPublished() {
         println("Hey!! Check out our latest newsletter.")
     }

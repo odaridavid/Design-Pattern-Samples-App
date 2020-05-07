@@ -14,6 +14,6 @@
 package com.github.odaridavid.designpatterns.patterns.singleton
 
 //Object provides singleton out of the box
-object CentralBank {
+internal object CentralBank {
     fun getMoney() = "$10 Billion"
 }

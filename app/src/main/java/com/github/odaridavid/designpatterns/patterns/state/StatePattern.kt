@@ -14,12 +14,12 @@
 package com.github.odaridavid.designpatterns.patterns.state
 
 
-sealed class DoorState
+internal sealed class DoorState
 
-object Open : DoorState()
-object Closed : DoorState()
+internal object Open : DoorState()
+internal object Closed : DoorState()
 
-class Door {
+internal class Door {
     private var doorState: DoorState = Closed
 
     fun open() {

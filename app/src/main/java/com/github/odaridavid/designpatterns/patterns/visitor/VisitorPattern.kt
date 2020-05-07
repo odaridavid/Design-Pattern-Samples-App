@@ -14,18 +14,18 @@
 package com.github.odaridavid.designpatterns.patterns.visitor
 
 
-interface Visitor {
+internal interface Visitor {
     fun visit(hotel: Hotel)
     fun visit(lodging: Lodging)
     fun visit(airBnb: AirBnb)
 }
 
-interface Accommodation {
+internal interface Accommodation {
     val rating: Int
     fun accept(visitor: Visitor)
 }
 
-class AccommodationVisitor : Visitor {
+internal class AccommodationVisitor : Visitor {
 
     override fun visit(hotel: Hotel) {
         println("Hotel score on visit ${hotel.rating / 10 * 100}")
@@ -41,19 +41,19 @@ class AccommodationVisitor : Visitor {
 
 }
 
-class Hotel(override val rating: Int) : Accommodation {
+internal class Hotel(override val rating: Int) : Accommodation {
     override fun accept(visitor: Visitor) {
         visitor.visit(this)
     }
 }
 
-class Lodging(override val rating: Int) : Accommodation {
+internal class Lodging(override val rating: Int) : Accommodation {
     override fun accept(visitor: Visitor) {
         visitor.visit(this)
     }
 }
 
-class AirBnb(override val rating: Int) : Accommodation {
+internal class AirBnb(override val rating: Int) : Accommodation {
     override fun accept(visitor: Visitor) {
         visitor.visit(this)
     }

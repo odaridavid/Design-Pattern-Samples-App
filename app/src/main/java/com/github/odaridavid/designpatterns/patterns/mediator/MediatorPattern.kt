@@ -13,19 +13,19 @@
  **/
 package com.github.odaridavid.designpatterns.patterns.mediator
 
-class User(val parcelId: Int, val name: String) {
+internal class User(val parcelId: Int, val name: String) {
     fun parcelStatus(status: String) {
         println("Update for $name :: Parcel Status : $status")
     }
 }
 
-class Parcel(private val id: Int, var status: String, private val mediator: ParcelMediator) {
+internal class Parcel(private val id: Int, var status: String, private val mediator: ParcelMediator) {
     fun sendParcel() {
         mediator.updateParcelStatus(id, status)
     }
 }
 
-class ParcelMediator {
+internal class ParcelMediator {
     private val observers = ArrayList<User>()
 
     fun receivers(user: User) {

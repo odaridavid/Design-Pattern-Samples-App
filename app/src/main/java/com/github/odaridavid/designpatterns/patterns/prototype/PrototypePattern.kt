@@ -13,7 +13,7 @@
  **/
 package com.github.odaridavid.designpatterns.patterns.prototype
 
-data class Configs(val fallbackUri: String, val defaultPort: Int) {
+internal data class Configs(val fallbackUri: String, val defaultPort: Int) {
     override fun toString(): String {
         return "$fallbackUri/$defaultPort"
     }

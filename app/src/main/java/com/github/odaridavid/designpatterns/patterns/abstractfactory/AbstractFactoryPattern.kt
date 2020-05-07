@@ -13,23 +13,23 @@
  **/
 package com.github.odaridavid.designpatterns.patterns.abstractfactory
 
-interface Truck {
+internal interface Truck {
     val color: String
     fun noOfWheels(): Int
 }
 
-class Isuzu(override val color: String) :
+internal class Isuzu(override val color: String) :
     Truck {
     override fun noOfWheels(): Int = 18
 }
 
-class Benz(override val color: String) :
+internal class Benz(override val color: String) :
     Truck {
     override fun noOfWheels(): Int = 22
 }
 
 
-abstract class CarFactory {
+internal abstract class CarFactory {
     abstract fun getTruck(): Truck
 
     companion object {
@@ -44,11 +44,11 @@ abstract class CarFactory {
     }
 }
 
-class JapanTruckFactory : CarFactory() {
+internal class JapanTruckFactory : CarFactory() {
     override fun getTruck(): Truck = Isuzu(color = "White")
 }
 
-class GermanTruckFactory : CarFactory() {
+internal class GermanTruckFactory : CarFactory() {
     override fun getTruck(): Truck = Benz(color = "Black")
 }
 

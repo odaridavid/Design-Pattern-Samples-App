@@ -14,19 +14,19 @@
 package com.github.odaridavid.designpatterns.patterns.strategy
 
 
-interface BillingStrategy {
+internal interface BillingStrategy {
     fun pay(): String
 }
 
-class Mpesa : BillingStrategy {
+internal class Mpesa : BillingStrategy {
     override fun pay(): String = "Pay through M-pesa"
 }
 
-class CashOnDelivery : BillingStrategy {
+internal class CashOnDelivery : BillingStrategy {
     override fun pay(): String = "Pay cash on delivery"
 }
 
-class OrderTransaction(val transactionProcess: (BillingStrategy) -> String) {
+internal class OrderTransaction(val transactionProcess: (BillingStrategy) -> String) {
 
     var billingStrategy: BillingStrategy? = null
 

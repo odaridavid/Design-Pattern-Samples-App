@@ -14,9 +14,9 @@
 package com.github.odaridavid.designpatterns.patterns.memento
 
 
-data class Memento(val state: String)
+internal data class Memento(val state: String)
 
-class Originator(var state: String) {
+internal class Originator(var state: String) {
 
     fun saveToMemento(): Memento {
         return Memento(state)
@@ -27,7 +27,7 @@ class Originator(var state: String) {
     }
 }
 
-class CareTaker {
+internal class CareTaker {
     private val savedStates = ArrayList<Memento>()
 
     fun saveState(state: Memento) {
