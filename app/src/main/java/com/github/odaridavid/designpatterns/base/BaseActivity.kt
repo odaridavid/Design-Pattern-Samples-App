@@ -38,7 +38,7 @@ abstract class BaseActivity : AppCompatActivity() {
             ThemeUtils.THEME_DARK -> setDarkSystemBars()
             ThemeUtils.THEME_SYSTEM -> {
                 if (versionUntil(Build.VERSION_CODES.P)) {
-                    onPowerSaverChange()
+                    onPowerSaverModeChange()
                 } else {
                     onUiModeConfigChange()
                 }
@@ -47,7 +47,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun onPowerSaverChange() {
+    private fun onPowerSaverModeChange() {
         if (powerManager.isPowerSaveMode)
             setDarkSystemBars()
         else
