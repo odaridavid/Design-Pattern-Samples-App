@@ -38,7 +38,7 @@ internal fun MarkdownView.loadWithKotlinCss(context: Context, filePath: String) 
     )
 }
 
-fun getThemedCss(context: Context): String {
+internal fun getThemedCss(context: Context): String {
     val sp = PreferenceManager.getDefaultSharedPreferences(context)
     return when (getCurrentTheme(context, sp)) {
         ThemeUtils.THEME_DARK -> DARK_KOTLIN_CSS_PATH
@@ -48,7 +48,7 @@ fun getThemedCss(context: Context): String {
     }
 }
 
-fun getCurrentTheme(context: Context, sp: SharedPreferences?): String {
+internal fun getCurrentTheme(context: Context, sp: SharedPreferences?): String {
     return sp?.getString(context.getString(R.string.key_theme_preference), ThemeUtils.THEME_LIGHT)
         ?: "default"
 }

@@ -19,7 +19,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionFrom
 
 
-object ThemeUtils {
+internal object ThemeUtils {
     const val THEME_LIGHT = "Light"
     const val THEME_DARK = "Dark"
     const val THEME_SYSTEM = "System"

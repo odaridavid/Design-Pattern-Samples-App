@@ -28,20 +28,30 @@ abstract class BaseActivity : AppCompatActivity() {
         val sp = PreferenceManager.getDefaultSharedPreferences(baseContext)
         val theme = sp.getString(getString(R.string.key_theme_preference), ThemeUtils.THEME_LIGHT)
         if (versionFrom(Build.VERSION_CODES.M))
-            when (theme) {
-                ThemeUtils.THEME_LIGHT -> setLightSystemBars()
-                ThemeUtils.THEME_DARK -> setDarkSystemBars()
-                ThemeUtils.THEME_SYSTEM -> {
-                    if (versionUntil(Build.VERSION_CODES.P)) {
-                        if (powerManager.isPowerSaveMode)
-                            setDarkSystemBars()
-                        else
-                            setLightSystemBars()
-                    } else {
-                        onUiModeConfigChange()
-                    }
+            handleSystemBars(theme)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun handleSystemBars(theme: String?) {
+        when (theme) {
+            ThemeUtils.THEME_LIGHT -> setLightSystemBars()
+            ThemeUtils.THEME_DARK -> setDarkSystemBars()
+            ThemeUtils.THEME_SYSTEM -> {
+                if (versionUntil(Build.VERSION_CODES.P)) {
+                    onPowerSaverChange()
+                } else {
+                    onUiModeConfigChange()
                 }
             }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun onPowerSaverChange() {
+        if (powerManager.isPowerSaveMode)
+            setDarkSystemBars()
+        else
+            setLightSystemBars()
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
