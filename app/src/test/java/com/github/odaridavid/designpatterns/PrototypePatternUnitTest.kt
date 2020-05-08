@@ -13,7 +13,7 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.prototype.Configs
+import com.github.odaridavid.designpatterns.patterns.prototype.Configs
 import org.junit.Test
 
 
@@ -21,7 +21,10 @@ class PrototypePatternUnitTest {
 
     @Test
     fun configs_copy() {
-        val conf = Configs("https://www.google.com", 8080)
+        val conf = Configs(
+            "https://www.google.com",
+            8080
+        )
         val confCopy = conf.copy(fallbackUri = "https://www.fallback.com")
         assert(conf.defaultPort == confCopy.defaultPort)
     }

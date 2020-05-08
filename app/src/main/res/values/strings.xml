@@ -38,6 +38,9 @@
     <!--Main Activity-->
     <string name="info_design_pattern_image">Puzzle piece image as design pattern card icon</string>
     <string name="menu_about">About</string>
+    <string name="app_update_success">Yaay! App Updated</string>
+    <string name="app_update_cancelled">App Update Cancelled</string>
+    <string name="app_update_failed">App Update Failed</string>
 
     <!--Design Pattern Detail Activity-->
     <string name="title_code_sample">Code Sample</string>

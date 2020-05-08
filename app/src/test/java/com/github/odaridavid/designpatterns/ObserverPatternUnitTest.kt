@@ -14,15 +14,16 @@
 package com.github.odaridavid.designpatterns
 
 
-import com.github.odaridavid.designpatterns.observer.NewsletterPublisher
-import com.github.odaridavid.designpatterns.observer.Reader
+import com.github.odaridavid.designpatterns.patterns.observer.NewsletterPublisher
+import com.github.odaridavid.designpatterns.patterns.observer.Reader
 import org.junit.Test
 
 class ObserverPatternUnitTest {
 
     @Test
     fun newsletterSubscription_observerPattern() {
-        val newsletterPublisher = NewsletterPublisher()
+        val newsletterPublisher =
+            NewsletterPublisher()
         val reader1 = Reader()
         val reader2 = Reader()
 

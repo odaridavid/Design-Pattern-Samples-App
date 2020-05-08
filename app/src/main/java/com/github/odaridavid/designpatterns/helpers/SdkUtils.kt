@@ -16,7 +16,7 @@ package com.github.odaridavid.designpatterns.helpers
 import android.os.Build
 import androidx.annotation.IntRange
 
-object SdkUtils {
+internal object SdkUtils {
     fun versionFrom(@IntRange(from = 0, to = 29) versionCodes: Int): Boolean {
         return Build.VERSION.SDK_INT >= versionCodes
     }

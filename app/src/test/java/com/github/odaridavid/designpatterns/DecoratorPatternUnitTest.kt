@@ -13,10 +13,10 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.decorator.ChristmasBarDecorator
-import com.github.odaridavid.designpatterns.decorator.CollegeBar
-import com.github.odaridavid.designpatterns.decorator.HalloweenBarDecorator
-import com.github.odaridavid.designpatterns.decorator.SportsBar
+import com.github.odaridavid.designpatterns.patterns.decorator.ChristmasBarDecorator
+import com.github.odaridavid.designpatterns.patterns.decorator.CollegeBar
+import com.github.odaridavid.designpatterns.patterns.decorator.HalloweenBarDecorator
+import com.github.odaridavid.designpatterns.patterns.decorator.SportsBar
 import org.junit.Test
 
 

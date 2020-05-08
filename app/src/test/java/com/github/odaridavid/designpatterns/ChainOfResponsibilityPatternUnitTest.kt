@@ -13,10 +13,10 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.chainofresponsibility.IceCreamFactory
-import com.github.odaridavid.designpatterns.chainofresponsibility.IceCreamOrder
-import com.github.odaridavid.designpatterns.chainofresponsibility.IceCreamRetailer
-import com.github.odaridavid.designpatterns.chainofresponsibility.IceCreamVendor
+import com.github.odaridavid.designpatterns.patterns.chainofresponsibility.IceCreamFactory
+import com.github.odaridavid.designpatterns.patterns.chainofresponsibility.IceCreamOrder
+import com.github.odaridavid.designpatterns.patterns.chainofresponsibility.IceCreamRetailer
+import com.github.odaridavid.designpatterns.patterns.chainofresponsibility.IceCreamVendor
 import org.junit.Test
 
 class ChainOfResponsibilityPatternUnitTest {
@@ -27,7 +27,13 @@ class ChainOfResponsibilityPatternUnitTest {
         val iceCreamRetailer = IceCreamRetailer(nextHandler = iceCreamFactory)
         val iceCreamVendor = IceCreamVendor(nextHandler = iceCreamRetailer)
 
-        val order = IceCreamOrder(mapOf("Vanilla" to 10, "Chocolate" to 9, "Pistachio" to 5))
+        val order = IceCreamOrder(
+            mapOf(
+                "Vanilla" to 10,
+                "Chocolate" to 9,
+                "Pistachio" to 5
+            )
+        )
         iceCreamVendor.handleRequest(order)
     }
 

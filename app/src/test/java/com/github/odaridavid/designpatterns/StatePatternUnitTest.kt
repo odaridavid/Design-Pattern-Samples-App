@@ -13,7 +13,7 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import com.github.odaridavid.designpatterns.state.Door
+import com.github.odaridavid.designpatterns.patterns.state.Door
 import org.junit.Test
 
 
