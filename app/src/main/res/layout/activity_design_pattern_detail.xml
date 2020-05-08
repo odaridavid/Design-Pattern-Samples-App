@@ -9,6 +9,7 @@
     <TextView
         android:id="@+id/design_pattern_description_text_view"
         android:layout_width="match_parent"
+        android:textColor="@color/colorText"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_default"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
@@ -17,6 +18,7 @@
         android:id="@+id/code_sample_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorTitle"
         android:layout_margin="@dimen/margin_default"
         android:text="@string/title_code_sample"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />

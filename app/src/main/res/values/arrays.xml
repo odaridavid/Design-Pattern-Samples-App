@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="theme_options_above_q">
+        <item>Light Theme</item>
+        <item>Dark Theme</item>
+        <item>System Default</item>
+    </string-array>
+
+    <string-array name="theme_options_below_q">
+        <item>Light Theme</item>
+        <item>Dark Theme</item>
+        <item>Set By Battery Saver</item>
+    </string-array>
+
+    <string-array name="theme_values">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>System</item>
+    </string-array>
+</resources>

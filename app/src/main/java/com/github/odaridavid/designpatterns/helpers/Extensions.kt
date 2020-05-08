@@ -14,8 +14,12 @@
 package com.github.odaridavid.designpatterns.helpers
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.widget.Toast
+import androidx.preference.PreferenceManager
+import com.github.odaridavid.designpatterns.R
 import us.feras.mdv.MarkdownView
 
 
@@ -27,11 +31,26 @@ inline fun <reified T> Activity.navigateTo(noinline intentExtras: ((Intent) -> U
     startActivity(intent)
 }
 
-internal fun MarkdownView.loadWithKotlinCss(filePath: String) {
+internal fun MarkdownView.loadWithKotlinCss(context: Context, filePath: String) {
     loadMarkdownFile(
         filePath,
-        KOTLIN_CSS_PATH
+        getThemedCss(context)
     )
+}
+
+fun getThemedCss(context: Context): String {
+    val sp = PreferenceManager.getDefaultSharedPreferences(context)
+    return when (getCurrentTheme(context, sp)) {
+        ThemeUtils.THEME_DARK -> DARK_KOTLIN_CSS_PATH
+        ThemeUtils.THEME_LIGHT -> LIGHT_KOTLIN_CSS_PATH
+        ThemeUtils.THEME_SYSTEM -> LIGHT_KOTLIN_CSS_PATH
+        else -> LIGHT_KOTLIN_CSS_PATH
+    }
+}
+
+fun getCurrentTheme(context: Context, sp: SharedPreferences?): String {
+    return sp?.getString(context.getString(R.string.key_theme_preference), ThemeUtils.THEME_LIGHT)
+        ?: "default"
 }
 
 internal fun String.checkUrlScheme(): String {

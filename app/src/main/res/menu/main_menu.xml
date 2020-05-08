@@ -18,7 +18,14 @@
         android:id="@+id/action_about"
         android:icon="@drawable/ic_info_outline_black_24dp"
         android:title="@string/menu_about"
-        app:iconTint="@color/iconTint"
+        app:iconTint="@color/colorIconTint"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="@string/menu_settings"
+        app:iconTint="@color/colorIconTint"
         app:showAsAction="ifRoom" />
 
 </menu>

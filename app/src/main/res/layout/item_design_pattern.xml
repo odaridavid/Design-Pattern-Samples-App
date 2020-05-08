@@ -20,7 +20,6 @@
     app:cardCornerRadius="0dp"
     app:cardElevation="@dimen/card_elevation">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -29,6 +28,7 @@
             android:id="@+id/design_pattern_image_view"
             android:layout_width="@dimen/design_pattern_image_width"
             android:layout_height="@dimen/design_pattern_image_height"
+            android:layout_marginTop="@dimen/margin_default"
             android:contentDescription="@string/info_design_pattern_image"
             android:scaleType="fitXY"
             android:src="@drawable/ic_pattern_black_24dp"
@@ -46,6 +46,7 @@
             android:maxLines="2"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textColor="@color/colorTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/design_pattern_image_view"

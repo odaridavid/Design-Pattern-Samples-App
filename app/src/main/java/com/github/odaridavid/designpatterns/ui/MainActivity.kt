@@ -24,7 +24,10 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         setupDesignPatternsAdapter()
+
+        InAppUpdateManager(baseContext, this).checkForUpdate()
     }
 
     private fun setupDesignPatternsAdapter() {
@@ -37,14 +40,10 @@ class MainActivity : BaseActivity() {
         val designPatterns =
             generateDesignPatterns()
         binding.designPatternsRecyclerView.addItemDecoration(
-            GridSpaceItemDecoration(
-                16
-            )
+            GridSpaceItemDecoration(16)
         )
         binding.designPatternsRecyclerView.adapter =
             ScaleInAnimationAdapter(designPatternsAdapter.apply { submitList(designPatterns) })
-
-        InAppUpdateManager(baseContext, this).checkForUpdate()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -73,6 +72,10 @@ class MainActivity : BaseActivity() {
         return when (item.itemId) {
             R.id.action_about -> {
                 navigateTo<AboutActivity>()
+                true
+            }
+            R.id.action_settings -> {
+                navigateTo<SettingsActivity>()
                 true
             }
             else -> super.onOptionsItemSelected(item)

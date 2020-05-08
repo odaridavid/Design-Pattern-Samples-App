@@ -21,6 +21,6 @@ class DesignPatternDetailActivity : BaseActivity() {
 
         supportActionBar?.setTitle(designPattern.name)
         binding.designPatternDescriptionTextView.text = getString(designPattern.description)
-        binding.designPatternMarkdownView.loadWithKotlinCss(designPattern.codeSample)
+        binding.designPatternMarkdownView.loadWithKotlinCss(baseContext, designPattern.codeSample)
     }
 }

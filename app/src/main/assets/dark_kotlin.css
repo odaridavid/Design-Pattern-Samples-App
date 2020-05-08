@@ -18,8 +18,9 @@ body {
     font-size:1.2em;
     padding:0.5em;
     margin:auto;
+    color:#a69b97;
     max-width:42em;
-    background:#eeeeee;
+    background:#494949;
 }
 code, pre {
     color: inherit;
@@ -39,38 +40,38 @@ code {
     padding: 0 5px;
 }
 .keyword{
-    color:#1E90FF;
+    color:#0097a7;
 }
 .types{
-    color:#D2691E;
+    color:#c25e00;
 }
 .generic{
-    color:#B22222;
+    color:#c75b39;
 }
 .annotation{
-    color:#B22222;
+    color:#c75b39;
 }
 .arguments{
     color:#D2691E;
 }
 .string{
-    color:#008000;
+    color:#99d066;
 }
 .comments{
-    color:#9e9e9e;
+    color:#8e8e8e;
 }
 .assertions{
-    color:#d50000;
+    color:#b39ddb;
 }
 .stdlib{
-    color:#6a1b9a;
+    color:#c49000;
 }
 .literals{
     color:#1E90FF;
 }
 .static{
-    color:#6a1b9a;
+    color:#c49000;
 }
 .string-template{
-    color:#6a1b9a;
+    color:#c49000;
 }
