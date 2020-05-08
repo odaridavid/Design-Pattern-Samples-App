@@ -17,7 +17,7 @@ import com.github.odaridavid.designpatterns.helpers.ThemeUtils.THEME_DARK
 import com.github.odaridavid.designpatterns.helpers.ThemeUtils.THEME_LIGHT
 import com.github.odaridavid.designpatterns.helpers.ThemeUtils.THEME_SYSTEM
 
-class SettingsFragment : PreferenceFragmentCompat(),
+internal class SettingsFragment : PreferenceFragmentCompat(),
     SharedPreferences.OnSharedPreferenceChangeListener {
 
     private var themePreference: ListPreference? = null
