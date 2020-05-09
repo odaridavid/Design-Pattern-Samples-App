@@ -12,7 +12,7 @@ android {
     defaultConfig {
 
         def versionMajor = 1
-        def versionMinor = 0
+        def versionMinor = 1
         def versionPatch = 0
 
         applicationId "com.github.odaridavid.designpatterns"
@@ -30,7 +30,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             manifestPlaceholders = [crashlyticsEnabled: true]
         }
-        debug{
+        debug {
             manifestPlaceholders = [crashlyticsEnabled: false]
         }
     }
@@ -41,6 +41,7 @@ android {
 dependencies {
 
     def material_design_version = "1.2.0-alpha06"
+    def about_libraries_version = "8.1.2"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -55,8 +56,8 @@ dependencies {
     implementation "com.google.android.material:material:$material_design_version"
 
     //Libraries used info
-    implementation "com.mikepenz:aboutlibraries-core:8.1.2"
-    implementation "com.mikepenz:aboutlibraries:8.1.2"
+    implementation "com.mikepenz:aboutlibraries-core:$about_libraries_version"
+    implementation "com.mikepenz:aboutlibraries:$about_libraries_version"
 
     //Animations
     implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
@@ -67,10 +68,14 @@ dependencies {
     //Crashlytics
     implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
 
+    //Preference
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+
     //Markdown Support
     implementation 'us.feras.mdv:markdownview:1.1.0'
 
     //Unit testing
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13'
 }
 apply plugin: 'com.google.gms.google-services'

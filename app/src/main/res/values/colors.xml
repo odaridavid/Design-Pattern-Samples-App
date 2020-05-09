@@ -3,12 +3,23 @@
     <color name="colorPrimary">@color/white</color>
     <color name="colorPrimaryDark">@color/grey100Dark</color>
     <color name="colorAccent">@color/yellowA700</color>
+    <color name="colorBackground">@color/white</color>
 
+    <!--Colors used across the app-->
     <color name="yellowA700Light">#ffff52</color>
     <color name="yellowA700">#ffd600</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
     <color name="grey100Dark">#c2c2c2</color>
     <color name="grey800">#424242</color>
     <color name="grey800Dark">#1b1b1b</color>
-    <color name="iconTint">#1b1b1b</color>
+
+    <!--Icons-->
+    <color name="colorIconTint">#ff000000</color>
+
+    <!--About Activity-->
+    <color name="colorTitle">@color/grey800Dark</color>
+    <color name="colorText">@color/grey800Dark</color>
+    <color name="colorSubtitle">@color/grey800</color>
+
 </resources>

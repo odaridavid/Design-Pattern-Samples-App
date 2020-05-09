@@ -25,8 +25,17 @@ will be required for a successful build.
 
 ## Screenshots
 
-|<img src='art/s4.png' width='210'/>|<img src='art/s1.png' width='210'/>|<img src='art/s6.png' width='210'/>|<img src='art/s5.png' width='210'/>|
-|:--:|:--:|:--:|:--:|
+|<img src='art/s4.png' width='210'/>|<img src='art/s7.png' width='210'/>|<img src='art/s8.png' width='210'/>|
+|:--:|:--:|:--:|
+|Splash Activity|Settings(Q >)|Settings(< Q)|
+
+|<img src='art/s9.png' width='210'/>|<img src='art/s10.png' width='210'/>|<img src='art/s11.png' width='210'/>|
+|:--:|:--:|:--:|
+|Dashboard(Dark)|Dashboard(Light)|Description(Light)|
+
+|<img src='art/s12.png' width='210'/>|<img src='art/s13.png' width='210'/>|<img src='art/s14.png' width='210'/>|
+|:--:|:--:|:--:|
+|Description(Dark)|About(Light)|About(Dark)|
 
 ## Attributions
 

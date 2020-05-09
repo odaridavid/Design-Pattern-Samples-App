@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/grey800Dark</color>
+    <color name="colorPrimaryDark">@color/black</color>
+    <color name="colorAccent">#c6a700</color>
+    <color name="colorBackground">@color/black</color>
+
+    <color name="colorIconTint">#ffffffff</color>
+
+    <!--About Activity-->
+    <color name="colorTitle">@color/grey100Dark</color>
+    <color name="colorText">@color/grey100Dark</color>
+    <color name="colorSubtitle">@color/white</color>
+</resources>

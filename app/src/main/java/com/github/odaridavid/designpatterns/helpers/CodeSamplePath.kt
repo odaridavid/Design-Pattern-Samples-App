@@ -14,7 +14,8 @@
 package com.github.odaridavid.designpatterns.helpers
 
 const val BASE_PATH = "file:///android_asset"
-const val KOTLIN_CSS_PATH = "$BASE_PATH/kotlin.css"
+const val LIGHT_KOTLIN_CSS_PATH = "$BASE_PATH/kotlin.css"
+const val DARK_KOTLIN_CSS_PATH = "$BASE_PATH/dark_kotlin.css"
 
 object CodeSample {
     const val ABSTRACT_FACTORY = "$BASE_PATH/abstract_factory.md"

@@ -11,28 +11,20 @@
  * the License.
  *
  **/
-package com.github.odaridavid.designpatterns.helpers
+package com.github.odaridavid.designpatterns
 
-import android.os.Build
-import androidx.annotation.IntRange
+import android.app.Application
+import androidx.preference.PreferenceManager
+import com.github.odaridavid.designpatterns.helpers.ThemeUtils
 
-internal object SdkUtils {
-    fun versionFrom(@IntRange(from = 0, to = 29) versionCode: Int): Boolean {
-        return Build.VERSION.SDK_INT >= versionCode
+
+internal class DesignPatternsApp : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        val sp = PreferenceManager.getDefaultSharedPreferences(baseContext)
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
+        ThemeUtils.updateTheme(sp, getString(R.string.key_theme_preference))
     }
 
-    fun versionUntil(@IntRange(from = 0, to = 29) versionCode: Int): Boolean {
-        return Build.VERSION.SDK_INT <= versionCode
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
