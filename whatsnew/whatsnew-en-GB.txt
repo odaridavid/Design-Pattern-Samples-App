@@ -1,2 +1,2 @@
-- Immediate In App Update Available
-- Adds a Dark theme variant
+- Fix code sample not switching to a dark theme on system-related theme change.
+- Minor bug fixes and improvements.
