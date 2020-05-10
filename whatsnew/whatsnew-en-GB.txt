@@ -1,0 +1,2 @@
+- Immediate In App Update Available
+- Adds a Dark theme variant
