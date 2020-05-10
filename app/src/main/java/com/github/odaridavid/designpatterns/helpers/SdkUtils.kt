@@ -17,11 +17,11 @@ import android.os.Build
 import androidx.annotation.IntRange
 
 internal object SdkUtils {
-    fun versionFrom(@IntRange(from = 0, to = 29) versionCode: Int): Boolean {
+    fun versionFrom(@IntRange(from = 1, to = 29) versionCode: Int): Boolean {
         return Build.VERSION.SDK_INT >= versionCode
     }
 
-    fun versionUntil(@IntRange(from = 0, to = 29) versionCode: Int): Boolean {
+    fun versionUntil(@IntRange(from = 1, to = 29) versionCode: Int): Boolean {
         return Build.VERSION.SDK_INT <= versionCode
     }
 }

@@ -31,17 +31,13 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setupDesignPatternsAdapter() {
-        val designPatternsAdapter =
-            DesignPatternsAdapter { designPattern ->
+        val designPatternsAdapter = DesignPatternsAdapter { designPattern ->
                 navigateTo<DesignPatternDetailActivity>() { intent ->
                     intent.putExtra(NavigationUtils.KEY_DESIGN_PATTERN, designPattern)
                 }
             }
-        val designPatterns =
-            generateDesignPatterns()
-        binding.designPatternsRecyclerView.addItemDecoration(
-            GridSpaceItemDecoration(16)
-        )
+        val designPatterns = generateDesignPatterns()
+        binding.designPatternsRecyclerView.addItemDecoration(GridSpaceItemDecoration(16))
         binding.designPatternsRecyclerView.adapter =
             ScaleInAnimationAdapter(designPatternsAdapter.apply { submitList(designPatterns) })
     }

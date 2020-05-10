@@ -24,9 +24,7 @@ import com.mikepenz.aboutlibraries.entity.Library
 
 
 class LibrariesAdapter(val onClick: (String) -> Unit) :
-    ListAdapter<Library, LibrariesAdapter.LicenseViewHolder>(
-        DiffUtil
-    ) {
+    ListAdapter<Library, LibrariesAdapter.LicenseViewHolder>(DiffUtil) {
 
     override fun onBindViewHolder(holder: LicenseViewHolder, position: Int) {
         getItem(position).let { holder.bind(it) }
