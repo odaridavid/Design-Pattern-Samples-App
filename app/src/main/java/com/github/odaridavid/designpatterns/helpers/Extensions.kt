@@ -17,9 +17,13 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
+import android.os.Build
+import android.os.PowerManager
 import android.widget.Toast
 import androidx.preference.PreferenceManager
 import com.github.odaridavid.designpatterns.R
+import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionUntil
 import us.feras.mdv.MarkdownView
 
 
@@ -43,9 +47,31 @@ internal fun getThemedCss(context: Context): String {
     return when (getCurrentTheme(context, sp)) {
         ThemeUtils.THEME_DARK -> DARK_KOTLIN_CSS_PATH
         ThemeUtils.THEME_LIGHT -> LIGHT_KOTLIN_CSS_PATH
-        ThemeUtils.THEME_SYSTEM -> LIGHT_KOTLIN_CSS_PATH
+        ThemeUtils.THEME_SYSTEM -> {
+            if (versionUntil(Build.VERSION_CODES.P)) {
+                val powerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
+                onPowerSaverModeChange(powerManager)
+            } else {
+                onUiModeConfigChange(context)
+            }
+        }
         else -> LIGHT_KOTLIN_CSS_PATH
     }
+}
+
+private fun onUiModeConfigChange(context: Context): String {
+    return when (context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+        Configuration.UI_MODE_NIGHT_NO -> LIGHT_KOTLIN_CSS_PATH
+        Configuration.UI_MODE_NIGHT_YES -> DARK_KOTLIN_CSS_PATH
+        else -> LIGHT_KOTLIN_CSS_PATH
+    }
+}
+
+private fun onPowerSaverModeChange(powerManager: PowerManager): String {
+    return if (powerManager.isPowerSaveMode)
+        DARK_KOTLIN_CSS_PATH
+    else
+        LIGHT_KOTLIN_CSS_PATH
 }
 
 internal fun getCurrentTheme(context: Context, sp: SharedPreferences?): String {

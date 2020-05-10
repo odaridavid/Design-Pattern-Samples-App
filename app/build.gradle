@@ -13,7 +13,7 @@ android {
 
         def versionMajor = 1
         def versionMinor = 1
-        def versionPatch = 0
+        def versionPatch = 1
 
         applicationId "com.github.odaridavid.designpatterns"
         minSdkVersion 21
@@ -31,6 +31,8 @@ android {
             manifestPlaceholders = [crashlyticsEnabled: true]
         }
         debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
             manifestPlaceholders = [crashlyticsEnabled: false]
         }
     }
