@@ -3,7 +3,6 @@ package com.github.odaridavid.designpatterns.ui
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
@@ -67,7 +66,8 @@ internal class SettingsFragment : PreferenceFragmentCompat(),
     }
 
     private fun setupThemePreferenceIcons(themePreference: ListPreference?) {
-        val themeValue = preferenceManager.sharedPreferences.getString(themePreferenceKey, DEFAULT_THEME_VALUE)
+        val sp = preferenceManager.sharedPreferences
+        val themeValue = sp.getString(themePreferenceKey, DEFAULT_THEME_VALUE)
         themePreference?.icon = getDrawable(requireContext(), getThemeIcon(themeValue))
     }
 

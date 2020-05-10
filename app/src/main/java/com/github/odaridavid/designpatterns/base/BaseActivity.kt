@@ -20,15 +20,16 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        matchSystemBarsWithBackground()
+        if (versionFrom(Build.VERSION_CODES.M))
+            matchSystemBarsWithBackground()
         super.onResume()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun matchSystemBarsWithBackground() {
         val sp = PreferenceManager.getDefaultSharedPreferences(baseContext)
         val theme = sp.getString(getString(R.string.key_theme_preference), ThemeUtils.THEME_LIGHT)
-        if (versionFrom(Build.VERSION_CODES.M))
-            handleSystemBars(theme)
+        handleSystemBars(theme)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
