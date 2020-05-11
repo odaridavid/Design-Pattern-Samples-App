@@ -13,7 +13,7 @@ import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionFrom
 import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionUntil
 import com.github.odaridavid.designpatterns.helpers.ThemeUtils
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), ISystemThemeChangeListener<Any> {
 
     private val powerManager: PowerManager by lazy {
         getSystemService(Context.POWER_SERVICE) as PowerManager
@@ -39,7 +39,7 @@ abstract class BaseActivity : AppCompatActivity() {
             ThemeUtils.THEME_DARK -> setDarkSystemBars()
             ThemeUtils.THEME_SYSTEM -> {
                 if (versionUntil(Build.VERSION_CODES.P)) {
-                    onPowerSaverModeChange()
+                    onPowerSaverModeChange(powerManager)
                 } else {
                     onUiModeConfigChange()
                 }
@@ -48,22 +48,23 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun onPowerSaverModeChange() {
-        if (powerManager.isPowerSaveMode)
+    override fun onPowerSaverModeChange(powerManager: PowerManager): Any {
+        return if (powerManager.isPowerSaveMode)
             setDarkSystemBars()
         else
             setLightSystemBars()
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun onUiModeConfigChange() {
-        when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+    override fun onUiModeConfigChange(): Any {
+        return when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
             Configuration.UI_MODE_NIGHT_NO -> {
                 setLightSystemBars()
             }
             Configuration.UI_MODE_NIGHT_YES -> {
                 setDarkSystemBars()
             }
+            else -> throw IllegalStateException()
         }
     }
 
