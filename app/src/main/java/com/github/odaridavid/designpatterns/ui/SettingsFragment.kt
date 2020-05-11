@@ -1,8 +1,11 @@
 package com.github.odaridavid.designpatterns.ui
 
+import android.content.Context
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import android.os.PowerManager
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
@@ -10,18 +13,23 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.github.odaridavid.designpatterns.R
+import com.github.odaridavid.designpatterns.base.ISystemThemeChangeListener
 import com.github.odaridavid.designpatterns.helpers.SdkUtils
+import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionUntil
 import com.github.odaridavid.designpatterns.helpers.ThemeUtils
 import com.github.odaridavid.designpatterns.helpers.ThemeUtils.THEME_DARK
 import com.github.odaridavid.designpatterns.helpers.ThemeUtils.THEME_LIGHT
 import com.github.odaridavid.designpatterns.helpers.ThemeUtils.THEME_SYSTEM
 
 internal class SettingsFragment : PreferenceFragmentCompat(),
-    SharedPreferences.OnSharedPreferenceChangeListener {
+    SharedPreferences.OnSharedPreferenceChangeListener, ISystemThemeChangeListener<Int> {
 
     private var themePreference: ListPreference? = null
     private val themePreferenceKey: String by lazy {
         getString(R.string.key_theme_preference)
+    }
+    private val powerManager: PowerManager by lazy {
+        requireContext().getSystemService(Context.POWER_SERVICE) as PowerManager
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -76,7 +84,13 @@ internal class SettingsFragment : PreferenceFragmentCompat(),
         return when (themeValue) {
             THEME_LIGHT -> R.drawable.ic_day_black_24dp
             THEME_DARK -> R.drawable.ic_night_black_24dp
-            THEME_SYSTEM -> R.drawable.ic_day_black_24dp
+            THEME_SYSTEM -> {
+                if (versionUntil(Build.VERSION_CODES.P)) {
+                    onPowerSaverModeChange(powerManager)
+                } else {
+                    onUiModeConfigChange()
+                }
+            }
             else -> R.drawable.ic_day_black_24dp
         }
     }
@@ -95,6 +109,20 @@ internal class SettingsFragment : PreferenceFragmentCompat(),
         if (key == themePreferenceKey) {
             ThemeUtils.updateTheme(prefs!!, key)
         }
+    }
+
+    @DrawableRes
+    override fun onUiModeConfigChange(): Int {
+        return when (requireContext().resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_NO -> R.drawable.ic_day_black_24dp
+            Configuration.UI_MODE_NIGHT_YES -> R.drawable.ic_night_black_24dp
+            else -> R.drawable.ic_day_black_24dp
+        }
+    }
+
+    @DrawableRes
+    override fun onPowerSaverModeChange(powerManager: PowerManager): Int {
+        return if (powerManager.isPowerSaveMode) R.drawable.ic_night_black_24dp else R.drawable.ic_day_black_24dp
     }
 
     companion object {

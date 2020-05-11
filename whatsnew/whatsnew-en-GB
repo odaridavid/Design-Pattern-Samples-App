@@ -1,3 +1,1 @@
-- Fix code sample not switching to a dark theme on system-related theme change.
-- Rename System Default theme preference to Follow System on Devices running Android Q and above.
-- Minor bug fixes and improvements.
+- Enable theme settings icon changing on theme changes by the system.
