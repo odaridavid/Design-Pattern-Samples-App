@@ -15,8 +15,21 @@ package com.github.odaridavid.designpatterns.base
 
 import android.os.PowerManager
 
-
+/**
+ * Listener for system initiated changes that affect how the ui will be rendered.
+ * @param T expected output from system initiated change
+ */
 interface ISystemThemeChangeListener<out T> {
+    /**
+     * Called when there's a change in power saver settings
+     *
+     * @param powerManager an instance of PowerManager for power saver related operations
+     */
     fun onPowerSaverModeChange(powerManager: PowerManager): T
+
+    /**
+     * Called when there's a change in theme initiated by the system
+     * e.g Changing theme from the notification tray on Android Q and above
+     */
     fun onUiModeConfigChange(): T
 }
