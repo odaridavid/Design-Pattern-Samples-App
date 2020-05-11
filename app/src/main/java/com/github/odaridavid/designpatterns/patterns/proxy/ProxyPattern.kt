@@ -24,13 +24,11 @@ internal class RealCar : Car {
     }
 }
 
-class ProxyCar : Car {
+internal class ProxyCar(var key: String = "none") : Car {
+
     private val realCar = RealCar()
-    var key = "none"
 
     override fun drive(): String {
-        return if (key == "none")
-            "No keys available"
-        else realCar.drive()
+        return if (key == "none") "No keys available" else realCar.drive()
     }
 }

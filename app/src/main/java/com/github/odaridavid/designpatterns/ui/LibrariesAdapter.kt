@@ -36,7 +36,7 @@ internal class LibrariesAdapter(val onClick: (String) -> Unit) :
         return LicenseViewHolder(binding)
     }
 
-    inner class LicenseViewHolder(private val binding: ItemLibraryBinding) :
+    internal inner class LicenseViewHolder(private val binding: ItemLibraryBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
         fun bind(library: Library) {

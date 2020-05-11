@@ -36,10 +36,10 @@ internal class DesignPatternsAdapter(val onClick: (DesignPattern) -> Unit) :
     override fun onBindViewHolder(holder: DesignPatternViewHolder, position: Int): Unit =
         getItem(position).let { holder.bind(it) }
 
-    inner class DesignPatternViewHolder(private val binding: ItemDesignPatternBinding) :
+    internal inner class DesignPatternViewHolder(private val binding: ItemDesignPatternBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
-        fun bind(designPattern: DesignPattern) {
+         fun bind(designPattern: DesignPattern) {
             val context = binding.root.context
             binding.patternNameTextView.text = context.getString(designPattern.name)
             binding.root.setOnClickListener(this)
