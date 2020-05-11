@@ -23,7 +23,7 @@ import com.github.odaridavid.designpatterns.databinding.ItemDesignPatternBinding
 import com.github.odaridavid.designpatterns.models.DesignPattern
 
 
-class DesignPatternsAdapter(val onClick: (DesignPattern) -> Unit) :
+internal class DesignPatternsAdapter(val onClick: (DesignPattern) -> Unit) :
     ListAdapter<DesignPattern, DesignPatternsAdapter.DesignPatternViewHolder>(DiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DesignPatternViewHolder {

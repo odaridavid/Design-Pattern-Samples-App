@@ -17,7 +17,7 @@ import com.github.odaridavid.designpatterns.patterns.flyweight.GameSceneFactory
 import com.github.odaridavid.designpatterns.patterns.flyweight.TimeOfDay
 import org.junit.Test
 
-class FlyweightPatternUnitTest {
+internal class FlyweightPatternUnitTest {
 
     @Test
     fun gameScenes_flyweightPattern() {

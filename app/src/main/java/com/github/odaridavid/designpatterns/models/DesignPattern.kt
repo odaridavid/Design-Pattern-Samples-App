@@ -20,13 +20,13 @@ import com.github.odaridavid.designpatterns.helpers.CodeSample
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class DesignPattern(
+internal data class DesignPattern(
     @StringRes val name: Int,
     @StringRes val description: Int,
     val codeSample: String
 ) : Parcelable
 
-fun generateDesignPatterns(): List<DesignPattern> {
+internal fun generateDesignPatterns(): List<DesignPattern> {
     return listOf(
         DesignPattern(
             R.string.title_adapter,

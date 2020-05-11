@@ -19,7 +19,7 @@ import com.github.odaridavid.designpatterns.patterns.chainofresponsibility.IceCr
 import com.github.odaridavid.designpatterns.patterns.chainofresponsibility.IceCreamVendor
 import org.junit.Test
 
-class ChainOfResponsibilityPatternUnitTest {
+internal class ChainOfResponsibilityPatternUnitTest {
 
     @Test
     fun icecreamOrderRequest_chainOfResponsibility() {

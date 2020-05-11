@@ -20,7 +20,7 @@ import com.github.odaridavid.designpatterns.patterns.command.RaceOrganizer
 import org.junit.Test
 
 
-class CommandPatternUnitTest {
+internal class CommandPatternUnitTest {
 
     @Test
     fun raceEvent_commandPattern() {

@@ -17,7 +17,7 @@ import com.github.odaridavid.designpatterns.patterns.templatemethod.RectangularW
 import org.junit.Test
 
 
-class TemplateMethodUnitTest {
+internal class TemplateMethodUnitTest {
 
     @Test
     fun window_templateMethod() {

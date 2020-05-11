@@ -17,7 +17,7 @@ package com.github.odaridavid.designpatterns
 import com.github.odaridavid.designpatterns.patterns.facade.AnimationDirector
 import org.junit.Test
 
-class FacadePatternUnitTest {
+internal class FacadePatternUnitTest {
 
     @Test
     fun performAnimations_facadePattern() {

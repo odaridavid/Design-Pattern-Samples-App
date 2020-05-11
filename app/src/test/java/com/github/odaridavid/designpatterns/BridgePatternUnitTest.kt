@@ -18,7 +18,7 @@ import com.github.odaridavid.designpatterns.patterns.bridge.VintageFurniture
 import org.junit.Test
 
 
-class BridgePatternUnitTest {
+internal class BridgePatternUnitTest {
 
     @Test
     fun getType_fromFurniture_returnWithFurnitureTheme() {

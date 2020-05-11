@@ -20,7 +20,7 @@ import com.github.odaridavid.designpatterns.patterns.decorator.SportsBar
 import org.junit.Test
 
 
-class DecoratorPatternUnitTest {
+internal class DecoratorPatternUnitTest {
 
     @Test
     fun barDecoration_decoratorPattern() {

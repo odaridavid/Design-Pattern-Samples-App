@@ -18,7 +18,7 @@ import com.github.odaridavid.designpatterns.patterns.adapter.StockCableAdapter
 import org.junit.Test
 
 
-class AdapterPatternUnitTest {
+internal class AdapterPatternUnitTest {
 
     @Test
     fun onConnectedToPowerPort_withStockCableAdapter_printsStatus() {

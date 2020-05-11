@@ -19,7 +19,7 @@ import com.github.odaridavid.designpatterns.patterns.strategy.OrderTransaction
 import org.junit.Test
 
 
-class StrategyPatternUnitTest {
+internal class StrategyPatternUnitTest {
 
     @Test
     fun billing_strategyPattern() {

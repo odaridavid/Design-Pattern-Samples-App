@@ -18,7 +18,7 @@ import com.github.odaridavid.designpatterns.patterns.observer.NewsletterPublishe
 import com.github.odaridavid.designpatterns.patterns.observer.Reader
 import org.junit.Test
 
-class ObserverPatternUnitTest {
+internal class ObserverPatternUnitTest {
 
     @Test
     fun newsletterSubscription_observerPattern() {

@@ -17,7 +17,7 @@ const val BASE_PATH = "file:///android_asset"
 const val LIGHT_KOTLIN_CSS_PATH = "$BASE_PATH/kotlin.css"
 const val DARK_KOTLIN_CSS_PATH = "$BASE_PATH/dark_kotlin.css"
 
-object CodeSample {
+internal object CodeSample {
     const val ABSTRACT_FACTORY = "$BASE_PATH/abstract_factory.md"
     const val ADAPTER = "$BASE_PATH/adapter.md"
     const val BRIDGE = "$BASE_PATH/bridge.md"
