@@ -17,7 +17,7 @@ import com.github.odaridavid.designpatterns.patterns.singleton.CentralBank
 import org.junit.Test
 
 
-class SingletonPatternUnitTest {
+internal class SingletonPatternUnitTest {
 
     @Test
     fun centralBankGetMoney_isSameInstance_singletonPattern() {

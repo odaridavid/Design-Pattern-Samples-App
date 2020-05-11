@@ -14,7 +14,7 @@ import com.github.odaridavid.designpatterns.helpers.NavigationUtils
 import com.github.odaridavid.designpatterns.helpers.loadWithKotlinCss
 import com.github.odaridavid.designpatterns.models.DesignPattern
 
-class DesignPatternDetailActivity : BaseActivity() {
+internal class DesignPatternDetailActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

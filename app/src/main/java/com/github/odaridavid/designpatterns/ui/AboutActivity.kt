@@ -13,7 +13,7 @@ import com.github.odaridavid.designpatterns.helpers.checkUrlScheme
 import com.mikepenz.aboutlibraries.Libs
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 
-class AboutActivity : BaseActivity() {
+internal class AboutActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

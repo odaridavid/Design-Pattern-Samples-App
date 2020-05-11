@@ -23,7 +23,7 @@ import com.github.odaridavid.designpatterns.databinding.ItemLibraryBinding
 import com.mikepenz.aboutlibraries.entity.Library
 
 
-class LibrariesAdapter(val onClick: (String) -> Unit) :
+internal class LibrariesAdapter(val onClick: (String) -> Unit) :
     ListAdapter<Library, LibrariesAdapter.LicenseViewHolder>(DiffUtil) {
 
     override fun onBindViewHolder(holder: LicenseViewHolder, position: Int) {

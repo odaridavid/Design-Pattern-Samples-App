@@ -17,7 +17,7 @@ import com.github.odaridavid.designpatterns.patterns.proxy.ProxyCar
 import org.junit.Test
 
 
-class ProxyPatternUnitTest {
+internal class ProxyPatternUnitTest {
 
     @Test
     fun driveProxyCar_ProxyPattern() {

@@ -19,7 +19,7 @@ import com.github.odaridavid.designpatterns.patterns.composite.MagarineContainer
 import org.junit.Test
 
 
-class CompositePatternUnitTest {
+internal class CompositePatternUnitTest {
 
     @Test
     fun containers_compositePattern() {

@@ -16,7 +16,7 @@ package com.github.odaridavid.designpatterns
 import com.github.odaridavid.designpatterns.patterns.iterator.CarShowroom
 import org.junit.Test
 
-class IteratorPatternUnitTest {
+internal class IteratorPatternUnitTest {
     @Test
     fun carShowroom_iteratorPattern() {
         CarShowroom().showcaseCars()

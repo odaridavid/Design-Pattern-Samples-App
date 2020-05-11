@@ -19,7 +19,7 @@ import com.github.odaridavid.designpatterns.patterns.mediator.User
 import org.junit.Test
 
 
-class MediatorPatternUnitTest {
+internal class MediatorPatternUnitTest {
 
     @Test
     fun parcel_mediatorPattern() {

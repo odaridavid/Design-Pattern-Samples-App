@@ -20,7 +20,7 @@ import com.github.odaridavid.designpatterns.patterns.visitor.Lodging
 import org.junit.Test
 
 
-class VisitorPatternUnitTest {
+internal class VisitorPatternUnitTest {
 
     @Test
     fun accommodation_visitorPattern() {

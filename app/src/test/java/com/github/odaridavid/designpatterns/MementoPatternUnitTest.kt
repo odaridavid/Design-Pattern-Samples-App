@@ -18,7 +18,7 @@ import com.github.odaridavid.designpatterns.patterns.memento.Originator
 import org.junit.Test
 
 
-class MementoPatternUnitTest {
+internal class MementoPatternUnitTest {
 
     @Test
     fun savingStates_mementoPattern() {

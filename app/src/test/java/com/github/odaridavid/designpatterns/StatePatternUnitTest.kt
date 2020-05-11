@@ -17,7 +17,7 @@ import com.github.odaridavid.designpatterns.patterns.state.Door
 import org.junit.Test
 
 
-class StatePatternUnitTest {
+internal class StatePatternUnitTest {
 
     @Test
     fun door_statePattern() {

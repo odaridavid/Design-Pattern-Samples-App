@@ -13,7 +13,7 @@ import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionFrom
 import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionUntil
 import com.github.odaridavid.designpatterns.helpers.ThemeUtils
 
-abstract class BaseActivity : AppCompatActivity(), ISystemThemeChangeListener<Any> {
+internal abstract class BaseActivity : AppCompatActivity(), ISystemThemeChangeListener<Any> {
 
     private val powerManager: PowerManager by lazy {
         getSystemService(Context.POWER_SERVICE) as PowerManager

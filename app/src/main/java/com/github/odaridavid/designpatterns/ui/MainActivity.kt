@@ -16,7 +16,7 @@ import com.github.odaridavid.designpatterns.models.generateDesignPatterns
 import com.google.android.play.core.install.model.ActivityResult
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 
-class MainActivity : BaseActivity() {
+internal class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
 

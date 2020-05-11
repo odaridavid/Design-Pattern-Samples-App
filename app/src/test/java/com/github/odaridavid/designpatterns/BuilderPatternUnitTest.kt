@@ -19,7 +19,7 @@ import com.github.odaridavid.designpatterns.patterns.builder.Scene
 import com.github.odaridavid.designpatterns.patterns.builder.TimeOfDay
 import org.junit.Test
 
-class BuilderPatternUnitTest {
+internal class BuilderPatternUnitTest {
 
     @Test
     fun build_returnGameEnvironment() {

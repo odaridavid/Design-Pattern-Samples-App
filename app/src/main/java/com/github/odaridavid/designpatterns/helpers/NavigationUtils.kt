@@ -14,6 +14,6 @@
 package com.github.odaridavid.designpatterns.helpers
 
 
-object NavigationUtils {
+internal object NavigationUtils {
     const val KEY_DESIGN_PATTERN = "design_pattern"
 }

@@ -18,7 +18,7 @@ import com.github.odaridavid.designpatterns.patterns.factory.ParkBench
 import com.github.odaridavid.designpatterns.patterns.factory.Sofa
 import org.junit.Test
 
-class FactoryPatternUnitTest {
+internal class FactoryPatternUnitTest {
 
     @Test
     fun getChair_chairFactoy_FactoryPattern() {

@@ -17,7 +17,7 @@ import com.github.odaridavid.designpatterns.patterns.prototype.Configs
 import org.junit.Test
 
 
-class PrototypePatternUnitTest {
+internal class PrototypePatternUnitTest {
 
     @Test
     fun configs_copy() {
