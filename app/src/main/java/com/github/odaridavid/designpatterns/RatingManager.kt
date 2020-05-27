@@ -28,9 +28,8 @@ internal class RatingManager(private val sharedPreferences: SharedPreferences) :
     override fun hasGivenRating(): Boolean = sharedPreferences.getBoolean(RATING_PREF_KEY, false)
 
     override fun giveRating() {
-        with(sharedPreferences.edit()) {
-            putBoolean(RATING_PREF_KEY, true)
-            apply()
+        setPreferenceValue { editor ->
+            editor.putBoolean(RATING_PREF_KEY, true)
         }
     }
 
@@ -41,8 +40,15 @@ internal class RatingManager(private val sharedPreferences: SharedPreferences) :
 
     override fun updatePromptForRatingCounter() {
         val counter = sharedPreferences.getInt(PROMPT_COUNTER_PREF_KEY, 0) + 1
+        setPreferenceValue { editor ->
+            editor.putInt(PROMPT_COUNTER_PREF_KEY, counter)
+        }
+    }
+
+
+    private fun setPreferenceValue(block: (SharedPreferences.Editor) -> Unit) {
         with(sharedPreferences.edit()) {
-            putInt(PROMPT_COUNTER_PREF_KEY, counter)
+            block(this)
             apply()
         }
     }
