@@ -17,5 +17,11 @@
         android:id="@+id/action_open_source_code"
         android:icon="@drawable/ic_github_24dp"
         android:title="@string/menu_view_source_code"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_share_app"
+        android:icon="@drawable/ic_share_24dp"
+        android:title="@string/menu_share_app"
+        app:showAsAction="ifRoom" />
+
 </menu>

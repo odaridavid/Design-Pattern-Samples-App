@@ -56,6 +56,18 @@ internal class AboutActivity : BaseActivity() {
                 openBrowser(APP_REPO_URL)
                 true
             }
+            R.id.action_share_app -> {
+                val sendIntent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(
+                        Intent.EXTRA_TEXT,
+                        "Checkout Kotlin Design Patterns Samples\n\n https://play.google.com/store/apps/details?id=$packageName"
+                    )
+                    type = "text/plain"
+                }
+                startActivity(sendIntent)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

@@ -180,6 +180,7 @@
     <string name="title_rating_dialog">App Rating</string>
     <string name="label_dialog_negative_button">Later</string>
     <string name="label_dialog_positive_button">Rate</string>
+    <string name="menu_share_app">Share App</string>
 
 
 </resources>
