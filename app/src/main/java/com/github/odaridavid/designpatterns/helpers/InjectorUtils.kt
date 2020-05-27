@@ -17,7 +17,7 @@ import android.content.Context
 import android.content.SharedPreferences
 
 
-object InjectorUtils {
+internal object InjectorUtils {
     private const val DESIGN_PATTERNS_SP_NAME = "design_patterns_pref"
     fun provideSharedPreferences(context: Context): SharedPreferences {
         return context.getSharedPreferences(DESIGN_PATTERNS_SP_NAME, Context.MODE_PRIVATE)

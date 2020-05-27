@@ -22,7 +22,7 @@ internal interface IRatingManager {
     fun giveRating()
 }
 
-class RatingManager(private val sharedPreferences: SharedPreferences) :
+internal class RatingManager(private val sharedPreferences: SharedPreferences) :
     IRatingManager {
 
     override fun hasGivenRating(): Boolean = sharedPreferences.getBoolean(RATING_PREF_KEY, false)
