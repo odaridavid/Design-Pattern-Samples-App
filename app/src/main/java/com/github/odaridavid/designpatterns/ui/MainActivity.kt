@@ -1,12 +1,18 @@
 package com.github.odaridavid.designpatterns.ui
 
 import android.app.Activity
+import android.content.ComponentName
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.annotation.ColorRes
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import com.github.odaridavid.designpatterns.InAppUpdateManager
 import com.github.odaridavid.designpatterns.R
+import com.github.odaridavid.designpatterns.RatingManager
 import com.github.odaridavid.designpatterns.base.BaseActivity
 import com.github.odaridavid.designpatterns.databinding.ActivityMainBinding
 import com.github.odaridavid.designpatterns.helpers.NavigationUtils
@@ -28,14 +34,74 @@ internal class MainActivity : BaseActivity() {
         setupDesignPatternsAdapter()
 
         InAppUpdateManager(baseContext, this).checkForUpdate()
+
+        with(RatingManager(sharedPref)) {
+            if (!hasGivenRating()) {
+                updatePromptForRatingCounter()
+                if (shouldPromptForRating()) {
+                    showRatingAlertDialog(this)
+                }
+            }
+        }
+    }
+
+    private fun showRatingAlertDialog(ratingManager: RatingManager) {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle(getString(R.string.title_rating_dialog))
+            .setMessage(getString(R.string.info_rating_message))
+            .setNegativeButton(getString(R.string.label_dialog_negative_button), null)
+            .setPositiveButton(getString(R.string.label_dialog_positive_button)) { dialog, _ ->
+                ratingManager.giveRating()
+                navigateToGooglePlayStore()
+            }
+            .setCancelable(true)
+            .create()
+        dialog.show()
+        dialog.apply {
+            fun loadColor(@ColorRes colorRes: Int): Int {
+                return ContextCompat.getColor(this@MainActivity, colorRes)
+            }
+            getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(loadColor(R.color.colorText))
+            getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(loadColor(R.color.colorText))
+        }
+    }
+
+    private fun navigateToGooglePlayStore() {
+        var gplayAvailable = false
+        val appUri = Uri.parse("market://details?id=$packageName")
+        val rateIntent = Intent(Intent.ACTION_VIEW, appUri)
+        val gplayAppInfo = packageManager.queryIntentActivities(rateIntent, 0)
+            .filter { it.activityInfo.applicationInfo.packageName == "com.android.vending" }
+        if (gplayAppInfo.isNotEmpty()) {
+            val gplayActivityInfo = gplayAppInfo.first().activityInfo
+            val gplayComponent = ComponentName(
+                gplayActivityInfo.applicationInfo.packageName,
+                gplayActivityInfo.name
+            )
+            with(rateIntent) {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED)
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                setComponent(gplayComponent)
+            }
+            gplayAvailable = true
+            startActivity(rateIntent)
+        }
+        if (!gplayAvailable) {
+            val webIntent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
+            )
+            startActivity(webIntent)
+        }
     }
 
     private fun setupDesignPatternsAdapter() {
         val designPatternsAdapter = DesignPatternsAdapter { designPattern ->
-                navigateTo<DesignPatternDetailActivity>() { intent ->
-                    intent.putExtra(NavigationUtils.KEY_DESIGN_PATTERN, designPattern)
-                }
+            navigateTo<DesignPatternDetailActivity>() { intent ->
+                intent.putExtra(NavigationUtils.KEY_DESIGN_PATTERN, designPattern)
             }
+        }
         val designPatterns = generateDesignPatterns()
         binding.designPatternsRecyclerView.addItemDecoration(GridSpaceItemDecoration(16))
         binding.designPatternsRecyclerView.adapter =
