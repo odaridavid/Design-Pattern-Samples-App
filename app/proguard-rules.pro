@@ -19,3 +19,10 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-keep class **.R$* {
+    <fields>;
+}
+
+-printusage build/outputs/mapping/release/usage.txt
+
+-keep class com.github.odaridavid.designpatterns.** {*;}
