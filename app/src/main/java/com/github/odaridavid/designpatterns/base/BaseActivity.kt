@@ -44,47 +44,42 @@ internal abstract class BaseActivity : AppCompatActivity(), ISystemThemeChangeLi
             ThemeUtils.THEME_LIGHT -> setLightSystemBars()
             ThemeUtils.THEME_DARK -> setDarkSystemBars()
             ThemeUtils.THEME_SYSTEM -> {
-                if (versionUntil(Build.VERSION_CODES.P)) {
+                if (versionUntil(Build.VERSION_CODES.P))
                     onPowerSaverModeChange(powerManager)
-                } else {
+                else
                     onUiModeConfigChange()
-                }
             }
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onPowerSaverModeChange(powerManager: PowerManager): Any {
-        return if (powerManager.isPowerSaveMode)
-            setDarkSystemBars()
-        else
-            setLightSystemBars()
+        return if (powerManager.isPowerSaveMode) setDarkSystemBars() else setLightSystemBars()
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onUiModeConfigChange(): Any {
         return when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-            Configuration.UI_MODE_NIGHT_NO -> {
-                setLightSystemBars()
-            }
-            Configuration.UI_MODE_NIGHT_YES -> {
-                setDarkSystemBars()
-            }
+            Configuration.UI_MODE_NIGHT_NO -> setLightSystemBars()
+            Configuration.UI_MODE_NIGHT_YES -> setDarkSystemBars()
             else -> throw IllegalStateException()
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun setLightSystemBars() {
-        if (versionFrom(Build.VERSION_CODES.O)) {
-            window.decorView.systemUiVisibility =
-                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
-        } else {
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
+        window.decorView.systemUiVisibility = setUiVisibilityFlags()
         window.statusBarColor = getColor(android.R.color.background_light)
         window.navigationBarColor = getColor(android.R.color.background_light)
     }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun setUiVisibilityFlags(): Int =
+        if (versionFrom(Build.VERSION_CODES.O))
+            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+        else
+            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun setDarkSystemBars() {
