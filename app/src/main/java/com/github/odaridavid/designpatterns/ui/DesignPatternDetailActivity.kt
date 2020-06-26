@@ -11,6 +11,7 @@ import com.github.odaridavid.designpatterns.databinding.ActivityDesignPatternDet
 import com.github.odaridavid.designpatterns.helpers.DARK_KOTLIN_CSS_PATH
 import com.github.odaridavid.designpatterns.helpers.LIGHT_KOTLIN_CSS_PATH
 import com.github.odaridavid.designpatterns.helpers.NavigationUtils
+import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionFrom
 import com.github.odaridavid.designpatterns.helpers.loadWithKotlinCss
 import com.github.odaridavid.designpatterns.models.DesignPattern
 
@@ -35,9 +36,9 @@ internal class DesignPatternDetailActivity : BaseActivity() {
         )
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onPowerSaverModeChange(powerManager: PowerManager): String {
-        super.onPowerSaverModeChange(powerManager)
+        if (versionFrom(Build.VERSION_CODES.M))
+            super.onPowerSaverModeChange(powerManager) //Changes system bars
         return if (powerManager.isPowerSaveMode) DARK_KOTLIN_CSS_PATH else LIGHT_KOTLIN_CSS_PATH
     }
 

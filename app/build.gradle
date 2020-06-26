@@ -12,8 +12,8 @@ android {
     defaultConfig {
 
         def versionMajor = 1
-        def versionMinor = 2
-        def versionPatch = 1
+        def versionMinor = 3
+        def versionPatch = 0
 
         applicationId "com.github.odaridavid.designpatterns"
         minSdkVersion 21
@@ -55,8 +55,8 @@ dependencies {
     def about_libraries_version = "8.1.2"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.2.0-rc01'
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 

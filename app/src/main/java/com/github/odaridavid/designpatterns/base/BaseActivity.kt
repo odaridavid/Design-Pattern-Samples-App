@@ -8,6 +8,7 @@ import android.os.PowerManager
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
 import com.github.odaridavid.designpatterns.R
 import com.github.odaridavid.designpatterns.helpers.InjectorUtils
@@ -28,7 +29,14 @@ internal abstract class BaseActivity : AppCompatActivity(), ISystemThemeChangeLi
     override fun onResume() {
         if (versionFrom(Build.VERSION_CODES.M))
             matchSystemBarsWithBackground()
+        else
+            initSystemBarsWithDefaultColors()
         super.onResume()
+    }
+
+    private fun initSystemBarsWithDefaultColors() {
+        window.statusBarColor = ContextCompat.getColor(this, android.R.color.background_dark)
+        window.navigationBarColor = ContextCompat.getColor(this, android.R.color.background_dark)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
