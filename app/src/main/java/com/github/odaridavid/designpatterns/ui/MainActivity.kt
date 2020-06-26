@@ -36,11 +36,10 @@ internal class MainActivity : BaseActivity() {
         InAppUpdateManager(baseContext, this).checkForUpdate()
 
         with(RatingManager(sharedPref)) {
-            if (!hasGivenRating()) {
-                updatePromptForRatingCounter()
-                if (shouldPromptForRating()) {
-                    showRatingAlertDialog(this)
-                }
+            if (hasGivenRating()) return@with
+            updatePromptForRatingCounter()
+            if (shouldPromptForRating()) {
+                showRatingAlertDialog(this)
             }
         }
     }
