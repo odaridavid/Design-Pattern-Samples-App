@@ -13,30 +13,14 @@
  **/
 package com.github.odaridavid.designpatterns.helpers
 
-import android.os.Build
-import androidx.annotation.IntRange
-
-internal object SdkUtils {
-
-    private const val minVersion = Build.VERSION_CODES.LOLLIPOP.toLong()
-    private const val maxVersion = Build.VERSION_CODES.Q.toLong()
-
-    fun versionFrom(@IntRange(from = minVersion, to = maxVersion) versionCode: Int): Boolean =
-        Build.VERSION.SDK_INT >= versionCode
+import android.content.Context
+import kotlin.math.roundToInt
 
 
-    fun versionUntil(@IntRange(from = minVersion, to = maxVersion) versionCode: Int): Boolean =
-        Build.VERSION.SDK_INT <= versionCode
+internal object ViewUtils {
 
+    fun convertDpToPixel(context: Context, dp: Int): Int {
+        val density = context.applicationContext.resources.displayMetrics.density
+        return (dp.toFloat() * density).roundToInt()
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
