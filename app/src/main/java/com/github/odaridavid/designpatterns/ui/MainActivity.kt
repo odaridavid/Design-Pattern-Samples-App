@@ -3,19 +3,21 @@ package com.github.odaridavid.designpatterns.ui
 import android.app.Activity
 import android.content.ComponentName
 import android.content.Intent
-import android.net.Uri
+import android.content.pm.ResolveInfo
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.annotation.ColorRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import com.github.odaridavid.designpatterns.InAppUpdateManager
 import com.github.odaridavid.designpatterns.R
 import com.github.odaridavid.designpatterns.RatingManager
 import com.github.odaridavid.designpatterns.base.BaseActivity
 import com.github.odaridavid.designpatterns.databinding.ActivityMainBinding
 import com.github.odaridavid.designpatterns.helpers.NavigationUtils
+import com.github.odaridavid.designpatterns.helpers.ViewUtils
 import com.github.odaridavid.designpatterns.helpers.navigateTo
 import com.github.odaridavid.designpatterns.helpers.showToast
 import com.github.odaridavid.designpatterns.models.generateDesignPatterns
@@ -56,42 +58,45 @@ internal class MainActivity : BaseActivity() {
             .setCancelable(true)
             .create()
         dialog.show()
-        dialog.apply {
-            fun loadColor(@ColorRes colorRes: Int): Int {
-                return ContextCompat.getColor(this@MainActivity, colorRes)
-            }
-            getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(loadColor(R.color.colorText))
-            getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(loadColor(R.color.colorText))
+        dialog.apply { setButtonColors() }
+    }
+
+    private fun AlertDialog.setButtonColors() {
+        fun loadColor(@ColorRes colorRes: Int): Int {
+            return ContextCompat.getColor(this@MainActivity, colorRes)
         }
+        getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(loadColor(R.color.colorText))
+        getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(loadColor(R.color.colorText))
     }
 
     private fun navigateToGooglePlayStore() {
         var gplayAvailable = false
-        val appUri = Uri.parse("market://details?id=$packageName")
-        val rateIntent = Intent(Intent.ACTION_VIEW, appUri)
-        val gplayAppInfo = packageManager.queryIntentActivities(rateIntent, 0)
+        val appUri = "$PLAYSTORE_APP_URI$packageName".toUri()
+        val ratingIntent = Intent(Intent.ACTION_VIEW, appUri)
+        val gplayAppInfo = packageManager.queryIntentActivities(ratingIntent, 0)
             .filter { it.activityInfo.applicationInfo.packageName == "com.android.vending" }
         if (gplayAppInfo.isNotEmpty()) {
-            val gplayActivityInfo = gplayAppInfo.first().activityInfo
-            val gplayComponent = ComponentName(
-                gplayActivityInfo.applicationInfo.packageName,
-                gplayActivityInfo.name
-            )
-            with(rateIntent) {
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED)
-                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                setComponent(gplayComponent)
-            }
+            buildPlaystoreIntent(gplayAppInfo, ratingIntent)
             gplayAvailable = true
-            startActivity(rateIntent)
+            startActivity(ratingIntent)
         }
         if (!gplayAvailable) {
-            val webIntent = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
-            )
+            val webIntent = Intent(Intent.ACTION_VIEW, "$PLAYSTORE_WEB_URI$packageName".toUri())
             startActivity(webIntent)
+        }
+    }
+
+    private fun buildPlaystoreIntent(gplayAppInfo: List<ResolveInfo>, rateIntent: Intent) {
+        val gplayActivityInfo = gplayAppInfo.first().activityInfo
+        val gplayComponent = ComponentName(
+            gplayActivityInfo.applicationInfo.packageName,
+            gplayActivityInfo.name
+        )
+        with(rateIntent) {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED)
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            setComponent(gplayComponent)
         }
     }
 
@@ -102,7 +107,8 @@ internal class MainActivity : BaseActivity() {
             }
         }
         val designPatterns = generateDesignPatterns()
-        binding.designPatternsRecyclerView.addItemDecoration(GridSpaceItemDecoration(16))
+        val spacing = ViewUtils.convertDpToPixel(this, 8)
+        binding.designPatternsRecyclerView.addItemDecoration(GridSpaceItemDecoration(spacing))
         binding.designPatternsRecyclerView.adapter =
             ScaleInAnimationAdapter(designPatternsAdapter.apply { submitList(designPatterns) })
     }
@@ -141,6 +147,11 @@ internal class MainActivity : BaseActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    companion object {
+        private const val PLAYSTORE_WEB_URI = "https://play.google.com/store/apps/details?id="
+        private const val PLAYSTORE_APP_URI = "market://details?id="
     }
 
 }
