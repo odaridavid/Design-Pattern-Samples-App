@@ -6,6 +6,7 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.PowerManager
 import android.view.View
+import androidx.annotation.LayoutRes
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -16,7 +17,11 @@ import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionFrom
 import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionUntil
 import com.github.odaridavid.designpatterns.helpers.ThemeUtils
 
-internal abstract class BaseActivity : AppCompatActivity(), ISystemThemeChangeListener<Any> {
+internal abstract class BaseActivity : AppCompatActivity, ISystemThemeChangeListener<Any> {
+
+    constructor() : super()
+
+    constructor(@LayoutRes id: Int) : super(id)
 
     private val powerManager: PowerManager by lazy {
         getSystemService(Context.POWER_SERVICE) as PowerManager
