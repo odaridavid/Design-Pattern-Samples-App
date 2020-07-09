@@ -13,20 +13,20 @@ import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import com.github.odaridavid.designpatterns.InAppUpdateManager
 import com.github.odaridavid.designpatterns.R
-import com.github.odaridavid.designpatterns.RatingManager
 import com.github.odaridavid.designpatterns.base.BaseActivity
 import com.github.odaridavid.designpatterns.databinding.ActivityMainBinding
-import com.github.odaridavid.designpatterns.helpers.NavigationUtils
-import com.github.odaridavid.designpatterns.helpers.ViewUtils
-import com.github.odaridavid.designpatterns.helpers.navigateTo
-import com.github.odaridavid.designpatterns.helpers.showToast
+import com.github.odaridavid.designpatterns.helpers.*
 import com.github.odaridavid.designpatterns.models.generateDesignPatterns
+import com.github.odaridavid.designpatterns.pref.IPreferenceManager
 import com.google.android.play.core.install.model.ActivityResult
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 
 internal class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val prefManager: IPreferenceManager by lazy {
+        InjectorUtils.providePreferenceManager(baseContext)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,22 +37,23 @@ internal class MainActivity : BaseActivity() {
 
         InAppUpdateManager.checkForUpdate(this)
 
-        with(RatingManager(sharedPref)) {
-            if (hasGivenRating()) return@with
-            updatePromptForRatingCounter()
-            if (shouldPromptForRating()) {
+        with(prefManager) {
+            if (hasRated) return@with
+            ratingPromptCount++
+            val isFifthTime = ratingPromptCount % 5 == 0
+            if (isFifthTime) {
                 showRatingAlertDialog(this)
             }
         }
     }
 
-    private fun showRatingAlertDialog(ratingManager: RatingManager) {
+    private fun showRatingAlertDialog(preferenceManager: IPreferenceManager) {
         val dialog = AlertDialog.Builder(this)
             .setTitle(getString(R.string.title_rating_dialog))
             .setMessage(getString(R.string.info_rating_message))
             .setNegativeButton(getString(R.string.label_dialog_negative_button), null)
-            .setPositiveButton(getString(R.string.label_dialog_positive_button)) { dialog, _ ->
-                ratingManager.giveRating()
+            .setPositiveButton(getString(R.string.label_dialog_positive_button)) { _, _ ->
+                preferenceManager.hasRated = true
                 navigateToGooglePlayStore()
             }
             .setCancelable(true)

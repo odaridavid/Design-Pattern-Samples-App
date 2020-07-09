@@ -14,13 +14,15 @@
 package com.github.odaridavid.designpatterns.helpers
 
 import android.content.Context
-import android.content.SharedPreferences
+import com.github.odaridavid.designpatterns.pref.PreferenceManager
+import com.github.odaridavid.designpatterns.pref.PreferencesStore
 
 
 internal object InjectorUtils {
-    private const val DESIGN_PATTERNS_SP_NAME = "design_patterns_pref"
-    fun provideSharedPreferences(context: Context): SharedPreferences {
-        return context.getSharedPreferences(DESIGN_PATTERNS_SP_NAME, Context.MODE_PRIVATE)
+
+    fun providePreferenceManager(context: Context): PreferenceManager {
+        val preferencesStore = PreferencesStore(context)
+        return PreferenceManager(preferencesStore)
     }
 
 }
