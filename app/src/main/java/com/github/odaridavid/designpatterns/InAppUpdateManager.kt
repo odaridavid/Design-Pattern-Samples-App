@@ -20,11 +20,11 @@ import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
 
-interface UpdateManager {
+internal interface UpdateManager {
     fun checkForUpdate(activity: Activity)
 }
 
-object InAppUpdateManager : UpdateManager {
+internal object InAppUpdateManager : UpdateManager {
 
     const val RQ_REQUEST_UPDATE = 4000
 
