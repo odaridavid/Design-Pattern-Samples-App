@@ -18,7 +18,7 @@ package com.github.odaridavid.designpatterns.pref
 
 internal interface IPreferenceManager : RatingPreferenceManager
 
-interface RatingPreferenceManager {
+internal interface RatingPreferenceManager {
     var hasRated: Boolean
     var ratingPromptCount: Int
 }
