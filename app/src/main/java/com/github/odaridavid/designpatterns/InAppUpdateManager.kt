@@ -14,27 +14,33 @@
 package com.github.odaridavid.designpatterns
 
 import android.app.Activity
-import android.content.Context
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
 
+internal interface UpdateManager {
+    fun checkForUpdate(activity: Activity)
+}
 
-internal class InAppUpdateManager(private val context: Context, private val activity: Activity) {
+internal object InAppUpdateManager : UpdateManager {
 
-    fun checkForUpdate() {
-        val appUpdateManager: AppUpdateManager = AppUpdateManagerFactory.create(context)
+    const val RQ_REQUEST_UPDATE = 4000
+
+    override fun checkForUpdate(activity: Activity) {
+        val appUpdateManager: AppUpdateManager =
+            AppUpdateManagerFactory.create(activity.applicationContext)
         val appUpdateInfo = appUpdateManager.appUpdateInfo
         appUpdateInfo?.addOnSuccessListener { info ->
-            handleUpdateImmediately(appUpdateManager, info)
+            handleUpdateImmediately(appUpdateManager, info, activity)
         }
     }
 
     private fun handleUpdateImmediately(
         appUpdateManager: AppUpdateManager,
-        appUpdateInfo: AppUpdateInfo
+        appUpdateInfo: AppUpdateInfo,
+        activity: Activity
     ) {
         val updateAvailability = appUpdateInfo.updateAvailability()
         if ((updateAvailability == UpdateAvailability.UPDATE_AVAILABLE || updateAvailability == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) &&
@@ -49,7 +55,4 @@ internal class InAppUpdateManager(private val context: Context, private val acti
         }
     }
 
-    companion object {
-        const val RQ_REQUEST_UPDATE = 4000
-    }
 }
