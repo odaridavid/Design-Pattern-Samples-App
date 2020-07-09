@@ -35,7 +35,7 @@ internal class MainActivity : BaseActivity() {
 
         setupDesignPatternsAdapter()
 
-        InAppUpdateManager(baseContext, this).checkForUpdate()
+        InAppUpdateManager.checkForUpdate(this)
 
         with(RatingManager(sharedPref)) {
             if (hasGivenRating()) return@with
