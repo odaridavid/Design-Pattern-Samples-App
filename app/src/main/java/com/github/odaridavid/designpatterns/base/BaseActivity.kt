@@ -1,7 +1,6 @@
 package com.github.odaridavid.designpatterns.base
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Build
 import android.os.PowerManager
@@ -12,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
 import com.github.odaridavid.designpatterns.R
-import com.github.odaridavid.designpatterns.helpers.InjectorUtils
 import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionFrom
 import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionUntil
 import com.github.odaridavid.designpatterns.helpers.ThemeUtils
@@ -25,10 +23,6 @@ internal abstract class BaseActivity : AppCompatActivity, ISystemThemeChangeList
 
     private val powerManager: PowerManager by lazy {
         getSystemService(Context.POWER_SERVICE) as PowerManager
-    }
-
-    protected val sharedPref: SharedPreferences by lazy {
-        InjectorUtils.provideSharedPreferences(this)
     }
 
     override fun onResume() {
