@@ -8,7 +8,7 @@
 
 ## Design Patterns
 
-Exploring Behavioral,Creational and Structural Design Patterns in Kotlin.
+Exploring Behavioral, Creational and Structural Design Patterns in Kotlin.
 
 Feel free to improve or provide feedback on any of the patterns.
 
