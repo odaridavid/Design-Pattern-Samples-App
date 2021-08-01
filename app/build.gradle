@@ -47,6 +47,11 @@ android {
     }
     viewBinding.enabled = true
     kotlinOptions.jvmTarget = 1.8
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -54,7 +59,7 @@ dependencies {
     def about_libraries_version = "8.9.1"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.10"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.21"
     implementation 'androidx.appcompat:appcompat:1.4.0-alpha03'
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
