@@ -6,8 +6,8 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 android {
 
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
 
@@ -17,7 +17,7 @@ android {
 
         applicationId "com.github.odaridavid.designpatterns"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode versionMajor * 10000 + versionMinor * 100 + versionPatch
         versionName "$versionMajor.$versionMinor.$versionPatch"
 
@@ -51,20 +51,19 @@ android {
 
 dependencies {
 
-    def material_design_version = "1.2.0-alpha06"
-    def about_libraries_version = "8.1.2"
+    def about_libraries_version = "8.9.1"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.2.0-rc01'
-    implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.10"
+    implementation 'androidx.appcompat:appcompat:1.4.0-alpha03'
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
 
     //In-app updates
-    implementation 'com.google.android.play:core:1.7.2'
+    implementation 'com.google.android.play:core:1.10.0'
 
     //Material Design
-    implementation "com.google.android.material:material:$material_design_version"
+    implementation "com.google.android.material:material:1.5.0-alpha01"
 
     //Libraries used info
     implementation "com.mikepenz:aboutlibraries-core:$about_libraries_version"
@@ -74,10 +73,10 @@ dependencies {
     implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
 
     //Analytics
-    implementation 'com.google.firebase:firebase-analytics:17.4.0'
+    implementation 'com.google.firebase:firebase-analytics:19.0.0'
 
     //Crashlytics
-    implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.0'
 
     //Preference
     implementation 'androidx.preference:preference-ktx:1.1.1'
@@ -87,6 +86,6 @@ dependencies {
 
     //Unit testing
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.2'
 }
 apply plugin: 'com.google.gms.google-services'
