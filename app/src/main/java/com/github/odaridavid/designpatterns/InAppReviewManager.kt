@@ -6,7 +6,7 @@ import com.google.android.play.core.review.ReviewManagerFactory
 import com.google.firebase.Firebase
 import com.google.firebase.crashlytics.crashlytics
 
-class InAppReviewManager() {
+class InAppReviewManager {
 
     fun requestAndLaunchReview(activity: Activity) {
         val manager = ReviewManagerFactory.create(activity.applicationContext)

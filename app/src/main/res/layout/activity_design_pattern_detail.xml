@@ -23,7 +23,7 @@
         android:text="@string/title_code_sample"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
-    <us.feras.mdv.MarkdownView
+    <com.github.odaridavid.designpatterns.markdownview.MarkdownView
         android:id="@+id/design_pattern_markdown_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

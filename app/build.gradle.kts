@@ -29,7 +29,10 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
             manifestPlaceholders["crashlyticsEnabled"] = true
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round"
@@ -87,7 +90,7 @@ dependencies {
     implementation("androidx.preference:preference-ktx:1.2.1")
 
     // Markdown Support
-    implementation ("com.github.mukeshsolanki:MarkdownView-Android:2.0.0")
+    implementation(project(":markdownview"))
 
     // Unit testing
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
