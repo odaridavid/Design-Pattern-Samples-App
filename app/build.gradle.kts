@@ -13,8 +13,8 @@ android {
 
     defaultConfig {
         val versionMajor = 1
-        val versionMinor = 3
-        val versionPatch = 1
+        val versionMinor = 4
+        val versionPatch = 0
 
         applicationId = "com.github.odaridavid.designpatterns"
         minSdk = 21
