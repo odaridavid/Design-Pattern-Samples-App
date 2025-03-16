@@ -17,7 +17,7 @@ import android.os.Parcelable
 import androidx.annotation.StringRes
 import com.github.odaridavid.designpatterns.R
 import com.github.odaridavid.designpatterns.helpers.CodeSample
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 internal data class DesignPattern(

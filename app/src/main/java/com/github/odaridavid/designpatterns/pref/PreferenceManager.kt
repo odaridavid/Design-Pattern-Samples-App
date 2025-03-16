@@ -33,5 +33,4 @@ internal class PreferenceManager(preferencesStore: PreferencesStore) : IPreferen
         private const val PREF_HAS_RATED = "rating"
         private const val PREF_RATING_PROMPT_COUNT = "rating_prompt"
     }
-
 }

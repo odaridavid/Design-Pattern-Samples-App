@@ -24,5 +24,4 @@ internal object InjectorUtils {
         val preferencesStore = PreferencesStore(context)
         return PreferenceManager(preferencesStore)
     }
-
 }

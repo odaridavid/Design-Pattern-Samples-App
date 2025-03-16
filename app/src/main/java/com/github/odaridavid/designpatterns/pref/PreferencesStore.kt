@@ -17,6 +17,7 @@ package com.github.odaridavid.designpatterns.pref
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.core.content.edit
 
 
 internal interface IPreferenceStore : IntStore, BooleanStore
@@ -58,7 +59,7 @@ internal class PreferencesStore(private val context: Context) : IPreferenceStore
     }
 
     private inline fun setPreference(crossinline block: SharedPreferences.Editor.() -> (Unit)) {
-        sharedPreferences.edit().apply { block() }.apply()
+        sharedPreferences.edit { block() }
     }
 
     companion object {
