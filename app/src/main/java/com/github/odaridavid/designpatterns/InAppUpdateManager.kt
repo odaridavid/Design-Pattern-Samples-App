@@ -13,34 +13,46 @@
  **/
 package com.github.odaridavid.designpatterns
 
-import android.app.Activity
+import android.content.Context
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.IntentSenderRequest
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.appupdate.AppUpdateOptions
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
+import com.google.firebase.Firebase
+import com.google.firebase.crashlytics.crashlytics
 
 internal interface UpdateManager {
-    fun checkForUpdate(activity: Activity)
+    fun checkForUpdate(
+        context: Context,
+        activityResultLauncher: ActivityResultLauncher<IntentSenderRequest>
+    )
 }
 
 internal object InAppUpdateManager : UpdateManager {
 
-    const val RQ_REQUEST_UPDATE = 4000
-
-    override fun checkForUpdate(activity: Activity) {
-        val appUpdateManager: AppUpdateManager =
-            AppUpdateManagerFactory.create(activity.applicationContext)
+    override fun checkForUpdate(
+        context: Context,
+        activityResultLauncher: ActivityResultLauncher<IntentSenderRequest>
+    ) {
+        val appUpdateManager: AppUpdateManager = AppUpdateManagerFactory.create(context)
         val appUpdateInfo = appUpdateManager.appUpdateInfo
-        appUpdateInfo?.addOnSuccessListener { info ->
-            handleUpdateImmediately(appUpdateManager, info, activity)
+        appUpdateInfo.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                handleUpdateImmediately(appUpdateManager, task.result, activityResultLauncher)
+            } else {
+                Firebase.crashlytics.log("Failed to check for update")
+            }
         }
     }
 
     private fun handleUpdateImmediately(
         appUpdateManager: AppUpdateManager,
         appUpdateInfo: AppUpdateInfo,
-        activity: Activity
+        activityResultLauncher: ActivityResultLauncher<IntentSenderRequest>,
     ) {
         val updateAvailability = appUpdateInfo.updateAvailability()
         if ((updateAvailability == UpdateAvailability.UPDATE_AVAILABLE || updateAvailability == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) &&
@@ -48,11 +60,9 @@ internal object InAppUpdateManager : UpdateManager {
         ) {
             appUpdateManager.startUpdateFlowForResult(
                 appUpdateInfo,
-                AppUpdateType.IMMEDIATE,
-                activity,
-                RQ_REQUEST_UPDATE
+                activityResultLauncher,
+                AppUpdateOptions.newBuilder(AppUpdateType.IMMEDIATE).build()
             )
         }
     }
-
 }
