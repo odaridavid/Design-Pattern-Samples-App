@@ -13,3 +13,4 @@ dependencyResolutionManagement {
 }
 rootProject.name="DesignPatterns"
 include (":app")
+include(":markdownview")
