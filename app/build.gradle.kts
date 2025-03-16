@@ -4,6 +4,7 @@ plugins {
     id("com.mikepenz.aboutlibraries.plugin")
     id("com.google.firebase.crashlytics")
     id("com.google.gms.google-services")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -63,6 +64,8 @@ dependencies {
     // In-app updates
     implementation("com.google.android.play:app-update:2.1.0")
     implementation("com.google.android.play:app-update-ktx:2.1.0")
+    implementation("com.google.android.play:review:2.0.2")
+    implementation("com.google.android.play:review-ktx:2.0.2")
 
     // Material Design
     implementation("com.google.android.material:material:1.12.0")
@@ -84,7 +87,7 @@ dependencies {
     implementation("androidx.preference:preference-ktx:1.2.1")
 
     // Markdown Support
-
+    implementation ("com.github.mukeshsolanki:MarkdownView-Android:2.0.0")
 
     // Unit testing
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
