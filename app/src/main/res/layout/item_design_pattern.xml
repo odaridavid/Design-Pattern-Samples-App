@@ -32,10 +32,10 @@
             android:contentDescription="@string/info_design_pattern_image"
             android:scaleType="fitXY"
             android:src="@drawable/ic_pattern_black_24dp"
-            android:tint="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorAccent" />
 
         <TextView
             android:id="@+id/pattern_name_text_view"

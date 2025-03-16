@@ -26,5 +26,4 @@ internal class DesignPatternsApp : Application() {
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         ThemeUtils.updateTheme(sp, getString(R.string.key_theme_preference))
     }
-
 }

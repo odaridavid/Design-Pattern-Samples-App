@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.net.toUri
-import com.github.odaridavid.designpatterns.BuildConfig
 import com.github.odaridavid.designpatterns.R
 import com.github.odaridavid.designpatterns.base.BaseActivity
 import com.github.odaridavid.designpatterns.databinding.ActivityAboutBinding
 import com.github.odaridavid.designpatterns.helpers.checkUrlScheme
 import com.mikepenz.aboutlibraries.Libs
+import com.mikepenz.aboutlibraries.util.withContext
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 
 internal class AboutActivity : BaseActivity() {
@@ -23,9 +23,9 @@ internal class AboutActivity : BaseActivity() {
         binding.appVersionTextView.text =
             getString(
                 R.string.template_app_version,
-                BuildConfig.VERSION_NAME
+                "1.3.1"
             )
-        binding.privacyPolicyTextView.setOnClickListener { openBrowser(APP_PRIVACY_POLICY_URL) }
+        binding.privacyPolicyTextView.setOnClickListener { openBrowser(getString(R.string.https_design_patterns_flycricket_io_privacy_html)) }
 
         val librariesAdapter = initLibrariesAdapter()
 
@@ -33,7 +33,8 @@ internal class AboutActivity : BaseActivity() {
     }
 
     private fun initLibrariesAdapter(): LibrariesAdapter {
-        val libraries = Libs(this).libraries
+        val libraries = Libs.Builder().withContext(this).build().libraries
+
         return LibrariesAdapter { url ->
             val repoUrl = url.checkUrlScheme()
             openBrowser(repoUrl)
@@ -53,28 +54,27 @@ internal class AboutActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_open_source_code -> {
-                openBrowser(APP_REPO_URL)
+                openBrowser(getString(R.string.https_github_com_odaridavid_design_pattern_samples_app))
                 true
             }
+
             R.id.action_share_app -> {
                 val sendIntent = Intent().apply {
                     action = Intent.ACTION_SEND
                     putExtra(
                         Intent.EXTRA_TEXT,
-                        "Checkout Kotlin Design Patterns Samples\n\n https://play.google.com/store/apps/details?id=$packageName"
+                        getString(
+                            R.string.checkout_kotlin_design_patterns_samples_https_play_google_com_store_apps_details_id,
+                            packageName
+                        )
                     )
                     type = "text/plain"
                 }
                 startActivity(sendIntent)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-    companion object {
-        const val APP_REPO_URL = "https://github.com/odaridavid/Design-Pattern-Samples-App"
-        const val APP_PRIVACY_POLICY_URL = "https://design-patterns.flycricket.io/privacy.html"
-    }
-
 }

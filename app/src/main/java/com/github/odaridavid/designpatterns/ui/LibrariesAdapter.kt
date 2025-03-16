@@ -40,15 +40,17 @@ internal class LibrariesAdapter(val onClick: (String) -> Unit) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
         fun bind(library: Library) {
-            binding.libraryAuthor.text = library.author
-            binding.libraryName.text = library.libraryName
-            binding.libraryVersion.text = library.libraryVersion
+            binding.libraryAuthor.text = library.developers.map { it.name }.joinToString()
+            binding.libraryName.text = library.name
+            binding.libraryVersion.text = library.artifactVersion
             binding.root.setOnClickListener(this)
         }
 
         override fun onClick(view: View) {
             val library = getItem(adapterPosition)
-            onClick(library.repositoryLink)
+            library.website?.let {
+                onClick(it)
+            }
         }
     }
 
@@ -59,8 +61,8 @@ internal class LibrariesAdapter(val onClick: (String) -> Unit) :
             }
 
             override fun areContentsTheSame(oldItem: Library, newItem: Library): Boolean {
-                return oldItem.libraryVersion == newItem.libraryVersion &&
-                        oldItem.libraryName == newItem.libraryName
+                return oldItem.artifactVersion == newItem.artifactVersion &&
+                        oldItem.name == newItem.name
             }
         }
     }

@@ -181,6 +181,9 @@
     <string name="label_dialog_negative_button">Later</string>
     <string name="label_dialog_positive_button">Rate</string>
     <string name="menu_share_app">Share App</string>
+    <string name="checkout_kotlin_design_patterns_samples_https_play_google_com_store_apps_details_id">Checkout Kotlin Design Patterns Samples\n\n https://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="https_github_com_odaridavid_design_pattern_samples_app">https://github.com/odaridavid/Design-Pattern-Samples-App</string>
+    <string name="https_design_patterns_flycricket_io_privacy_html">https://design-patterns.flycricket.io/privacy.html</string>
 
 
 </resources>

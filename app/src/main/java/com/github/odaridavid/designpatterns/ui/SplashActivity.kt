@@ -11,5 +11,4 @@ internal class SplashActivity : AppCompatActivity() {
         navigateTo<MainActivity>()
         finish()
     }
-
 }

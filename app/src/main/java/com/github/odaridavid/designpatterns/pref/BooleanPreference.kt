@@ -31,5 +31,4 @@ internal class BooleanPreference(
     override fun setValue(thisRef: Any, property: KProperty<*>, value: Boolean) {
         preferenceStore.setBoolean(key, value)
     }
-
 }

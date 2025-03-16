@@ -22,7 +22,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.odaridavid.designpatterns.databinding.ItemDesignPatternBinding
 import com.github.odaridavid.designpatterns.models.DesignPattern
 
-
 internal class DesignPatternsAdapter(val onClick: (DesignPattern) -> Unit) :
     ListAdapter<DesignPattern, DesignPatternsAdapter.DesignPatternViewHolder>(DiffUtil) {
 
@@ -50,7 +49,6 @@ internal class DesignPatternsAdapter(val onClick: (DesignPattern) -> Unit) :
             onClick(designPattern)
         }
     }
-
 
     companion object {
         val DiffUtil = object : DiffUtil.ItemCallback<DesignPattern>() {

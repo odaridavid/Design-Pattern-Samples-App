@@ -24,8 +24,7 @@ import androidx.preference.PreferenceManager
 import com.github.odaridavid.designpatterns.R
 import com.github.odaridavid.designpatterns.base.ISystemThemeChangeListener
 import com.github.odaridavid.designpatterns.helpers.SdkUtils.versionUntil
-import us.feras.mdv.MarkdownView
-
+import com.github.odaridavid.designpatterns.markdownview.MarkdownView
 
 internal inline fun <reified T> Activity.navigateTo(noinline intentExtras: ((Intent) -> Unit)? = null) {
     val intent = Intent(this, T::class.java)

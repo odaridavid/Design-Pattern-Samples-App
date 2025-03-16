@@ -39,7 +39,7 @@ internal class SettingsFragment : PreferenceFragmentCompat(),
 
         configPreference(themePreference)
 
-        preferenceManager.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+        preferenceManager.sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
     }
 
     private fun configPreference(themePreference: ListPreference?) {
@@ -75,7 +75,7 @@ internal class SettingsFragment : PreferenceFragmentCompat(),
 
     private fun setupThemePreferenceIcons(themePreference: ListPreference?) {
         val sp = preferenceManager.sharedPreferences
-        val themeValue = sp.getString(themePreferenceKey, DEFAULT_THEME_VALUE)
+        val themeValue = sp?.getString(themePreferenceKey, DEFAULT_THEME_VALUE)
         themePreference?.icon = getDrawable(requireContext(), getThemeIcon(themeValue))
     }
 
@@ -102,7 +102,7 @@ internal class SettingsFragment : PreferenceFragmentCompat(),
 
     override fun onDestroy() {
         super.onDestroy()
-        preferenceManager.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
+        preferenceManager.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
     }
 
     override fun onSharedPreferenceChanged(prefs: SharedPreferences?, key: String?) {
@@ -128,5 +128,4 @@ internal class SettingsFragment : PreferenceFragmentCompat(),
     companion object {
         const val DEFAULT_THEME_VALUE = "Light"
     }
-
 }

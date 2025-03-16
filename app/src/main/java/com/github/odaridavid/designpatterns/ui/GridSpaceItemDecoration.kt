@@ -17,8 +17,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-
-internal class GridSpaceItemDecoration(var spaceInPx: Int) : RecyclerView.ItemDecoration() {
+internal class GridSpaceItemDecoration(private var spaceInPx: Int) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -31,10 +30,9 @@ internal class GridSpaceItemDecoration(var spaceInPx: Int) : RecyclerView.ItemDe
         outRect.bottom = spaceInPx
 
         if (parent.getChildLayoutPosition(view) == 0 || parent.getChildLayoutPosition(view) == 1) {
-            outRect.top = spaceInPx;
+            outRect.top = spaceInPx
         } else {
-            outRect.top = 0;
+            outRect.top = 0
         }
     }
-
 }
