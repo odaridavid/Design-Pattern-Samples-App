@@ -59,7 +59,7 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.10")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.core:core-ktx:1.15.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.1")
@@ -74,8 +74,7 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
 
     // Libraries used info
-    implementation("com.mikepenz:aboutlibraries-core:8.9.1")
-    implementation("com.mikepenz:aboutlibraries:8.9.1")
+    implementation("com.mikepenz:aboutlibraries-core:11.6.3")
 
     // Animations
     implementation("jp.wasabeef:recyclerview-animators:4.0.2")

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
-    namespace = "com.github.odaridavid.designpatterns"
+    namespace = "com.github.odaridavid.designpatterns.markdownview"
     compileSdkVersion 35
 
     defaultConfig {
